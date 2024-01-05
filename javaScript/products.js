@@ -1,3 +1,4 @@
+var cart={};
 function dataParse(){
     fetch('https://fakestoreapi.com/products').then(res=>res.json())
     .then((jsonresp)=>{
@@ -50,7 +51,6 @@ function dataParse(){
     })
     .then(()=>{
         let buttons=document.querySelectorAll('.cart');
-        var cart={};
         class CartObj{
             constructor(image, price, title, quantity){
                 this.image=image;
@@ -66,9 +66,9 @@ function dataParse(){
                 var title=buttons[i].parentNode.parentNode.querySelector('#title').textContent
                 var price=buttons[i].parentNode.parentNode.querySelector('#price').textContent
                 var image=buttons[i].parentNode.parentNode.querySelector('#image').src
+                
                 var obj=new CartObj(image, price, title)
-                cart[`${i+1}`]=obj;
-                console.log(cart);
+                cart[`${obj.title}`]=obj
             }
         }
     })
