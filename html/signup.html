@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup form</title>
+    <link rel="stylesheet" href="..\Styles\sigup.css" />
+</head>
+<body>
+    <div class="container-registration">
+    <div class="registration form">
+        <header>signup</header>
+        <div action="#">
+          <input type="text" placeholder="First Name" required class="f-name" />
+          <input type="text" placeholder="Last Name" required class="l-name" />
+          <div class="msg"></div>
+          <input
+            type="text"
+            placeholder="Enter Your email"
+            required
+            class="email"
+          />
+          <div class="emailErr"></div>
+          <input
+            type="password"
+            placeholder="Create a password"
+            required
+            class="pass"
+          />
+          <div class="pass-err"></div>
+          <input
+            type="password"
+            placeholder="Confirm Your password"
+            required
+            class="c-pass"
+          />
+          <div class="confirm-Pass"></div>
+          <button class="btn-sign">Signup</button>
+        </div>
+        <div class="signup">
+          <span class="signup"
+            >Already have an account?
+            <a href="..\html\index.html">Login</a>
+          </span>
+        </div>
+      </div>
+      <script src="..\javaScript\signup.js"></script>
+</body>
+</html>

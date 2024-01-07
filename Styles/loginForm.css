@@ -24,26 +24,6 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* to hide the registration form as a second response */
-.container .registration {
-  display: none;
-}
-
-/* Show the registration form when the checkbox is checked */
-#check:checked ~ .registration {
-  display: block;
-}
-
-/* Hide the login form when the checkbox is checked */
-#check:checked ~ .login {
-  display: none;
-}
-
-/* to hide the chick box from the page  */
-#check {
-  display: none;
-}
-
 /* Styles for the form elements */
 .container .form {
   padding: 2rem;
@@ -119,55 +99,9 @@ button:hover {
   text-align: center;
 }
 
-.signup label {
-  color: #fb2e86;
-  cursor: pointer;
-}
-
-.signup label:hover {
-  text-decoration: underline;
-}
-
 /* validation style for login form */
 .err-login {
   background: #ad1657;
-  color: rgb(245, 233, 233);
-  font-size: 17px;
-  margin-bottom: 1rem;
-  text-align: center;
-  border-radius: 6px;
-}
-
-
-.msg {
-  background: #ad1657;
-  color: rgb(245, 233, 233);
-  font-size: 17px;
-  margin-bottom: 1rem;
-  text-align: center;
-  border-radius: 6px;
-}
-
-.emailErr{
-  background: #ad1657;
-  color: rgb(245, 233, 233);
-  font-size: 17px;
-  margin-bottom: 1rem;
-  text-align: center;
-  border-radius: 6px;
-}
-
-.pass-err{
-  background: #ad1657;
-  color: rgb(245, 233, 233);
-  font-size: 17px;
-  margin-bottom: 1rem;
-  text-align: center;
-  border-radius: 6px;
-}
-
-.confirm-Pass{
-   background: #ad1657;
   color: rgb(245, 233, 233);
   font-size: 17px;
   margin-bottom: 1rem;
