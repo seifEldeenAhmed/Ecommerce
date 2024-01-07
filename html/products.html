@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <script src="../javaScript/products.js"></script>
+    
     <link rel="stylesheet" href="../Styles/productTableStyle.css">
 </head>
-<body onload="dataParse()">
+<body>
     <table id="object-table"></table>
+    <script type="module" src="../javaScript/products.js">
+        
+    </script>
+    <script type="module">
+        import {dataParse, displayParsedData} from '../javaScript/products.js'
+        displayParsedData(dataParse);
+    </script>
 </body>
 </html>
