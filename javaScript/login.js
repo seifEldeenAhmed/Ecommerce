@@ -8,6 +8,8 @@ let usersData = JSON.parse(localStorage.getItem("usersData"));
 btnLogin.addEventListener("click", login);
 
 function login() {
+  loginEmail.style.borderColor = "red";
+  loginPass.style.borderColor = "red";
   if (loginEmail.value === "" && loginPass.value === "") {
     message.textContent = "Enter email and password";
   } else {
@@ -25,6 +27,8 @@ function login() {
       message.textContent = "success";
     } else {
       message.textContent = "incorrect email or password";
+      loginEmail.style.borderColor = "red";
+      loginPass.style.borderColor = "red";
     }
   }
 }
