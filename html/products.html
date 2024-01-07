@@ -9,11 +9,12 @@
 </head>
 <body>
     <table id="object-table"></table>
-    <script src="../javaScript/products.js"></script>
-    <script>
-        window.onload=function(){
-            window.displayParsedData()
-        }
+    <script type="module" src="../javaScript/products.js">
+        
+    </script>
+    <script type="module">
+        import {dataParse, displayParsedData} from '../javaScript/products.js'
+        displayParsedData(dataParse);
     </script>
 </body>
 </html>
