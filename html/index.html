@@ -32,14 +32,21 @@
       <a href="#" class="brand">Koko&s</a>
       <ul class="navMenu">
         <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="products-list.html">Shop</a></li>
+        <li><a href="ContactUS.HTML">Contact</a></li>
+        <li><a href="AboutUs.html">About</a></li>
       </ul>
 
       <div class="nav-icon">
         <a href="#"><i class="bx bx-search"></i></a>
-        <a href="#"><i class="bx bxs-user"></i></a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
+          <div class="dropdown-content">
+            <a href="signup.html" id="signup-link">Sign Up</a>
+            <a href="login.html" class="login-link">Login</a>
+            <a href="#" class="logout-btn">Log Out</a>
+          </div>
+        </div>
         <a href="#"><i class="bx bx-cart"></i></a>
 
         <div class="bx bx-menu" id="menu-icon"></div>
@@ -63,13 +70,9 @@
             tones and bold, statement-making patterns that reflect the spirit of
             modern life. From meticulously crafted tailored pieces to
             effortlessly chic casual wear, each garment is a testament to our
-            commitment to quality and innovation. Elevate your wardrobe with the
-            perfect balance of classic charm and trend-setting fashion, as our
-            new collection embraces individuality and celebrates the art of
-            self-expression. Welcome to a world where fashion meets versatility,
-            where every piece tells a unique story.
+            commitment to quality and innovation.
           </p>
-          <a class="main-btn" href=""
+          <a class="main-btn" href="products-list.html"
             >Shop Now <i class="bx bx-right-arrow-alt"></i
           ></a>
         </div>
@@ -104,7 +107,7 @@
             <h4 class="title"></h4>
           </div>
           <div class="price">
-            <p class="price">$42.00</p>
+            <p class="price"></p>
           </div>
         </div>
 
@@ -122,7 +125,7 @@
             <h4 class="title"></h4>
           </div>
           <div class="price">
-            <p>$42.00</p>
+            <p></p>
           </div>
         </div>
 
@@ -140,7 +143,7 @@
             <h4 class="title"></h4>
           </div>
           <div class="price">
-            <p>$42.00</p>
+            <p></p>
           </div>
         </div>
 
@@ -155,7 +158,7 @@
             <h4 class="title"></h4>
           </div>
           <div class="price">
-            <p>$42.00</p>
+            <p></p>
           </div>
         </div>
       </div>
@@ -278,6 +281,7 @@
         </div>
       </div>
     </footer>
+    <script src="/javaScript/logout.js"></script>
     <script type="module" src="/javaScript/home.js"></script>
   </body>
 </html>

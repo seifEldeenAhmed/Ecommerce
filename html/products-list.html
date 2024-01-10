@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
 
     <link rel="stylesheet" href="../Styles/prod-details.css">
 </head>
 <body>
     <div class="container">
-        <div class="title2" style="font-size: 15px; padding: 20px; text-align: left; margin-left: 20px;">Every product is special</div>
-        <div class="listProduct">
-
-        </div>
+      <div
+        class="title2"
+        style="
+          font-size: 15px;
+          padding: 20px;
+          text-align: left;
+          margin-left: 20px;
+        "
+      >
+        Every product is special
+      </div>
+      <div class="listProduct"></div>
     </div>
 
     <script>
-        let products = null;
-        // get datas from file json
-        fetch('https://fakestoreapi.com/products')
-            .then(response => response.json())
-            .then(data => {
-                products = data;
-                addDataToHTML();
-        })
+      let products = null;
+      // get datas from file json
+      fetch("https://fakestoreapi.com/products")
+        .then((response) => response.json())
+        .then((data) => {
+          products = data;
+          addDataToHTML();
+        });
 
-        function addDataToHTML(){
-    // remove datas default from HTML
-        let listProductHTML = document.querySelector('.listProduct');
+      function addDataToHTML() {
+        // remove datas default from HTML
+        let listProductHTML = document.querySelector(".listProduct");
 
         // add new datas
         if(products != null) // if has data
@@ -46,8 +54,7 @@
 
             });
         }
-    }
-
+      }
     </script>
-</body>
+  </body>
 </html>

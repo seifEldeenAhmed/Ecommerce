@@ -2,7 +2,6 @@ let loginEmail = document.querySelector(".email-login");
 let loginPass = document.querySelector(".pass-login");
 let btnLogin = document.querySelector(".btn-login");
 let message = document.querySelector(".err-login");
-
 let usersData = JSON.parse(localStorage.getItem("usersData"));
 
 btnLogin.addEventListener("click", login);
@@ -29,6 +28,7 @@ function login() {
       usersData[userIndex].isLogged = true;
       localStorage.setItem("usersData", JSON.stringify(usersData));
       message.textContent = "success";
+      location.assign("../html/index.html");
     } else {
       message.textContent = "incorrect email or password";
       loginEmail.style.borderColor = "red";
@@ -36,7 +36,6 @@ function login() {
     }
   }
   clearForm();
-  //window.location.reload();
 }
 
 function clearForm() {
