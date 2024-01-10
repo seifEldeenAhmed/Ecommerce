@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="prod-details.css">
+    <link rel="stylesheet" href="https://unpkg.com/tiny-slider/dist/tiny-slider.css">
+</head>
+<body>
+    <div class="container">
+        <div class="detail">
+            <div class="image">
+                <img src="">
+            </div>
+            <div class="content">
+                <h1 class="name"></h1>
+                <div class="price"></div>
+                <div class="buttons">
+                    <span>
+                        <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+                    </svg>
+                </span>
+                    <button class="cart-btn">Add To Cart</button>
+                </div>
+                <p class="category"></p>
+                <p class="rating"></p>
+                <div class="description"></div>
+            </div>
+        </div>
+
+        <div class="title">Related Products</div>
+        <div class="listProduct" id="relatedProducts"></div>
+        <div class="show-more-container">
+            <button class="show-more-button" onclick="showMoreProducts()">Show More</button>
+        </div>
+    </div>
+
+    
+
+    <script>
+        let products = null;
+        // get datas from file json
+        fetch('https://fakestoreapi.com/products')
+            .then(response => response.json())
+            .then(data => {
+                products = data;
+                showDetail();
+        })
+
+        function showDetail(){
+    // remove datas default from html
+        let detail = document.querySelector('.detail');
+        let listProduct = document.querySelector('.listProduct');
+        let productId =  new URLSearchParams(window.location.search).get('id');
+        let thisProduct = products.filter(value => value.id == productId)[0];
+        //if there is no product with id = productId => return to home page
+        if(!thisProduct){
+            window.location.href = "/";
+        }
+
+
+        detail.querySelector('.image img').src = thisProduct.image;
+        detail.querySelector('.image img').width = 100;
+        detail.querySelector('.image img').height = 450;
+        detail.querySelector('.name').innerText = thisProduct.title;
+        detail.querySelector('.price').innerText = 'EGP ' + thisProduct.price;
+        detail.querySelector('.description').innerText = thisProduct.description;
+        detail.querySelector('.category').innerText = 'Category: ' + thisProduct.category;
+        detail.querySelector('.rating').innerText = 'Rates: ' + thisProduct.rating.rate;
+        // detail.querySelector('.cart-btn').className = thisProduct.addToCartButton;
+
+        
+        const relatedProducts = products.filter(product => product.category === thisProduct.category && product.id !== thisProduct.id);
+
+    const relatedProductsContainer = document.getElementById('relatedProducts');
+    relatedProductsContainer.innerHTML = ''; // Clear previous content
+
+    const productsToShow = Math.min(4, relatedProducts.length);
+    
+    for (let i = 0; i < productsToShow; i++) {
+        const product = relatedProducts[i];
+        const newProduct = createProductElement(product);
+        relatedProductsContainer.appendChild(newProduct);
+    }
+
+    const moreProductsAvailable = relatedProducts.length > 4;
+
+    const showMoreButton = document.querySelector('.show-more-button');
+        showMoreButton.style.display = moreProductsAvailable ? 'block' : 'none';
+        
+       
+    }
+    function createProductElement(product) {
+    const newProduct = document.createElement('a');
+    newProduct.href = '/detail.html?id=' + product.id;
+    newProduct.classList.add('item');
+    newProduct.innerHTML =
+        `<img src="${product.image}" alt="" width="100" height="200">
+        <h2>${product.title}</h2>
+        <div class="price">EGP ${product.price}</div>
+        <p>Category: ${product.category}</p>
+        <p>Rates: ${product.rating.rate}</p>
+        <img src="images/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
+
+    return newProduct;
+}
+
+
+function showMoreProducts() {
+    let productId =  new URLSearchParams(window.location.search).get('id');
+    let thisProduct = products.filter(value => value.id == productId)[0];
+    
+    const relatedProductsContainer = document.getElementById('relatedProducts');
+
+    relatedProductsContainer.innerHTML = '';
+
+    const displayedProducts = relatedProductsContainer.querySelectorAll('.item').length;
+    const hiddenProducts = products.filter(product => product.category === thisProduct.category && product.id !== thisProduct.id).slice(displayedProducts);
+   
+    hiddenProducts.forEach(product => {
+        const newProduct = createProductElement(product);
+        relatedProductsContainer.appendChild(newProduct);
+    });
+
+    
+    const updatedDisplayedProducts = relatedProductsContainer.querySelectorAll('.item').length;
+
+    // Check if there are more hidden products beyond the currently displayed ones
+    const moreProductsAvailable = updatedDisplayedProducts < relatedProductsContainer.childElementCount;
+    
+    
+    const showMoreButton = document.querySelector('.show-more-button');
+    showMoreButton.style.display = moreProductsAvailable ? 'block' : 'none';
+}
+
+
+    </script>
+</body>
+</html>

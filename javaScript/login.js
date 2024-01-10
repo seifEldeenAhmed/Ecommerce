@@ -13,6 +13,7 @@ function login() {
   if (loginEmail.value === "" && loginPass.value === "") {
     message.textContent = "Enter email and password";
   } else {
+    let userIndex;
     let found = false;
     for (let i = 0; i < usersData.length; i++) {
       if (
@@ -20,10 +21,13 @@ function login() {
         usersData[i].password === loginPass.value
       ) {
         found = true;
+        userIndex = i;
         break;
       }
     }
     if (found) {
+      usersData[userIndex].isLogged = true;
+      localStorage.setItem("usersData", JSON.stringify(usersData));
       message.textContent = "success";
     } else {
       message.textContent = "incorrect email or password";
@@ -31,4 +35,11 @@ function login() {
       loginPass.style.borderColor = "red";
     }
   }
+  clearForm();
+  //window.location.reload();
+}
+
+function clearForm() {
+  loginEmail.value = "";
+  loginPass.value = "";
 }
