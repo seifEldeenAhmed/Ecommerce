@@ -69,8 +69,16 @@ export async function dataParse() {
                     var title=buttons[i].parentNode.parentNode.querySelector('#title').textContent
                     var price=buttons[i].parentNode.parentNode.querySelector('#price').textContent
                     var image=buttons[i].parentNode.parentNode.querySelector('#image').src
-                    var obj=new CartObj(image, price, title)
+                    var obj=new CartObj(image, price, title , 1)
                     cart[`${obj.title}`]=obj
+                    var existCart = localStorage.setItem("CartObj",JSON.stringify(cart));
+
+                    //if cart already have items prev it (zboun adem:)
+                    if(existCart){
+                        cart = localStorage.getItem('CartObj');
+                    }
+
+                    
                 }
             }
         }
@@ -80,7 +88,102 @@ export async function dataParse() {
                 this.image=image;
                 this.price=price;
                 this.title=title;
-                this.quantity=1;
+                this.quantity=quantity;
             }
 
         }
+
+        var cartList = document.getElementById("cartList");
+        export function viewCart() {
+            try {
+                var cartFromStorage = localStorage.getItem('CartObj');
+                
+                if (cartFromStorage) {
+                    cart = JSON.parse(cartFromStorage);
+        
+                    for (let value of Object.values(cart)) {
+                        let container = document.createElement('div');
+                        container.classList.add('cart-item');
+        
+                        let title = document.createElement('div');
+                        let price = document.createElement('div');
+                        let image = document.createElement('img');
+                        let quantity = document.createElement('div');
+                        let incQuantity = document.createElement('div');
+                        let incQuantityButton = document.createElement('button');
+                        let decQuantity = document.createElement('div');
+                        let decQuantityButton = document.createElement('button');
+        
+                        title.textContent = `Title: ${value.title}`;
+                        quantity.textContent = `${value.quantity}`;
+                        image.src = `${value.image}`;
+        
+                        let totalPrice = value.price * value.quantity;
+                        price.textContent = totalPrice;
+        
+                        container.appendChild(title);
+                        container.appendChild(price);
+                        container.appendChild(image);
+                        container.appendChild(incQuantity);
+                        container.appendChild(decQuantity);
+                        container.appendChild(quantity);
+        
+                        incQuantityButton.innerHTML = '+';
+                        incQuantityButton.addEventListener('click', function () {
+                            value.quantity += 1;
+                            quantity.textContent = value.quantity;
+                            totalPrice = value.price * value.quantity;
+                            price.textContent = totalPrice;
+                            localStorage.setItem("CartObj", JSON.stringify(cart));
+                        });
+        
+                        decQuantityButton.innerHTML = '-';
+                        decQuantityButton.addEventListener('click', function () {
+                            if (value.quantity != 1) {
+                                value.quantity -= 1;
+                                quantity.textContent = value.quantity;
+                                totalPrice = value.price * value.quantity;
+                                price.textContent = totalPrice;
+                                localStorage.setItem("CartObj", JSON.stringify(cart));
+                            }
+                        });
+        
+                        incQuantity.appendChild(incQuantityButton);
+                        decQuantity.appendChild(decQuantityButton);
+                        container.appendChild(incQuantity);
+                        container.appendChild(decQuantity);
+        
+                        cartList.appendChild(container);
+                    }
+                } else {
+                    console.log("Cart is empty");
+                    cartList.innerHTML = "no items in the cart";
+                    document.getElementById("clearCartButton").style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error viewing cart:', error);
+                throw error;
+            }
+           
+        }
+     
+        export function clearCart(){
+            localStorage.removeItem("CartObj");
+            cartList.innerHTML="no items in the cart";
+            document.getElementById("clearCartButton").style.display='none';    
+            cart={};
+            // viewCart();
+        }
+
+        function cdeleteProduct(index) {
+            cart.splice(index,1);
+            console.log("deleted");   
+            localStorage.setItem("CartObj",JSON.stringify(cart));
+            viewUsers();
+        }
+        
+
+        
+
+    
+        
