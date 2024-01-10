@@ -25,6 +25,7 @@ header {
   justify-content: space-between;
   padding: 20px 10%;
 }
+
 /* when scroll header will be sticky  */
 header.sticky {
   background: #fff;
@@ -96,7 +97,7 @@ section {
 .main-home {
   background-color: #f2f0ff;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   align-items: center;
@@ -104,8 +105,24 @@ section {
 .main-home .container {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-home .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .main-text h5 {
+    transform: translateY(42px);
+    padding-bottom: 25px;
+    padding-top: 25px;
+  }
 }
 
 .main-text h1 {
@@ -155,7 +172,7 @@ section {
   vertical-align: middle;
 }
 
-.down-arrow {
+/* .down-arrow {
   position: absolute;
   top: 92%;
   right: 11%;
@@ -172,6 +189,10 @@ section {
   background-color: #fb2e86;
   border: 2px solid #fb2e86;
   color: white;
+} */
+
+.bx-down-arrow-alt::before {
+  content: "";
 }
 
 /* ******************************************************************** second section 2 **************************************************************** */
@@ -226,26 +247,16 @@ section {
 }
 
 .products .row a .bx {
-  /* position: absolute; */
   left: 3px;
   font-size: 20px;
 }
 
 .heart-icon {
-  /* position: absolute;
-  right: 0px;
-  bottom: 83px;
-  font-size: 20px;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 50%;
-  color: #333; */
   position: absolute;
   right: 0px;
   bottom: 70px;
   font-size: 20px;
-  /* background-color: #fff; */
-  /* padding: 10px; */
+
   border-radius: 50%;
   color: #333;
 }
@@ -278,10 +289,6 @@ section {
 }
 
 .content .row {
-  /* position: relative;
-  transition: all 0.4s;
-  padding: 10px 5%;
-  height: 381px; */
   width: 295px;
   height: auto;
   padding: 61px 10px;
@@ -307,7 +314,6 @@ section {
 /* ******************************************************************** fourth section 4 **************************************************************** */
 .unique {
   background-color: #f2f0ff;
-  /* position: relative; */
   width: 100%;
   height: 579px;
 }
@@ -319,8 +325,22 @@ section {
   flex-direction: row;
   top: -64px;
   margin: auto;
-  width: 75%;
+  width: 82%;
   align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .unique .center {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+  }
+  .unique {
+    height: auto;
+  }
 }
 .unique .image {
   width: 300px;
@@ -381,6 +401,7 @@ section {
   background-color: #e7e4f8;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   padding: 20px 10%;
@@ -389,6 +410,12 @@ section {
 .info-icon i {
   margin-right: 10px;
   color: #3517bd;
+}
+
+@media screen and (max-width: 800px) {
+  .info-icon i {
+    padding-top: 20px;
+  }
 }
 .footer span {
   color: #fb2e86;
