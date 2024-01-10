@@ -6,6 +6,9 @@
   list-style: none;
   text-decoration: none;
 }
+.image {
+  mix-blend-mode: multiply;
+}
 body {
   background-color: white;
   font-family: "Josefin Sans", sans-serif;
@@ -35,7 +38,7 @@ header.sticky {
 
 .navMenu a {
   color: #2c2c2c;
-  font-size: 16px;
+  font-size: 20px;
   text-transform: capitalize;
   padding: 10px 20px;
   font-weight: 400;
@@ -74,29 +77,35 @@ header.sticky {
   color: #2c2c2c;
 }
 
+/* ******************************************************************** first section 1 **************************************************************** */
 /* main home */
 section {
-  padding: 5% 15%;
+  padding: 5% 12%;
 }
-/* ******************************************************************** first section 1 **************************************************************** */
-.lamp {
+/* .lamp {
   position: absolute;
   top: 0;
   left: 0;
-}
-.chair {
-  position: absolute;
-  height: 500px;
+  mix-blend-mode: multiply;
+} */
+.bag {
+  width: 300px;
   right: 0;
 }
+
 .main-home {
   background-color: #f2f0ff;
-  position: relative;
   width: 100%;
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   align-items: center;
+}
+.main-home .container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-text h1 {
@@ -113,7 +122,7 @@ section {
   color: #fb2e86;
   text-transform: capitalize;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .main-text p {
@@ -121,6 +130,7 @@ section {
   font-size: 1.25rem;
   font-style: italic;
   margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 .main-btn {
@@ -180,8 +190,12 @@ section {
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-  gap: 4rem;
+  justify-content: center;
+  gap: 8rem;
   margin-top: 70px;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
 }
 
 .products .row {
@@ -190,16 +204,15 @@ section {
 }
 
 .products .row img {
-  width: 200px;
-  height: 200px;
+  height: 250px;
   transition: all 0.4s;
 }
 .products .row img:hover {
-  transform: scale(1.2);
+  transform: scale(0.9);
 }
-.products .row:hover {
+/* .products .row:hover {
   transform: scale(1.2);
-}
+} */
 
 .product-text h4 {
   color: #fb2e86;
@@ -213,18 +226,26 @@ section {
 }
 
 .products .row a .bx {
-  position: absolute;
+  /* position: absolute; */
   left: 3px;
   font-size: 20px;
 }
 
 .heart-icon {
-  position: absolute;
+  /* position: absolute;
   right: 0px;
   bottom: 83px;
   font-size: 20px;
   background-color: #fff;
   padding: 10px;
+  border-radius: 50%;
+  color: #333; */
+  position: absolute;
+  right: 0px;
+  bottom: 70px;
+  font-size: 20px;
+  /* background-color: #fff; */
+  /* padding: 10px; */
   border-radius: 50%;
   color: #333;
 }
@@ -262,8 +283,8 @@ section {
   padding: 10px 5%;
   height: 381px; */
   width: 295px;
-  height: 320px;
-  padding: 92px 10px;
+  height: auto;
+  padding: 61px 10px;
   background-color: #f7f7f7;
   line-height: 1.2;
   color: #bfbbd1;
@@ -279,6 +300,10 @@ section {
   line-height: 2;
 }
 
+.content .row .product-text p {
+  line-height: 1.5;
+  padding-top: 3px;
+}
 /* ******************************************************************** fourth section 4 **************************************************************** */
 .unique {
   background-color: #f2f0ff;
@@ -287,20 +312,20 @@ section {
   height: 579px;
 }
 
-.unique .contariner {
-  position: relative;
-}
 .unique .center {
   display: flex;
-  align-items: center;
   align-content: center;
   flex-wrap: nowrap;
   flex-direction: row;
-  justify-content: center;
-  position: absolute;
   top: -64px;
   margin: auto;
-  width: 100%;
+  width: 75%;
+  align-items: center;
+}
+.unique .image {
+  width: 300px;
+  margin-right: 40px;
+  mix-blend-mode: multiply;
 }
 
 .unique h2 {
@@ -308,19 +333,21 @@ section {
   font-size: 3.0625rem;
   color: #1a0b5b;
 }
-.unique ul {
+/* .unique ul {
   list-style: disc;
   font-size: 20px;
   padding: 10px;
   line-height: 2;
   text-transform: capitalize;
-  color: #7c7c7f;
-}
+} */
 
 .unique p {
   display: inline-block;
   vertical-align: middle;
-  color: #2c31ba;
+  color: #7c7c7f;
+  line-height: 1.5;
+  padding: 10px;
+  font-size: 18px;
 }
 
 /* ******************************************************************** contact section  **************************************************************** */
