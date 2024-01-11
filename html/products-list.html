@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shop</title>
 
-    <link rel="stylesheet" href="prod-details.css">
+    <link rel="stylesheet" href="../Styles/prod-details.css">
 </head>
 <body>
     <div class="container">
-        <div class="title2" style="font-size: 15px; padding: 20px; text-align: left; margin-left: 20px;">Every product is special</div>
-        <div class="listProduct">
-
-        </div>
+      <div
+        class="title2"
+        style="
+          font-size: 15px;
+          padding: 20px;
+          text-align: left;
+          margin-left: 20px;
+        "
+      >
+        Every product is special
+      </div>
+      <div class="listProduct"></div>
     </div>
 
     <script>
-        let products = null;
-        // get datas from file json
-        fetch('https://fakestoreapi.com/products')
-            .then(response => response.json())
-            .then(data => {
-                products = data;
-                addDataToHTML();
-        })
+      let products = null;
+      // get datas from file json
+      fetch("https://fakestoreapi.com/products")
+        .then((response) => response.json())
+        .then((data) => {
+          products = data;
+          addDataToHTML();
+        });
 
-        function addDataToHTML(){
-    // remove datas default from HTML
-        let listProductHTML = document.querySelector('.listProduct');
+      function addDataToHTML() {
+        // remove datas default from HTML
+        let listProductHTML = document.querySelector(".listProduct");
 
         // add new datas
         if(products != null) // if has data
         {
             products.forEach(product => {
                 let newProduct = document.createElement('a');
-                newProduct.href = '/detail.html?id=' + product.id;
+                newProduct.href = 'detail.html?id=' + product.id;
                 newProduct.classList.add('item');
                 newProduct.innerHTML = 
                 `<img src="${product.image}" alt="" width="100" height="200">
                 <h2>${product.title}</h2>
                 <div class="price">EGP ${product.price}</div>
-                <img src="images/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
+                <img src="../imgs/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
                 
                 listProductHTML.appendChild(newProduct);
 
             });
         }
-    }
-
+      }
     </script>
-</body>
+  </body>
 </html>
