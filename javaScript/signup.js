@@ -17,19 +17,30 @@ if (localStorage.getItem("usersData") != null) {
   users = JSON.parse(localStorage.getItem("usersData"));
 }
 
+class User {
+  constructor(firstName, lastName, email, password, confirmPassword, isLogged) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+    this.confirmPassword = confirmPassword;
+    this.isLogged = isLogged || false;
+  }
+}
+
 function signUp() {
   const check = checkValidation();
   const isEmailExist = emailIsExist();
 
   if (check && !isEmailExist) {
     //create users Data object
-    const usersData = {
-      firstName: userFirstName.value,
-      lastName: userLastName.value,
-      email: userEmail.value,
-      password: userPassword.value,
-      passwordConfirm: confirmPassword.value,
-    };
+    const usersData = new User(
+      userFirstName.value,
+      userLastName.value,
+      userEmail.value,
+      userPassword.value,
+      confirmPassword.value
+    );
     users.push(usersData);
     //save array of users at local storage
     localStorage.setItem("usersData", JSON.stringify(users));
@@ -79,7 +90,7 @@ function passwordValidtion() {
   } else {
     messageErrPaas.textContent =
       "password must be at least 8 characters with at least one uppercase one lowercase and a number 0-9*";
-      userPassword.style.border = "1px solid red";
+    userPassword.style.border = "1px solid red";
     return false;
   }
 }
