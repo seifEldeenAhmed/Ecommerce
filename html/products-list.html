@@ -16,22 +16,22 @@
             <button class="filter-btn"><img src="/imgs/filter.png" width="15px" height="15px"> Filter</button>
             <label class="category-filter">
                 <p>Electronics</p>
-                <input type="checkbox" class="box" value="Electronics">
+                <input type="checkbox" class="box" value="electronics">
                 <span class="checkmark"></span>
             </label>
             <label class="category-filter">
                 <p>Men's clothing</p>
-                <input type="checkbox" class="box" value="Men's clothing">
+                <input type="checkbox" class="box" value="men's clothing">
                 <span class="checkmark"></span>
             </label>
             <label class="category-filter">
-                <p>Jelwery</p>
-                <input type="checkbox" class="box" value="Jelwery">
+                <p>Jewelery</p>
+                <input type="checkbox" class="box" value="jewelery">
                 <span class="checkmark"></span>
             </label>
             <label class="category-filter">
                 <p>Woman's clothing</p>
-                <input type="checkbox" class="box" value="Woman's clothing">
+                <input type="checkbox" class="box" value="women's clothing">
                 <span class="checkmark"></span>
             </label>
         </div>
@@ -42,8 +42,9 @@
             </div>
             <div class="loading"><img src="/imgs/load.gif" alt="" width="60px" height="60px"></div>
         </div>
-
-        <script>
+        <script type="module" src="../javaScript/products.js"></script>
+        <script type="module">
+            import { dataParse } from '../javaScript/products.js'
             var cards = document.querySelector(".product-container");
             var loading = document.querySelector(".loading");
             // var page = 1; // Keep track of the current page
@@ -73,9 +74,9 @@
                                     newProduct.classList.add('item');
                                     newProduct.innerHTML =
                                         `<img src="${product.image}" alt="" width="100" height="200" loading="lazy">
-                             <h2>${product.title}</h2>
-                             <div class="price">EGP ${product.price}</div>
-                             <img src="/imgs/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
+                            <h2>${product.title}</h2>
+                            <div class="price">EGP ${product.price}</div>
+                            <img src="/imgs/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
 
                                     listProductHTML.appendChild(newProduct);
                                 });
@@ -91,25 +92,87 @@
                         loading.innerHTML = "Error loading data.";
                     });
             }
+            let checkBoxes = document.getElementsByTagName('input')
+            let catArr = new Array()
+            for (let i = 0; i < checkBoxes.length; i++) {
+                const checkbox = checkBoxes[i];
+                checkbox.addEventListener('click', function () {
+                    if (catArr.includes(checkbox.value)) {
+                        catArr.splice(catArr.indexOf(checkbox.value.toLowerCase()), 1);
+                    }
+                    else {
+                        catArr.push(checkbox.value);
+                        // console.log(catArr);
+                    }
+                })
 
-            // function getNewData() {
-            //     productsPerPage += 8; // Increment the number of products to load
-            //         getData();
-            //     // setTimeout(() => {
-            //     //     // products = products + 1;
-            //     //     // console.log(products);
-                    
-            //     // }, 500);
-            // }
-            // window.onscroll = function () {
-            //     const { scrollTop, scrollHeight, clientHeight } =
-            //         document.documentElement;
-            //     if (scrollTop + clientHeight >= scrollHeight -10) {
-            //         getNewData();
-            //     }
-            // }
+                // function getNewData() {
+                //     productsPerPage += 8; // Increment the number of products to load
+                //         getData();
+                //     // setTimeout(() => {
+                //     //     // products = products + 1;
+                //     //     // console.log(products);
 
+                //     // }, 500);
+                // }
+                // window.onscroll = function () {
+                //     const { scrollTop, scrollHeight, clientHeight } =
+                //         document.documentElement;
+                //     if (scrollTop + clientHeight >= scrollHeight -10) {
+                //         getNewData();
+                //     }
+                // }
 
+            }
+            let catResult = [];
+            async function filterByCategory(category) {
+                let data = await dataParse();
+                for (let i = 0; i < data.length; i++) {
+                    const product = data[i];
+                    if (product.category == category) {
+                        catResult.push(product);
+                        // console.log(catResult);
+                    }
+                }
+            }
+            let filterBtn = document.querySelector('.filter-btn')
+            filterBtn.onclick = async function () {
+                for (let i = 0; i < catArr.length; i++) {
+                    const cat = catArr[i];
+                    await filterByCategory(cat);
+                }
+                // console.log(catResult.length);
+                function addDataToHTML() {
+                    // remove datas default from HTML
+                    document.querySelector('.listProduct').remove();
+                    let listProductHTML = document.createElement('div');
+                    listProductHTML.className = ('.listProduct')
+                    listProductHTML.style.display = 'grid'
+                    listProductHTML.style.gridTemplateColumns = 'repeat(4, 1fr)'
+                    listProductHTML.style.gap = '20px'
+                    // console.log(catResult);
+                    // add new datas
+                    if (catResult != null) // if has data
+                    {
+                        catResult.forEach(product => {
+                            let newProduct = document.createElement('a');
+                            newProduct.href = 'detail.html?id=' + product.id;
+                            newProduct.classList.add('item');
+                            // newProduct.style
+                            newProduct.innerHTML =
+                                `<img src="${product.image}" alt="" width="100" height="200" loading="lazy">
+                            <h2>${product.title}</h2>
+                            <div class="price">EGP ${product.price}</div>
+                            <img src="/imgs/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
+
+                            listProductHTML.appendChild(newProduct);
+                        });
+                    }
+                    document.querySelector('.product-container').appendChild(listProductHTML);
+                }
+                addDataToHTML();
+            }
+            // console.log(products);
 
         </script>
 </body>
