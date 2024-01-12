@@ -10,7 +10,6 @@ export async function dataParse() {
     }
 }
 
-
 var cartList = document.getElementById("cartList");
 export function viewCart() {
     try {
@@ -82,14 +81,14 @@ export function viewCart() {
             // detete product 
             let deleteButtons = document.querySelectorAll('.deleteBtn');
 
-            deleteButtons.forEach((button, index) => {
+            deleteButtons.forEach((button) => {
                 button.addEventListener('click', function () {
                     console.log(cart);
                     // console.log();
                     delete cart[`${this.parentNode.querySelector('.title').textContent}`];
-                    cartList.removeChild(cartList.childNodes[index]);
+                    button.parentNode.remove();
                     localStorage.setItem("cart", JSON.stringify(cart));
-                    console.log('Item deleted at index:', index);
+                    
 
                 });
             });
