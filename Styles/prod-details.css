@@ -1,3 +1,4 @@
+/* product list page*/
 body {
     margin: 0;
     font-family: 'Josefin Sans', Arial, sans-serif;
@@ -70,6 +71,61 @@ a {
     position: relative;
 }
 
+/*lazy loading*/
+html{
+    scroll-behavior: smooth;
+}
+.product-container .loading{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(21, 20, 20, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #0D134E;
+    display: none;
+}
+
+
+/* .listProduct .blur-load.loaded {
+    opacity: 1;
+}
+
+.listProduct .blur-load>img {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+.listProduct .blur-load::before {
+    content: "";
+    inset: 0;
+    animation: pulse 2.5s infinite;
+}
+
+.listProduct .blur-load.loaded::before {
+    content: none;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    50% {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    100% {
+        background-color: rgba(255, 255, 255, 0);
+    }
+} */
+
 .listProduct .item h2 {
     font-weight: 500;
     font-size: large;
@@ -104,6 +160,16 @@ a {
 .category-filters h3 {
     padding-left: 35px;
 }
+.category-filters .filter-btn{
+    border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  color: #FB2E86;
+}
+
 
 .category-filter {
     padding-bottom: 5px;
