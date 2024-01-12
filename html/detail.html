@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product</title>
-    <link rel="stylesheet" href="../Styles/prod-details.css">
+    <link rel="stylesheet" href="prod-details.css">
     <link rel="stylesheet" href="https://unpkg.com/tiny-slider/dist/tiny-slider.css">
 </head>
 <body>
-    <div class="container">
+    <div class="detail-containter">
         <div class="detail">
             <div class="image">
                 <img src="">
@@ -90,7 +90,7 @@
         const relatedProducts = products.filter(product => product.category === thisProduct.category && product.id !== thisProduct.id);
 
     const relatedProductsContainer = document.getElementById('relatedProducts');
-    relatedProductsContainer.innerHTML = ''; // Clear previous content
+    relatedProductsContainer.innerHTML = ''; 
 
     const productsToShow = Math.min(4, relatedProducts.length);
     
@@ -117,7 +117,7 @@
         <div class="price">EGP ${product.price}</div>
         <p>Category: ${product.category}</p>
         <p>Rates: ${product.rating.rate}</p>
-        <img src="../imgs/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
+        <img src="images/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
 
     return newProduct;
 }
