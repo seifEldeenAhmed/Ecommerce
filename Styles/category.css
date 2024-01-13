@@ -61,13 +61,57 @@ header.sticky {
   transform: scale(1.1);
   color: #ee1c47;
 }
-/* ********************************************************************************************** */
 #menu-icon {
   font-size: 2.1875rem;
   cursor: pointer;
   z-index: 10001;
   color: #2c2c2c;
+  display: none;
 }
+@media (max-width: 1280px) {
+  header {
+    padding: 14px 2%;
+    transition: 0.2s;
+  }
+  .navMenu a {
+    padding: 5px 0;
+    margin: 0px 5px;
+  }
+}
+/*1090px*/
+@media (max-width: 920px) {
+  #menu-icon {
+    display: block;
+  }
+  .navMenu {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 250px;
+    height: 21vh;
+    background: #f166a2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+  }
+  .navMenu a {
+    display: block;
+    margin: 12px 0;
+    padding: 0px 25px;
+    transition: all 0.4s ease;
+  }
+  .navMenu a:hover {
+    color: white;
+    transform: translateY(5px);
+  }
+  .navMenu.open {
+    right: 2%;
+  }
+}
+
+/* ********************************************************************************************** */
 
 h1 {
   text-align: center;
