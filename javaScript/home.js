@@ -6,6 +6,13 @@ window.addEventListener("scroll", function () {
   header.classList.toggle("sticky", this.window.scrollY > 0);
 });
 
+let menu = document.querySelector("#menu-icon");
+let navMenu = document.querySelector(".navMenu");
+menu.onclick = () => {
+  menu.classList.toggle("bx-x");
+  navMenu.classList.toggle("open");
+};
+
 var images = document.querySelectorAll(".image");
 console.log(dataParse());
 
@@ -29,21 +36,32 @@ window.onload = async function (e) {
     document.querySelectorAll(".rateing")[
       i
     ].innerHTML = `<p> rate ${topProductsList[i].rating.rate}</p>`;
-  }
-  for (var i = 0; i < topProductsList.length; i++) {
+
     document.querySelectorAll(".title")[i].innerHTML = topProductsList[
       i
     ].title.slice(0, 20);
-  }
-  for (var i = 0; i < topProductsList.length; i++) {
+
     document.querySelectorAll(".price")[i].innerHTML =
       topProductsList[i].price + "$";
-  }
-  for (var i = 0; i < topProductsList.length; i++) {
+
     document.querySelectorAll(".top")[
       i
     ].innerHTML = `<img class="image" src="${topProductsList[i].image}" alt="pic" />`;
   }
+  // for (var i = 0; i < topProductsList.length; i++) {
+  //   document.querySelectorAll(".title")[i].innerHTML = topProductsList[
+  //     i
+  //   ].title.slice(0, 20);
+  // }
+  // for (var i = 0; i < topProductsList.length; i++) {
+  //   document.querySelectorAll(".price")[i].innerHTML =
+  //     topProductsList[i].price + "$";
+  // }
+  // for (var i = 0; i < topProductsList.length; i++) {
+  //   document.querySelectorAll(".top")[
+  //     i
+  //   ].innerHTML = `<img class="image" src="${topProductsList[i].image}" alt="pic" />`;
+  // }
 
   // ********************************************************************* catergory *********************************************************************
 
