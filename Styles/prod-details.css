@@ -374,10 +374,14 @@ a {
 
 .returnCart hr {
     border-top: 1px solid #E1E1E4;
+    width:550px;
+   
+    
 }
 
 .returnCart .list .item img {
-    height: 80px;
+    height: 90px;
+    width: 90px;
 }
 
 .returnCart .list .item {
@@ -391,6 +395,7 @@ a {
 
 .returnCart .list .item .info .name {
     padding-bottom: 10px;
+    width: 200px;
 }
 
 .returnCart .list .item .quantity {
@@ -422,4 +427,12 @@ a {
 .returnCart .list .item .returnPrice {
     font-size: large;
     font-weight: bold;
+    width: 100px;
+}
+
+#clearCartButton{
+    /* display: fixed;
+    position: absolute;
+    bottom: 100px;
+    left: 1000px; */
 }
