@@ -59,7 +59,7 @@ export async function attachLogicToSearchBtn (){
     }
     else{
       let searchResultArr = [];
-      let regex=new RegExp('\\b' + escapeRegExp(searchVal) + '\\b', 'i')
+      let regex=new RegExp(escapeRegExp(searchVal), 'i')
       data.forEach(product => {
         const match=product.title.match(regex)
         if (match) {
