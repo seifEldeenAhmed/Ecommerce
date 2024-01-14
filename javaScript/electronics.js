@@ -1,4 +1,5 @@
 import { dataParse } from "../javaScript/products.js";
+import { escapeRegExp,attachLogicToSearchBtn } from "../javaScript/men's clothing.js";
 
 const header = document.querySelector("header");
 window.addEventListener("scroll", function () {
@@ -46,3 +47,4 @@ window.onload = async function (e) {
   // Call the function to display products
   displayProducts();
 };
+attachLogicToSearchBtn();
