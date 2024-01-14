@@ -1,129 +1,131 @@
 * {
-   margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "poppins", sans-serif;
-}
-
-body {
-    min-height: 100vh;
-    width: 100%;
-    background: #ffffff;
-}
-
-.container-registration{
-    position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 430px;
-  width: 100%;
-  background: #ffffff;
-  border-radius: 7px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-.container-registration .form {
-    padding: 2rem;
-}
-  
-  /* Header styles */
-.form header {
-    font-size: 2rem;
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-  
-.form p {
-    font-size: 1rem;
-    font-weight: 100;
-    text-align: center;
-    color: #6d6a6a;
-    margin: 1rem;
-}
-  
-.form input {
-    height: 60px;
-    width: 100%;
-    padding: 0 15px;
-    font-size: 17px;
-    margin-bottom: 1.3rem;
-    border: 1px solid #add;
-    border-radius: 6px;
-    outline: none;
-}
-  
-.form input:focus {
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-}
-  
-.form a {
-    font-size: 16px;
-    color: #fb2e86;
-    text-decoration: none;
-}
-  
-.form a:hover {
-    text-decoration: underline;
-}
-  
-button {
-    color: #ffffff;
-    background: #fb2e86;
-    font-size: 1.2rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-top: 1.7rem;
-    cursor: pointer;
-    transition: 0.4s;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-    height: 60px;
-    width: 100%;
-    padding: 0 15px;
-    font-size: 17px;
-    margin-bottom: 1.3rem;
-    border: 1px solid #add;
-    border-radius: 6px;
-    outline: none;
-}
-  
-button:hover {
-    background: #f71174;
-}
-
-.msg {
-    background: #ad1657;
-    color: rgb(245, 233, 233);
-    font-size: 17px;
-    margin-bottom: 1rem;
-    text-align: center;
-    border-radius: 6px;
-}
-  
-.emailErr{
-    background: #ad1657;
-    color: rgb(245, 233, 233);
-    font-size: 17px;
-    margin-bottom: 1rem;
-    text-align: center;
-    border-radius: 6px;
-}
-  
-.pass-err{
-    background: #ad1657;
-    color: rgb(245, 233, 233);
-    font-size: 17px;
-    margin-bottom: 1rem;
-    text-align: center;
-    border-radius: 6px;
-}
-  
-.confirm-Pass{
+    margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: "poppins", sans-serif;
+ }
+ 
+ body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+     background: #ffffff;
+ }
+ 
+ .container-registration{
+   position:relative;
+   display: flex;
+   max-width: 700px;
+   width: 500px;
+   margin-top: 50px;
+   margin-bottom: 50px;
+   background: #ffffff;
+   border-radius: 7px;
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+ }
+ 
+ .container-registration .form {
+     padding: 2rem;
+ }
+   
+   /* Header styles */
+ .form header {
+     font-size: 2rem;
+     font-weight: 500;
+     text-align: center;
+     margin-bottom: 1.5rem;
+ }
+   
+ .form p {
+     font-size: 1rem;
+     font-weight: 100;
+     text-align: center;
+     color: #6d6a6a;
+     margin: 1rem;
+ }
+   
+ .form input {
+     height: 60px;
+     width: 100%;
+     padding: 0 15px;
+     font-size: 17px;
+     margin-bottom: 1.3rem;
+     border: 1px solid #add;
+     border-radius: 6px;
+     outline: none;
+ }
+   
+ .form input:focus {
+     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+ }
+   
+ .form a {
+     font-size: 16px;
+     color: #fb2e86;
+     text-decoration: none;
+ }
+   
+ .form a:hover {
+     text-decoration: underline;
+ }
+   
+ button {
+     color: #ffffff;
+     background: #fb2e86;
+     font-size: 1.2rem;
+     font-weight: 500;
+     letter-spacing: 1px;
+     margin-top: 1.7rem;
+     cursor: pointer;
+     transition: 0.4s;
+     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+     height: 60px;
+     width: 100%;
+     padding: 0 15px;
+     font-size: 17px;
+     margin-bottom: 1.3rem;
+     border: 1px solid #add;
+     border-radius: 6px;
+     outline: none;
+ }
+   
+ button:hover {
+     background: #f71174;
+ }
+ 
+ .msg {
      background: #ad1657;
-    color: rgb(245, 233, 233);
-    font-size: 17px;
-    margin-bottom: 1rem;
-    text-align: center;
-    border-radius: 6px;
-}
+     color: rgb(245, 233, 233);
+     font-size: 17px;
+     margin-bottom: 1rem;
+     text-align: center;
+     border-radius: 6px;
+ }
+   
+ .emailErr{
+     background: #ad1657;
+     color: rgb(245, 233, 233);
+     font-size: 17px;
+     margin-bottom: 1rem;
+     text-align: center;
+     border-radius: 6px;
+ }
+   
+ .pass-err{
+     background: #ad1657;
+     color: rgb(245, 233, 233);
+     font-size: 17px;
+     margin-bottom: 1rem;
+     text-align: center;
+     border-radius: 6px;
+ }
+   
+ .confirm-Pass{
+      background: #ad1657;
+     color: rgb(245, 233, 233);
+     font-size: 17px;
+     margin-bottom: 1rem;
+     text-align: center;
+     border-radius: 6px;
+ }
