@@ -36,8 +36,24 @@
       </ul>
 
       <div class="nav-icon">
-        <a href="#"><i class="bx bx-search"></i></a>
-        <a href="#"><i class="bx bxs-user"></i></a>
+        <div class="search-box">
+          <button class="btn-search"><i class="bx bx-search"></i></button>
+          <input
+            type="text"
+            class="input-search"
+            placeholder="Type to Search..."
+          />
+        </div>
+        <div class="dropdown">
+          <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
+          <div class="dropdown-content">
+            <a href="signup.html" id="signup-link">Sign Up</a>
+            <a href="login.html" class="login-link">Login</a>
+            <a href="#" class="logout-btn">Log Out</a>
+          </div>
+        </div>
+        <!-- <a href=""><i class="bx bx-search"></i></a> -->
+        <!-- <a href="#"><i class="bx bxs-user"></i></a> -->
         <a href="#"><i class="bx bx-cart"></i></a>
 
         <div class="bx bx-menu" id="menu-icon"></div>
