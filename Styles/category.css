@@ -285,6 +285,8 @@ img:hover {
 /* ********************************************************************************************** */
 
 .footer {
+  position: fixed;
+  bottom: 0;
   background-color: #e7e4f8;
   width: 100%;
   display: flex;
