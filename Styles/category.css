@@ -61,13 +61,162 @@ header.sticky {
   transform: scale(1.1);
   color: #ee1c47;
 }
-/* ********************************************************************************************** */
 #menu-icon {
   font-size: 2.1875rem;
   cursor: pointer;
   z-index: 10001;
   color: #2c2c2c;
+  display: none;
 }
+@media (max-width: 1280px) {
+  header {
+    padding: 14px 2%;
+    transition: 0.2s;
+  }
+  .navMenu a {
+    padding: 5px 0;
+    margin: 0px 5px;
+  }
+}
+/*1090px*/
+@media (max-width: 920px) {
+  #menu-icon {
+    display: block;
+  }
+  .navMenu {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    width: 250px;
+    background: #e7e4f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+  }
+  .navMenu a {
+    display: block;
+    margin: 12px 0;
+    padding: 0px 25px;
+    transition: all 0.4s ease;
+  }
+  .navMenu li:hover {
+    background-color: rgb(220, 217, 217);
+  }
+  .navMenu a:hover {
+    color: #fc4f71;
+    transform: translateY(5px);
+  }
+  .navMenu.open {
+    right: 2%;
+  }
+}
+/* search btn  */
+.search-box {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+.input-search {
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all 0.5s ease-in-out;
+  background-color: transparent;
+  padding-right: 40px;
+  color: #2c2c2c;
+}
+.input-search::placeholder {
+  color: #2c2c2c;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #2c2c2c;
+  background-color: transparent;
+  pointer-events: painted;
+}
+.btn-search:focus ~ .input-search {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid #2c2c2c;
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+.input-search:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+/* user icon drop down menu */
+/* when scroll header will be sticky  */
+.dropbtn {
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 220px;
+  background-color: #e7e4f8;
+  border-radius: 10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  color: #ee1c47;
+  transform: translateY(5px);
+  background-color: rgb(220, 217, 217);
+  transition: all 0.5s ease;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ********************************************************************************************** */
 
 h1 {
   text-align: center;
