@@ -1,21 +1,30 @@
-.body{
-    margin-right:0;
+.templet{  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.1fr 0.4fr 1.9fr 1fr;
+    grid-auto-columns: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "info info contact contact"
+      "get-in-touch get-in-touch contact contact"
+      "get-in-touch get-in-touch img img"
+      "get-in-touch get-in-touch img img";
+  }
+  
+  .info { grid-area: info; }
+  
+  .contact { grid-area: contact; }
+  
+  .get-in-touch { grid-area: get-in-touch; }
+  
+  .img { grid-area: img; }
+
+@media (max-width:600px) {
+  .container{
     display: flex;
-    min-width: 300px;
-    max-width: 800px;
-    padding: 0px;
+    flex-direction: column;
 }
-
-.templet{
-    margin-left: 10%;
-    display: grid;
-    height: 10vh;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    min-width: 500px;
-    max-width: 900px;
 }
-
 
 h2{
     color: #151875;
@@ -38,9 +47,6 @@ p{
 
 .info{
     text-align: left;
-    width: 25vw;
-    height: 25vh;
-    line-height: 25vh;
 }
 
 .circle-container {
@@ -94,10 +100,6 @@ p{
 
 .contact{
     text-align: left;
-    width: 25vw;
-    height: 25vh;
-    line-height: 25vh;
-    margin-left: 20%;
 }
 
 .circle-contact{
@@ -114,17 +116,9 @@ p{
     line-height: 0.9;
 }
 
-.get-in-touch{
-    margin-top: 40%;
-    width: 25vw;
-    height: 25vh;
-    line-height: 25vh;
-}
 
 .img{
     height: 25vh;
-    line-height: 25vh;
-    margin-top: 40%;
 }
 
 .contact-form{

@@ -292,6 +292,7 @@ img:hover {
 /* ********************************************************************************************** */
 
 .footer {
+  margin-top: auto;
   background-color: #e7e4f8;
   width: 100%;
   display: flex;
