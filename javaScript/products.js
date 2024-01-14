@@ -64,8 +64,9 @@ export function viewCart() {
 
                 let totalPrice = document.createElement('div');
                 totalPrice.classList.add('returnPrice');
-                
-                let total = value.price * value.quantity;
+
+                let priceValue = value.price.replace('EGP' ,"");
+                let total = priceValue * value.quantity;
                 totalPrice.textContent ='EGP '+ total;
 
                 let deleteBtn = document.createElement('button');
@@ -84,7 +85,7 @@ export function viewCart() {
                 incQuantityButton.addEventListener('click', function () {
                     value.quantity += 1;
                     quantityValue.textContent = value.quantity;
-                    total = value.price * value.quantity;
+                    total = priceValue * value.quantity;
                     //to remove unnecessary decimal points
                     total = parseFloat(total.toFixed(2));
                     totalPrice.textContent ='EGP '+ total;
@@ -93,7 +94,7 @@ export function viewCart() {
                         totalQuantity += 1;
                         totalQuan.innerHTML = totalQuantity;
                     // Update totalPrice
-                        checkOutPrice += Number(value.price);
+                        checkOutPrice += Number(priceValue);
                         checkOutPrice = parseFloat(checkOutPrice.toFixed(2));
                         allProductsPrice.innerHTML = checkOutPrice;
                     });
@@ -102,7 +103,7 @@ export function viewCart() {
                     if (value.quantity != 1) {
                         value.quantity -= 1;
                         quantityValue.textContent = value.quantity;
-                        total = value.price * value.quantity;
+                        total = priceValue * value.quantity;
                         //to remove unnecessary decimal points
                         total = parseFloat(total.toFixed(2));
                         totalPrice.textContent = 'EGP '+ total;
@@ -111,7 +112,7 @@ export function viewCart() {
                         totalQuantity -= 1;
                         totalQuan.innerHTML = totalQuantity;
                         // Update totalPrice
-                        checkOutPrice -= Number(value.price);
+                        checkOutPrice -= Number(priceValue);
                         checkOutPrice = parseFloat(checkOutPrice.toFixed(2));
                         allProductsPrice.innerHTML = checkOutPrice;
                     }
@@ -141,8 +142,10 @@ export function viewCart() {
                     allProductsPrice.innerHTML = checkOutPrice;
                     localStorage.setItem("cart", JSON.stringify(cart));
                     let CartTitle = document.querySelector('.CartTitle');
+                    //delete last element in cart
                     if(Object.keys(cart).length === 0 ){
                     CartTitle.innerHTML = 'Cart is Empty => Go shop now :)';
+                    document.getElementById("clearCartButton").style.display = 'none';
                     }
                     
                 });

@@ -461,3 +461,18 @@ section {
 .footer span {
   color: #fb2e86;
 }
+/*  */
+#popupContainer {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; 
+  background: #e7e4f8;
+}
+
+#tickIcon {
+  font-size: 40px;
+  color: #fb2e86; 
+}

@@ -37,7 +37,7 @@ window.onload = async function (e) {
   }
   for (var i = 0; i < topProductsList.length; i++) {
     document.querySelectorAll(".price")[i].innerHTML =
-      topProductsList[i].price;
+    'EGP '+topProductsList[i].price;
   }
   for (var i = 0; i < topProductsList.length; i++) {
     document.querySelectorAll(".top")[
