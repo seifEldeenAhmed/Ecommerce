@@ -47,7 +47,7 @@
             <a href="#" class="logout-btn">Log Out</a>
           </div>
         </div>
-        <a href="#"><i class="bx bx-cart"></i></a>
+        <a id="cart-view"><i class="bx bx-cart"></i></a>
 
         <div class="bx bx-menu" id="menu-icon"></div>
       </div>
@@ -290,38 +290,47 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="module" src="/javaScript/home.js"></script>
     <script type="module" src="../javaScript/products.js"></script>
-    <script></script>
+    <script src="../javaScript/logout.js"></script>
     <script type="module">
       let usersData = JSON.parse(localStorage.getItem("usersData"));
+      let loginStatus = false;
+      for (let i = 0; i < usersData.length; i++) {
+        if (usersData[i].isLogged === true) {
+          loginStatus = true;
+        }
+      }
+      let logOutButton = document.querySelector(".logout-btn");
+      logOutButton.addEventListener("click", () => {
+        loginStatus = false;
+      });
 
       function attachLogicToAddToCart() {
         var cart = {};
         let icons = document.querySelectorAll(".cart");
         for (let i = 0; i < icons.length; i++) {
           icons[i].onclick = function () {
-            for (let i = 0; i < usersData.length; i++) {
-              if (usersData[i].isLogged === true) {
-                var title = document.querySelectorAll(".title")[i].textContent;
-                var price = document.querySelectorAll(".price")[i].textContent;
-                var image =
-                  document.querySelectorAll(".top")[i].childNodes[0].src;
-                var obj = new CartObj(image, price, title, 1);
-                // cart[`${obj.title}`]=obj
+            if (loginStatus) {
+              var title = document.querySelectorAll(".title")[i].textContent;
+              var price = document.querySelectorAll(".price")[i].textContent;
+              var image =
+                document.querySelectorAll(".top")[i].childNodes[0].src;
+              var obj = new CartObj(image, price, title, 1);
+              // cart[`${obj.title}`]=obj
 
-                var cart = JSON.parse(localStorage.getItem("cart")) || {};
-                cart[`${obj.title}`] = obj;
-                var $tickIcon = $("#tickIcon");
-                var $popupContainer = $("#popupContainer");
-                $popupContainer.fadeIn(500, function () {
-                  $(this).delay(1000).fadeOut(500);
-                });
-              } else {
-                alert("login");
-              }
+              var cart = JSON.parse(localStorage.getItem("cart")) || {};
+              cart[`${obj.title}`] = obj;
+              var $tickIcon = $("#tickIcon");
+              var $popupContainer = $("#popupContainer");
+              $popupContainer.fadeIn(500, function () {
+                $(this).delay(1000).fadeOut(500);
+              });
+            } else {
+              alert("login");
             }
           };
         }
       }
+
       class CartObj {
         constructor(image, price, title, quantity) {
           this.image = image;
@@ -331,6 +340,15 @@
         }
       }
       attachLogicToAddToCart();
+      //handle view cart with login
+      let cartButton = document.querySelector("#cart-view");
+      cartButton.addEventListener("click", function () {
+        if (loginStatus) {
+          this.href = "./shopping-cart.html";
+        } else {
+          alert("login");
+        }
+      });
     </script>
   </body>
 </html>
