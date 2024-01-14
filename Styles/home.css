@@ -552,6 +552,8 @@ section {
   justify-content: space-around;
   align-items: center;
   padding: 20px 10%;
+  position: fixed;
+  bottom: 0;
 }
 
 .info-icon i {
