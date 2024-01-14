@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+    <link rel="stylesheet" href="/Styles/home.css" />
     <link rel="stylesheet" href="/Styles/prod-details.css">
 </head>
 
 <body>
+    <header>
+        <a href="#" class="brand">Koko&s</a>
+        <ul class="navMenu">
+            <li><a href="#">Home</a></li>
+            <li><a href="products-list.html">Shop</a></li>
+            <li><a href="ContactUS.HTML">Contact</a></li>
+            <li><a href="AboutUs.html">About</a></li>
+        </ul>
+
+        <div class="nav-icon">
+            <a href="#"><i class="bx bx-search"></i></a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
+                <div class="dropdown-content">
+                    <a href="signup.html" id="signup-link">Sign Up</a>
+                    <a href="login.html" class="login-link">Login</a>
+                    <a href="#" class="logout-btn">Log Out</a>
+                </div>
+            </div>
+            <a href="#"><i class="bx bx-cart"></i></a>
+
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
     <div class="container">
         <div class="category-filters">
             <h3>Category</h3>
             <button class="filter-btn"><img src="/imgs/filter.png" width="15px" height="15px"> Filter</button>
+            <button class="clear-btn">Clear</button>
             <label class="category-filter">
                 <p>Electronics</p>
                 <input type="checkbox" class="box" value="electronics">
@@ -42,139 +73,169 @@
             </div>
             <div class="loading"><img src="/imgs/load.gif" alt="" width="60px" height="60px"></div>
         </div>
-        <script type="module" src="../javaScript/products.js"></script>
-        <script type="module">
-            import { dataParse } from '../javaScript/products.js'
-            var cards = document.querySelector(".product-container");
-            var loading = document.querySelector(".loading");
-            // var page = 1; // Keep track of the current page
-            // var productsPerPage = 8;
-            window.onload = function () {
-                getData();
-            };
-            function getData() {
-                loading.style.display = "flex";
-                let products = null;
-                // get datas from file json
-                fetch('https://fakestoreapi.com/products', { method: "GET" })
-                    .then(response => response.json())
-                    .then(data => {
-                        products = data;
+    </div>
+    <footer>
+        <div id="footer" class="footer">
+            <p>copyright &copy; 2024 <span>koko&s</span>. all rights reserved</p>
+            <div class="info-icon">
+                <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+                <a href="#"><i class="bx bxl-twitter"></i></a>
+                <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="../javaScript/products.js"></script>
+    <script type="module">
+        import { dataParse } from '../javaScript/products.js'
+        var cards = document.querySelector(".product-container");
+        var loading = document.querySelector(".loading");
+        // var page = 1; // Keep track of the current page
+        // var productsPerPage = 8;
+        window.onload = function () {
+            getData();
+        };
+        function getData() {
+            loading.style.display = "flex";
+            let products = null;
+            // get datas from file json
+            //https://fakestoreapi.com/products?limit=${productsPerPage}&page=${page}
+            fetch('https://fakestoreapi.com/products', { method: "GET" })
+                .then(response => response.json())
+                .then(data => {
+                    products = data;
 
-                        function addDataToHTML() {
-                            // remove datas default from HTML
-                            let listProductHTML = document.querySelector('.listProduct');
+                    function addDataToHTML() {
+                        // remove datas default from HTML
+                        let listProductHTML = document.querySelector('.listProduct');
 
-                            // add new datas
-                            if (products != null) // if has data
-                            {
-                                products.forEach(product => {
-                                    let newProduct = document.createElement('a');
-                                    newProduct.href = 'detail.html?id=' + product.id;
-                                    newProduct.classList.add('item');
-                                    newProduct.innerHTML =
-                                        `<img src="${product.image}" alt="" width="100" height="200" loading="lazy">
+                        // add new datas
+                        if (products != null) // if has data
+                        {
+                            products.forEach(product => {
+                                let newProduct = document.createElement('a');
+                                newProduct.href = 'detail.html?id=' + product.id;
+                                newProduct.classList.add('item');
+                                newProduct.innerHTML =
+                                    `<img src="${product.image}" alt="" style="mix-blend-mode: multiply; padding-bottom: 5px;" width="100" height="200" loading="lazy">
                             <h2>${product.title}</h2>
-                            <div class="price">EGP ${product.price}</div>
-                            <img src="/imgs/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
+                            <div class="prices">EGP ${product.price}
+                            </div>
+                            <a href="#" class="wishList"><i class="bx bx-heart" style="color:#FB2E86;"></i></a>
+                            `;
 
-                                    listProductHTML.appendChild(newProduct);
-                                });
-                            }
-
+                                listProductHTML.appendChild(newProduct);
+                            });
                         }
-                        addDataToHTML();
-                        loading.style.display = "none";
-                        // page++;
-                    })
-                    .catch(error => {
-                        console.error('Error fetching data:', error);
-                        loading.innerHTML = "Error loading data.";
-                    });
-            }
-            let checkBoxes = document.getElementsByTagName('input')
-            let catArr = new Array()
-            for (let i = 0; i < checkBoxes.length; i++) {
-                const checkbox = checkBoxes[i];
-                checkbox.addEventListener('click', function () {
-                    if (catArr.includes(checkbox.value)) {
-                        catArr.splice(catArr.indexOf(checkbox.value.toLowerCase()), 1);
+
                     }
-                    else {
-                        catArr.push(checkbox.value);
-                        // console.log(catArr);
-                    }
+                    addDataToHTML();
+                    loading.style.display = "none";
+                    // page++;
                 })
-
-                // function getNewData() {
-                //     productsPerPage += 8; // Increment the number of products to load
-                //         getData();
-                //     // setTimeout(() => {
-                //     //     // products = products + 1;
-                //     //     // console.log(products);
-
-                //     // }, 500);
-                // }
-                // window.onscroll = function () {
-                //     const { scrollTop, scrollHeight, clientHeight } =
-                //         document.documentElement;
-                //     if (scrollTop + clientHeight >= scrollHeight -10) {
-                //         getNewData();
-                //     }
-                // }
-
-            }
-            let catResult = [];
-            async function filterByCategory(category) {
-                let data = await dataParse();
-                for (let i = 0; i < data.length; i++) {
-                    const product = data[i];
-                    if (product.category == category) {
-                        catResult.push(product);
-                        // console.log(catResult);
-                    }
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    loading.innerHTML = "Error loading data.";
+                });
+        }
+        let checkBoxes = document.getElementsByTagName('input')
+        let catArr = new Array()
+        for (let i = 0; i < checkBoxes.length; i++) {
+            const checkbox = checkBoxes[i];
+            checkbox.addEventListener('click', function () {
+                if (catArr.includes(checkbox.value)) {
+                    catArr.splice(catArr.indexOf(checkbox.value.toLowerCase()), 1);
                 }
-            }
-            let filterBtn = document.querySelector('.filter-btn')
-            filterBtn.onclick = async function () {
-                for (let i = 0; i < catArr.length; i++) {
-                    const cat = catArr[i];
-                    await filterByCategory(cat);
+                else {
+                    catArr.push(checkbox.value);
+                    // console.log(catArr);
                 }
-                // console.log(catResult.length);
-                function addDataToHTML() {
-                    // remove datas default from HTML
-                    document.querySelector('.listProduct').remove();
-                    let listProductHTML = document.createElement('div');
-                    listProductHTML.className = ('.listProduct')
-                    listProductHTML.style.display = 'grid'
-                    listProductHTML.style.gridTemplateColumns = 'repeat(4, 1fr)'
-                    listProductHTML.style.gap = '20px'
+            })
+
+            // function getNewData() {
+            //     productsPerPage += 8; // Increment the number of products to load
+            //         getData();
+            //     // setTimeout(() => {
+            //     //     // products = products + 1;
+            //     //     // console.log(products);
+
+            //     // }, 500);
+            // }
+            // window.onscroll = function () {
+            //     const { scrollTop, scrollHeight, clientHeight } =
+            //         document.documentElement;
+            //     if (scrollTop + clientHeight >= scrollHeight -10) {
+            //         getNewData();
+            //     }
+            // }
+
+        }
+        let catResult = [];
+        async function filterByCategory(category) {
+            let data = await dataParse();
+            for (let i = 0; i < data.length; i++) {
+                const product = data[i];
+                if (product.category == category) {
+                    catResult.push(product);
                     // console.log(catResult);
-                    // add new datas
-                    if (catResult != null) // if has data
-                    {
-                        catResult.forEach(product => {
-                            let newProduct = document.createElement('a');
-                            newProduct.href = 'detail.html?id=' + product.id;
-                            newProduct.classList.add('item');
-                            // newProduct.style
-                            newProduct.innerHTML =
-                                `<img src="${product.image}" alt="" width="100" height="200" loading="lazy">
+                }
+            }
+        }
+        let filterBtn = document.querySelector('.filter-btn')
+        filterBtn.onclick = async function () {
+            for (let i = 0; i < catArr.length; i++) {
+                const cat = catArr[i];
+                await filterByCategory(cat);
+            }
+            // console.log(catResult.length);
+            function addDataToHTML() {
+                // remove datas default from HTML
+                document.querySelector('.listProduct').remove();
+                let listProductHTML = document.createElement('div');
+                listProductHTML.className = ('.listProduct')
+                listProductHTML.style.display = 'grid'
+                listProductHTML.style.gridTemplateColumns = 'repeat(4, 1fr)'
+                listProductHTML.style.gap = '20px'
+                // console.log(catResult);
+                // add new datas
+                if (catResult != null) // if has data
+                {
+                    catResult.forEach(product => {
+                        let newProduct = document.createElement('a');
+                        newProduct.href = 'detail.html?id=' + product.id;
+                        newProduct.classList.add('item');
+                        // newProduct.style
+                        newProduct.innerHTML =
+                            `<img src="${product.image}" alt="" width="100" height="200" loading="lazy">
                             <h2>${product.title}</h2>
                             <div class="price">EGP ${product.price}</div>
                             <img src="/imgs/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
 
-                            listProductHTML.appendChild(newProduct);
-                        });
-                    }
-                    document.querySelector('.product-container').appendChild(listProductHTML);
+                        listProductHTML.appendChild(newProduct);
+                    });
                 }
-                addDataToHTML();
+                document.querySelector('.product-container').appendChild(listProductHTML);
             }
-            // console.log(products);
+            addDataToHTML();
+        }
+        let clearBtn = document.querySelector(".clear-btn");
+        clearBtn.addEventListener('click', function () {
+            window.location.reload();
+        });
+        const header = document.querySelector("header");
 
-        </script>
+        window.addEventListener("scroll", function () {
+            header.classList.toggle("sticky", this.window.scrollY > 0);
+        });
+
+        let menu = document.querySelector("#menu-icon");
+        let navMenu = document.querySelector(".navMenu");
+        menu.onclick = () => {
+            menu.classList.toggle("bx-x");
+            navMenu.classList.toggle("open");
+        };
+
+    </script>
+    <!-- <script type="module" src="/javaScript/home.js"></script> -->
 </body>
 
 </html>
