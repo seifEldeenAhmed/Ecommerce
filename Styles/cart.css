@@ -107,6 +107,7 @@
 
 .returnCart .list .item img {
     height: 80px;
+    width: 80px;
 }
 
 .returnCart .list .item {
@@ -151,4 +152,8 @@
 .returnCart .list .item .returnPrice {
     font-size: large;
     font-weight: bold;
+}
+.returnCart hr {
+    border-top: 1px solid #E1E1E4;
+    width:550px;   
 }

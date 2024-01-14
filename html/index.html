@@ -47,7 +47,7 @@
             <a href="#" class="logout-btn">Log Out</a>
           </div>
         </div>
-        <a href="#"><i class="bx bx-cart"></i></a>
+        <a href="./shopping-cart.html"><i class="bx bx-cart"></i></a>
 
         <div class="bx bx-menu" id="menu-icon"></div>
       </div>
@@ -100,10 +100,6 @@
           <div class="top"></div>
           
          <i class="bx bx-cart cart"></i>
-         <div id="popupContainer">
-          <i class="fa-solid fa-check" id="tickIcon">Added to cart</i>
-          
-        </div>
           <div class="heart-icon">
             <i class="bx bx-heart"></i>
           </div>
@@ -118,7 +114,10 @@
             <p></p>
           </div>
         </div>
-
+        <div id="popupContainer">
+          <i class="fa-solid fa-check" id="tickIcon"></i> 
+          <p>Added To Cart </p>
+        </div>
         <!-- product 2 in the top products -->
 
         <div class="row">
@@ -300,25 +299,24 @@
             console.log('here'); 
             for(let i=0; i<icons.length;i++){
                 icons[i].onclick=function(){
-                    
+                    console.log("testttt");
                     var title=document.querySelectorAll('.title')[i].textContent
                     var price=document.querySelectorAll('.price')[i].textContent
                     var image=document.querySelectorAll('.top')[i].childNodes[0].src
                     var obj=new CartObj(image, price, title , 1);
-                    // cart[`${obj.title}`]=obj
                     
                     var cart = JSON.parse(localStorage.getItem('cart')) || {};
                         cart[`${obj.title}`] = obj;
+                        localStorage.setItem('cart', JSON.stringify(cart));
                         var $tickIcon = $('#tickIcon');
                         var $popupContainer = $('#popupContainer');
                         $popupContainer.fadeIn(500, function () {
-                        $(this).delay(1000).fadeOut(500);
+                        // $(this).delay(1000).fadeOut(500);
                        });
                 }
                 
             }
          
-
         }      
           class CartObj{
             constructor(image, price, title, quantity){
