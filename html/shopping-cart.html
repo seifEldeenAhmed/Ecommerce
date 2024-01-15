@@ -15,16 +15,16 @@
 
 <body>
     <header>
-        <a href="#" class="brand">Koko&s</a>
+        <a href="./index.html" class="brand">Koko&s</a>
         <ul class="navMenu">
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="products-list.html">Shop</a></li>
             <li><a href="ContactUS.HTML">Contact</a></li>
             <li><a href="AboutUs.html">About</a></li>
         </ul>
 
         <div class="nav-icon">
-            <a href="#"><i class="bx bx-search"></i></a>
+            <a href="products-list.html"><i class="bx bx-search"></i></a>
             <div class="dropdown">
                 <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
                 <div class="dropdown-content">
@@ -43,33 +43,12 @@
         <div class="checkoutLayout">
             <div class="returnCart">
                 <a href="/html/index.html">keep shopping</a>
-                <h1>List Product in Cart</h1>
-                <div class="list">
-                    <div class="item">
-                        <div class="image-area">
-                            <img src="imgs/24-hours-support 1.png">
-                            <a class="remove-image" href="#" style="display: inline;">&#215;</a>
-                        </div>
-                        <div class="info">
-                            <div class="name">PRODUCT 1</div>
-                            <div class="price">EGP 22</div>
-                        </div>
-                        <div class="quantity">
-                            <button>-</button>
-                            <span class="value">3</span>
-                            <button>+</button>
-                        </div>
-                        <div class="returnPrice">
-                            $433.3
-                        </div>
-            
-                    </div>
-                    <hr>
+                <h1 class="CartTitle">List Product in Cart</h1>
+                <div class="list" id="cartList"></div>
                     <div class="clear-cart-container">
-                        <button class="clear-cart-button">Clear Cart</button>
+                        <button class="clear-cart-button" id="clearCartButton">Clear Cart</button>
                     </div>
                 </div>
-            </div>
             <div class="right">
                 <h1>Checkout</h1>
                 <div class="form">
@@ -128,7 +107,7 @@
             </div>
         </div>
     </div>
-    <footer style="position: absolute;
+    <footer style="position: relative;
     bottom: 0;width: 100%;">
         <div id="footer" class="footer">
             <p>copyright &copy; 2024 <span>koko&s</span>. all rights reserved</p>
@@ -153,6 +132,13 @@
             navMenu.classList.toggle("open");
         };
 
+    </script>
+     <script type="module">
+      import { viewCart, clearCart } from "../javaScript/products.js";
+      viewCart();
+      document
+        .getElementById("clearCartButton")
+        .addEventListener("click", clearCart);
     </script>
 </body>
 
