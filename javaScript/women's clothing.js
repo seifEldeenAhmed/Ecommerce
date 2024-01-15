@@ -1,9 +1,16 @@
 import { dataParse } from "../javaScript/products.js";
+import { escapeRegExp,attachLogicToSearchBtn } from "../javaScript/men's clothing.js";
 
 const header = document.querySelector("header");
 window.addEventListener("scroll", function () {
   header.classList.toggle("sticky", this.window.scrollY > 0);
 });
+let menu = document.querySelector("#menu-icon");
+let navMenu = document.querySelector(".navMenu");
+menu.onclick = () => {
+  menu.classList.toggle("bx-x");
+  navMenu.classList.toggle("open");
+};
 
 let arr = [];
 window.onload = async function (e) {
@@ -38,3 +45,5 @@ window.onload = async function (e) {
   // Call the function to display products
   displayProducts();
 };
+
+attachLogicToSearchBtn();

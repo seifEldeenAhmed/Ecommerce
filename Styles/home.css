@@ -44,10 +44,10 @@ header {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f2f0ff;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  width: 220px;
+  background-color: #e7e4f8;
+  border-radius: 10px;
 }
 
 /* Links inside the dropdown */
@@ -56,11 +56,15 @@ header {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  font-size: 20px;
 }
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  color: #ee1c47;
+  transform: translateY(5px);
+  background-color: rgb(220, 217, 217);
+  transition: all 0.5s ease;
 }
 
 /* Show the dropdown menu on hover */
@@ -129,7 +133,6 @@ header.sticky {
     margin: 0px 5px;
   }
 }
-/*1090px*/
 @media (max-width: 920px) {
   #menu-icon {
     display: block;
@@ -139,8 +142,7 @@ header.sticky {
     top: 100%;
     right: -100%;
     width: 250px;
-    height: 21vh;
-    background: #f166a2;
+    background: #e7e4f8;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -153,15 +155,72 @@ header.sticky {
     padding: 0px 25px;
     transition: all 0.4s ease;
   }
+  .navMenu li:hover {
+    background-color: rgb(220, 217, 217);
+  }
   .navMenu a:hover {
-    color: white;
+    color: #fc4f71;
     transform: translateY(5px);
   }
   .navMenu.open {
     right: 2%;
   }
 }
-
+/* search btn */
+.search-box {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+.input-search {
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all 0.5s ease-in-out;
+  background-color: transparent;
+  padding-right: 40px;
+  color: #2c2c2c;
+}
+.input-search::placeholder {
+  color: #2c2c2c;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+.btn-search {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #2c2c2c;
+  background-color: transparent;
+  pointer-events: painted;
+}
+.btn-search:focus ~ .input-search {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid #2c2c2c;
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+.input-search:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
 /* ******************************************************************** first section 1 **************************************************************** */
 /* main home */
 section {
@@ -332,7 +391,7 @@ section {
 
 .products .row a .bx {
   left: 3px;
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .heart-icon {
@@ -340,13 +399,17 @@ section {
   right: 0px;
   bottom: 70px;
   font-size: 20px;
-
   border-radius: 50%;
   color: #333;
 }
 
+.row .bx-cart:hover {
+  transform: scale(1.1);
+  color: #35c646;
+}
 .heart-icon :hover {
   color: red;
+  transform: scale(1.1);
 }
 
 .rating i {
@@ -489,6 +552,7 @@ section {
   justify-content: space-around;
   align-items: center;
   padding: 20px 10%;
+  margin-top: auto;
 }
 
 .info-icon i {
@@ -513,5 +577,20 @@ section {
   }
 }
 .footer span {
+  color: #fb2e86;
+}
+/*  */
+#popupContainer {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: #e7e4f8;
+}
+
+#tickIcon {
+  font-size: 40px;
   color: #fb2e86;
 }

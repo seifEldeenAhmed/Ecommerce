@@ -42,8 +42,9 @@ window.onload = async function (e) {
     ].title.slice(0, 20);
 
     document.querySelectorAll(".price")[i].innerHTML =
-      topProductsList[i].price + "$";
-
+    'EGP '+topProductsList[i].price;
+  }
+  for (var i = 0; i < topProductsList.length; i++) {
     document.querySelectorAll(".top")[
       i
     ].innerHTML = `<img class="image" src="${topProductsList[i].image}" alt="pic" />`;
@@ -75,13 +76,13 @@ window.onload = async function (e) {
       }
     }
   }
-  console.log(categories);
+  // console.log(categories);
   for (var i = 0; i < categories.length; i++) {
     document.querySelector(
       ".category"
     ).innerHTML += `<a href="${categories[i]}.html"><p>${categories[i]}</p></a>`;
   }
-  console.log(categories);
+  // console.log(categories);
 };
 // ********************************************************************* unique desc *********************************************************************
 

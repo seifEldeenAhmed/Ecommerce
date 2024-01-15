@@ -4,6 +4,12 @@ const header = document.querySelector("header");
 window.addEventListener("scroll", function () {
   header.classList.toggle("sticky", this.window.scrollY > 0);
 });
+let menu = document.querySelector("#menu-icon");
+let navMenu = document.querySelector(".navMenu");
+menu.onclick = () => {
+  menu.classList.toggle("bx-x");
+  navMenu.classList.toggle("open");
+};
 
 let arr = [];
 window.onload = async function (e) {
@@ -14,7 +20,7 @@ window.onload = async function (e) {
       arr.push(dataa[i]);
     }
   }
-  console.log(arr);
+  // console.log(arr);
 
   function displayProducts() {
     var container = document.querySelector(".category");
@@ -28,7 +34,7 @@ window.onload = async function (e) {
         <h4> rate : ${a.rating.rate}</h4>
         <h2>${a.title}</h2>
         <p>${a.description.slice(0, 100)}</p>
-        <p class="price">Price: $${a.price} </p>
+        <p class="price">Price: EGP ${a.price} </p>
       `;
 
       container.appendChild(productDiv);
@@ -37,4 +43,48 @@ window.onload = async function (e) {
 
   // Call the function to display products
   displayProducts();
+  attachLogicToSearchBtn ();
 };
+export function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+export async function attachLogicToSearchBtn (){
+  let searchBtn=document.querySelector('.btn-search');
+  let data=await dataParse()
+  searchBtn.onclick=function(){
+    // console.log(data);
+    let searchVal=document.querySelector('.input-search').value;
+    if(searchVal==''){
+      alert('rkz m3aya shwya');
+    }
+    else{
+      let searchResultArr = [];
+      let regex=new RegExp(escapeRegExp(searchVal), 'i')
+      data.forEach(product => {
+        const match=product.title.match(regex)
+        if (match) {
+          searchResultArr.push(product)
+        }
+      });
+      function displaySearchedProducts(mada=searchResultArr) {
+        var container = document.querySelector(".category");
+        container.innerHTML=''
+        mada.forEach(function (a) {
+          var productDiv = document.createElement("div");
+          productDiv.className = "product";
+          productDiv.innerHTML = `
+          <div class="image"><img src="${a.image}" alt=""></div>
+            <h4> rate : ${a.rating.rate}</h4>
+            <h2>${a.title}</h2>
+            <p>${a.description.slice(0, 100)}</p>
+            <p class="price">Price: EGP ${a.price} </p>
+          `;
+    
+          container.appendChild(productDiv);
+        });
+      }
+      displaySearchedProducts()
+    }
+
+  }
+}
