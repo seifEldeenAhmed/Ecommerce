@@ -82,8 +82,10 @@
         detail.querySelector('.rating').innerText = 'Rates: ' + thisProduct.rating.rate;
         detail.querySelector('.cart-btn').onclick = function(){
             const object =new CartObj(thisProduct.image, thisProduct.price, thisProduct.title, 1);
-            cart[`${object.title}`]=object;
-            console.log(cart);
+            var cart = JSON.parse(localStorage.getItem("cart")) || {};
+                console.log(cart);
+                cart[`${object.title}`] = object;
+               localStorage.setItem("cart",JSON.stringify(cart));
         }
 
         

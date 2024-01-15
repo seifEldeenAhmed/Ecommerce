@@ -1,4 +1,3 @@
-let users = JSON.parse(localStorage.getItem("usersData"));
 export async function dataParse() {
   try {
     let resp = await fetch("https://fakestoreapi.com/products");
@@ -14,6 +13,7 @@ var cartList = document.getElementById("cartList");
 let totalQuantity = 0;
 let checkOutPrice = 0;
 var cart = {};
+let total=0;
 export function viewCart() {
   try {
     var cartFromStorage = localStorage.getItem("cart");
@@ -64,9 +64,15 @@ export function viewCart() {
         let totalPrice = document.createElement("div");
         totalPrice.classList.add("returnPrice");
 
-        let priceValue = value.price.replace("EGP", "");
-        let total = priceValue * value.quantity;
+        if (isNaN(value.price)) {
+            let priceValue = value.price.replace("EGP", "");
+            let total = priceValue * value.quantity;
+            totalPrice.textContent = "EGP " + total; 
+        }
+        else{ 
+        total = value.price * value.quantity;
         totalPrice.textContent = "EGP " + total;
+        }
 
         let deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "delete";
