@@ -38,7 +38,7 @@
       </ul>
 
       <div class="nav-icon">
-        <a href="#"><i class="bx bx-search"></i></a>
+        <a href="./products-list.html" id="search"><i class="bx bx-search"></i></a>
         <div class="dropdown">
           <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
           <div class="dropdown-content">
@@ -76,7 +76,7 @@
             self-expression. Welcome to a world where fashion meets versatility,
             where every piece tells a unique story.
           </p>
-          <a class="main-btn" href=""
+          <a class="main-btn" href="./products-list.html"
             >Shop Now <i class="bx bx-right-arrow-alt"></i
           ></a>
         </div>
@@ -117,7 +117,10 @@
             <p></p>
           </div>
         </div>
-
+        <div id="popupContainer">
+          <i class="fa-solid fa-check" id="tickIcon"></i> 
+          <p>Added To Cart </p>
+        </div>
         <!-- product 2 in the top products -->
 
         <div class="row">
@@ -315,10 +318,9 @@
               var image =
                 document.querySelectorAll(".top")[i].childNodes[0].src;
               var obj = new CartObj(image, price, title, 1);
-              // cart[`${obj.title}`]=obj
-
               var cart = JSON.parse(localStorage.getItem("cart")) || {};
               cart[`${obj.title}`] = obj;
+              cart = localStorage.setItem('cart',JSON.stringify(cart));
               var $tickIcon = $("#tickIcon");
               var $popupContainer = $("#popupContainer");
               $popupContainer.fadeIn(500, function () {
@@ -341,14 +343,19 @@
       }
       attachLogicToAddToCart();
       //handle view cart with login
-      let cartButton = document.querySelector("#cart-view");
-      cartButton.addEventListener("click", function () {
-        if (loginStatus) {
-          this.href = "./shopping-cart.html";
-        } else {
-          alert("login");
-        }
-      });
+    export function proceedToCart() {
+       let cartButton = document.querySelector("#cart-view");
+       cartButton.addEventListener("click", function () {
+         if (loginStatus) {
+           this.href = "./shopping-cart.html";
+         } else {
+           alert("login");
+         }
+       });
+     }
+    proceedToCart();
+    console.log(document.querySelectorAll('a'));
+
     </script>
   </body>
 </html>

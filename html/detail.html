@@ -118,19 +118,21 @@
             }
 
 
-            detail.querySelector('.image img').src = thisProduct.image;
-            detail.querySelector('.image img').width = 100;
-            detail.querySelector('.image img').height = 450;
-            detail.querySelector('.name').innerText = thisProduct.title;
-            detail.querySelector('.price').innerText = 'EGP ' + thisProduct.price;
-            detail.querySelector('.description').innerText = thisProduct.description;
-            detail.querySelector('.category').innerText = 'Category: ' + thisProduct.category;
-            detail.querySelector('.rating').innerText = 'Rates: ' + thisProduct.rating.rate;
-            detail.querySelector('.cart-btn').onclick = function () {
-                const object = new CartObj(thisProduct.image, thisProduct.price, thisProduct.title, 1);
-                cart[`${object.title}`] = object;
+        detail.querySelector('.image img').src = thisProduct.image;
+        detail.querySelector('.image img').width = 100;
+        detail.querySelector('.image img').height = 450;
+        detail.querySelector('.name').innerText = thisProduct.title;
+        detail.querySelector('.price').innerText = 'EGP ' + thisProduct.price;
+        detail.querySelector('.description').innerText = thisProduct.description;
+        detail.querySelector('.category').innerText = 'Category: ' + thisProduct.category;
+        detail.querySelector('.rating').innerText = 'Rates: ' + thisProduct.rating.rate;
+        detail.querySelector('.cart-btn').onclick = function(){
+            const object =new CartObj(thisProduct.image, 'EGP '+thisProduct.price, thisProduct.title, 1);
+            var cart = JSON.parse(localStorage.getItem("cart")) || {};
                 console.log(cart);
-            }
+                cart[`${object.title}`] = object;
+               localStorage.setItem("cart",JSON.stringify(cart));
+        }
 
 
             const relatedProducts = products.filter(product => product.category === thisProduct.category && product.id !== thisProduct.id);

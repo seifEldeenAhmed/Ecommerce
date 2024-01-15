@@ -4,21 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Styles/AboutUs.css" />
+    <link rel="stylesheet" href="../Styles/home.css">
     <title>About us</title>
   </head>
   <body>
+    <header>
+      <a href="./index.html" class="brand">Koko&S</a>
+      <ul class="navMenu">
+        <li><a href="#">Home</a></li>
+        <li><a href="./products-list.html">Shop</a></li>
+        <li><a href="./ContactUS.HTML">Contact</a></li>
+        <li><a href="./AboutUs.html">About</a></li>
+      </ul>
+
+      <div class="nav-icon">
+        <a href="#"><i class="bx bx-search"></i></a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
+          <div class="dropdown-content">
+            <a href="signup.html" id="signup-link">Sign Up</a>
+            <a href="login.html" class="login-link">Login</a>
+            <a href="#" class="logout-btn">Log Out</a>
+          </div>
+        </div>
+        <a id="cart-view"><i class="bx bx-cart"></i></a>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
+    </header>
     <!-- Know About -->
     <section class="about-us">
       <img src="../imgs/Rectangle 56.png" />
       <div class="content">
-        <h2>Know About Our Ecomerce Business, History</h2>
+        <h2>Know About Our Ecommerce Business, History</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis neque
           ultrices mattis aliquam, malesuada diam est. Malesuada sem tristique
           amet erat vitae eget dolor lobortis. Accumsan faucibus vitae lobortis
           quis bibendum quam.
         </p>
-        <button class="contact-us-btn">Contact Us</button>
+      <a href="./ContactUS.HTML"><button class="contact-us-btn">Contact Us</button></a>
       </div>
     </section>
     <!-- our Features form -->
@@ -74,5 +99,17 @@
         </div>
       </div>
     </div>
+    <script>
+      const header = document.querySelector("header");
+      window.addEventListener("scroll", function () {
+        header.classList.toggle("sticky", this.window.scrollY > 0);
+      });
+      let menu = document.querySelector("#menu-icon");
+      let navMenu = document.querySelector(".navMenu");
+        menu.onclick = () => {
+        menu.classList.toggle("bx-x");
+        navMenu.classList.toggle("open");
+      };
+    </script>
   </body>
 </html>

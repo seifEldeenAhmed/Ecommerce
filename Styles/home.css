@@ -580,7 +580,7 @@ section {
   color: #fb2e86;
 }
 /*  */
-#popupContainer {
+#popupContainer{
   display: none;
   position: fixed;
   top: 50%;
@@ -588,8 +588,20 @@ section {
   transform: translate(-50%, -50%);
   z-index: 1000;
   background: #e7e4f8;
+  width: 500px; 
+  padding: 40px;
+  box-sizing: border-box; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fb2e86; 
+  text-align: center;
 }
+#popupContainer p{
+  font-family: "Josefin Sans";
+  font-size: 40px;
+  display: inline;
+  padding-left: 10px;
 
+}
 #tickIcon {
   font-size: 40px;
   color: #fb2e86;

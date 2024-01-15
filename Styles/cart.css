@@ -111,6 +111,12 @@ a {
 .returnCart hr {
     border-top: 1px solid #E1E1E4;
 }
+
+.returnCart .list .item img {
+    height: 80px;
+    width: 80px;
+}
+
 .returnCart .list .item {
     display: grid;
     grid-template-columns: 80px 1fr 50px 80px;
@@ -122,6 +128,7 @@ a {
 
 .returnCart .list .item .info .name {
     padding-bottom: 10px;
+    width: 180px;
 }
 
 .returnCart .list .item .quantity {
@@ -156,6 +163,11 @@ a {
 .returnCart .list .item .returnPrice {
     font-size: large;
     font-weight: bold;
+    width: 100px;
+}
+.returnCart hr {
+    border-top: 1px solid #E1E1E4;
+    width:550px;   
 }
 
 .image-area {
@@ -179,6 +191,7 @@ a {
     color: #0D134E;
     -webkit-transition: background 0.5s;
     transition: background 0.5s;
+    display: inline;
 }
 
 .clear-cart-container {
