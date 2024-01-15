@@ -38,7 +38,9 @@
       </ul>
 
       <div class="nav-icon">
-        <a href="./products-list.html" id="search"><i class="bx bx-search"></i></a>
+        <a href="./products-list.html" id="search"
+          ><i class="bx bx-search"></i
+        ></a>
         <div class="dropdown">
           <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
           <div class="dropdown-content">
@@ -118,8 +120,8 @@
           </div>
         </div>
         <div id="popupContainer">
-          <i class="fa-solid fa-check" id="tickIcon"></i> 
-          <p>Added To Cart </p>
+          <i class="fa-solid fa-check" id="tickIcon"></i>
+          <p>Added To Cart</p>
         </div>
         <!-- product 2 in the top products -->
 
@@ -295,7 +297,7 @@
     <script type="module" src="../javaScript/products.js"></script>
     <script src="../javaScript/logout.js"></script>
     <script type="module">
-      let usersData = JSON.parse(localStorage.getItem("usersData"));
+      let usersData = JSON.parse(localStorage.getItem("usersData")) || [];
       let loginStatus = false;
       for (let i = 0; i < usersData.length; i++) {
         if (usersData[i].isLogged === true) {
@@ -320,7 +322,7 @@
               var obj = new CartObj(image, price, title, 1);
               var cart = JSON.parse(localStorage.getItem("cart")) || {};
               cart[`${obj.title}`] = obj;
-              cart = localStorage.setItem('cart',JSON.stringify(cart));
+              cart = localStorage.setItem("cart", JSON.stringify(cart));
               var $tickIcon = $("#tickIcon");
               var $popupContainer = $("#popupContainer");
               $popupContainer.fadeIn(500, function () {
@@ -343,19 +345,17 @@
       }
       attachLogicToAddToCart();
       //handle view cart with login
-    export function proceedToCart() {
-       let cartButton = document.querySelector("#cart-view");
-       cartButton.addEventListener("click", function () {
-         if (loginStatus) {
-           this.href = "./shopping-cart.html";
-         } else {
-           alert("login");
-         }
-       });
-     }
-    proceedToCart();
-    console.log(document.querySelectorAll('a'));
-
+      function proceedToCart() {
+        let cartButton = document.querySelector("#cart-view");
+        cartButton.addEventListener("click", function () {
+          if (loginStatus) {
+            this.href = "./shopping-cart.html";
+          } else {
+            alert("login");
+          }
+        });
+      }
+      proceedToCart();
     </script>
   </body>
 </html>
