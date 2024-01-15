@@ -13,7 +13,7 @@ var cartList = document.getElementById("cartList");
 let totalQuantity = 0;
 let checkOutPrice = 0;
 var cart = {};
-let total=0;
+
 export function viewCart() {
   try {
     var cartFromStorage = localStorage.getItem("cart");
@@ -63,10 +63,11 @@ export function viewCart() {
 
         let totalPrice = document.createElement("div");
         totalPrice.classList.add("returnPrice");
-
+        let total=0;
+        let priceValue=0;
         if (isNaN(value.price)) {
-            let priceValue = value.price.replace("EGP", "");
-            let total = priceValue * value.quantity;
+             priceValue = value.price.replace("EGP", "");
+             total = priceValue * value.quantity;
             totalPrice.textContent = "EGP " + total; 
         }
         else{ 

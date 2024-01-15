@@ -152,6 +152,7 @@
 .returnCart .list .item .returnPrice {
     font-size: large;
     font-weight: bold;
+    width: 100px;
 }
 .returnCart hr {
     border-top: 1px solid #E1E1E4;
