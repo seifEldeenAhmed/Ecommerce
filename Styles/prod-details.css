@@ -106,7 +106,7 @@ html {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
-           line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
 }
 
@@ -118,11 +118,12 @@ html {
     left: 5;
     padding-bottom: 15px;
 }
-.wishList{
+
+.wishList {
     right: 0;
     bottom: 0;
     position: absolute;
-    padding-right: 20px; 
+    padding-right: 20px;
     padding-bottom: 15px;
 }
 
@@ -139,7 +140,7 @@ html {
 .category-filters h3 {
     padding-left: 20px;
     color: #151875;
-    
+
 }
 
 .category-filters .filter-btn {
@@ -247,4 +248,73 @@ html {
     .detail {
         grid-template-columns: 1fr;
     }
+}
+
+/*styling search btn */
+.search-box {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+}
+
+.input-search {
+    height: 50px;
+    width: 50px;
+    border-style: none;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    outline: none;
+    border-radius: 25px;
+    transition: all 0.5s ease-in-out;
+    background-color: transparent;
+    padding-right: 40px;
+    color: #2c2c2c;
+}
+
+.input-search::placeholder {
+    color: #2c2c2c;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 100;
+}
+
+.btn-search {
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    color: #2c2c2c;
+    background-color: transparent;
+    pointer-events: painted;
+}
+
+.btn-search:hover~.input-search {
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid #2c2c2c;
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+.input-search:focus {
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+.input-search:hover {
+    width: 300px;
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }

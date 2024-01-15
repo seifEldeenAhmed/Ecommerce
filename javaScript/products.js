@@ -179,3 +179,47 @@ export function clearCart() {
   let checkout = document.querySelector(".right");
   checkout.style.display = "none";
 }
+
+export function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+export async function attachLogicToSearchBtn (){
+  let searchBtn=document.querySelector('.btn-search');
+  let data=await dataParse()
+  searchBtn.onclick=function(){
+    // console.log(data);
+    let searchVal=document.querySelector('.input-search').value;
+    if(searchVal==''){
+      alert('rkz m3aya shwya');
+    }
+    else{
+      let searchResultArr = [];
+      let regex=new RegExp(escapeRegExp(searchVal), 'i')
+      data.forEach(product => {
+        const match=product.title.match(regex)
+        if (match) {
+          searchResultArr.push(product)
+        }
+      });
+      function displaySearchedProducts(mada=searchResultArr) {
+        var container = document.querySelector(".category");
+        container.innerHTML=''
+        mada.forEach(function (a) {
+          var productDiv = document.createElement("div");
+          productDiv.className = "product";
+          productDiv.innerHTML = `
+          <div class="image"><img src="${a.image}" alt=""></div>
+            <h4> rate : ${a.rating.rate}</h4>
+            <h2>${a.title}</h2>
+            <p>${a.description.slice(0, 100)}</p>
+            <p class="price">Price: EGP ${a.price} </p>
+          `;
+    
+          container.appendChild(productDiv);
+        });
+      }
+      displaySearchedProducts()
+    }
+
+  }
+}

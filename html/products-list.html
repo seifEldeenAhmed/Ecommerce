@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
     <link rel="stylesheet" href="/Styles/home.css" />
     <link rel="stylesheet" href="/Styles/prod-details.css">
+    <!-- <link rel="stylesheet" href="/Styles/category.css"> -->
 </head>
 
 <body>
@@ -19,13 +21,16 @@
         <a href="#" class="brand">Koko&s</a>
         <ul class="navMenu">
             <li><a href="#">Home</a></li>
-            <li><a href="products-list.html">Shop</a></li>
-            <li><a href="ContactUS.HTML">Contact</a></li>
-            <li><a href="AboutUs.html">About</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
         </ul>
 
         <div class="nav-icon">
-            <a href="#"><i class="bx bx-search"></i></a>
+            <div class="search-box">
+                <button class="btn-search"><i class="bx bx-search"></i></button>
+                <input type="text" class="input-search" placeholder="Type to Search..." />
+            </div>
             <div class="dropdown">
                 <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
                 <div class="dropdown-content">
@@ -34,6 +39,8 @@
                     <a href="#" class="logout-btn">Log Out</a>
                 </div>
             </div>
+            <!-- <a href=""><i class="bx bx-search"></i></a> -->
+            <!-- <a href="#"><i class="bx bxs-user"></i></a> -->
             <a href="#"><i class="bx bx-cart"></i></a>
 
             <div class="bx bx-menu" id="menu-icon"></div>
@@ -202,7 +209,8 @@
                     catResult.forEach(product => {
                         let newProduct = document.createElement('a');
                         newProduct.href = 'detail.html?id=' + product.id;
-                        newProduct.classList.add('item');
+                        // newProduct.classList.add('item');
+                        newProduct.classList.add('product');
                         // newProduct.style
                         newProduct.innerHTML =
                             `<img src="${product.image}" alt="" width="100" height="200" loading="lazy">
@@ -234,6 +242,63 @@
             navMenu.classList.toggle("open");
         };
 
+
+    </script>
+    <script type="module" src="../javaScript/products.js"></script>
+    <script type="module">
+        import {dataParse, escapeRegExp} from '../javaScript/products.js'
+        async function attachLogicToSearchBtn() {
+            let searchBtn = document.querySelector('.btn-search');
+            let data = await dataParse()
+            searchBtn.onclick = function () {
+                // console.log(data);
+                let searchVal = document.querySelector('.input-search').value;
+                if (searchVal == '') {
+                    alert('rkz m3aya shwya');
+                }
+                else {
+                    let searchResultArr = [];
+                    let regex = new RegExp(escapeRegExp(searchVal), 'i')
+                    data.forEach(product => {
+                        const match = product.title.match(regex)
+                        if (match) {
+                            searchResultArr.push(product)
+                        }
+                    });
+                    function buildResult(data){
+                    document.querySelector('.listProduct').remove();
+                    let listProductHTML = document.createElement('div');
+                    listProductHTML.className = 'listProduct'
+                    listProductHTML.style.display = 'grid'
+                    listProductHTML.style.gridTemplateColumns = 'repeat(4, 1fr)'
+                    listProductHTML.style.gap = '20px'
+                    // console.log(catResult);
+                    // add new datas
+                    if (data != null) // if has data
+                    {
+                        data.forEach(product => {
+                            let newProduct = document.createElement('a');
+                            newProduct.href = 'detail.html?id=' + product.id;
+                            newProduct.classList.add('item');
+                            newProduct.classList.add('product');
+                            // newProduct.style
+                            newProduct.innerHTML =
+                                `<img src="${product.image}" alt="" width="100" height="200" loading="lazy">
+                                <h2>${product.title}</h2>
+                                <div class="price">EGP ${product.price}</div>
+                                <img src="/imgs/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
+        
+                            listProductHTML.appendChild(newProduct);
+                            document.querySelector('.product-container').appendChild(listProductHTML)
+                        })
+                    }
+                    }
+                    console.log(searchResultArr);
+                    buildResult(searchResultArr)
+                }
+            }
+                }
+                attachLogicToSearchBtn();
     </script>
     <!-- <script type="module" src="/javaScript/home.js"></script> -->
 </body>
