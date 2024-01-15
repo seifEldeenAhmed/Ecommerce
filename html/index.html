@@ -295,7 +295,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="module" src="/javaScript/home.js"></script>
     <script type="module" src="../javaScript/products.js"></script>
-    <script src="../javaScript/logout.js"></script>
+    <script src="../javaScript/auth.js"></script>
     <script type="module">
       let usersData = JSON.parse(localStorage.getItem("usersData")) || [];
       let loginStatus = false;
@@ -345,17 +345,6 @@
       }
       attachLogicToAddToCart();
       //handle view cart with login
-      function proceedToCart() {
-        let cartButton = document.querySelector("#cart-view");
-        cartButton.addEventListener("click", function () {
-          if (loginStatus) {
-            this.href = "./shopping-cart.html";
-          } else {
-            alert("login");
-          }
-        });
-      }
-      proceedToCart();
     </script>
   </body>
 </html>
