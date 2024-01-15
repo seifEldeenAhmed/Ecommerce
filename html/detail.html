@@ -127,7 +127,7 @@
         detail.querySelector('.category').innerText = 'Category: ' + thisProduct.category;
         detail.querySelector('.rating').innerText = 'Rates: ' + thisProduct.rating.rate;
         detail.querySelector('.cart-btn').onclick = function(){
-            const object =new CartObj(thisProduct.image, thisProduct.price, thisProduct.title, 1);
+            const object =new CartObj(thisProduct.image, 'EGP '+thisProduct.price, thisProduct.title, 1);
             var cart = JSON.parse(localStorage.getItem("cart")) || {};
                 console.log(cart);
                 cart[`${object.title}`] = object;

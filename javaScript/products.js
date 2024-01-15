@@ -20,22 +20,40 @@ export function viewCart() {
 
     if (cartFromStorage) {
       cart = JSON.parse(cartFromStorage);
+
       if (Object.keys(cart).length === 0) {
         let CartTitle = document.querySelector(".CartTitle");
         CartTitle.innerHTML = "Cart is Empty => Go shop now :)";
+          //to hide checkout when cart is empty
+          let checkout = document.querySelector(".right");
+          checkout.style.display = "none";
+          //Hide clear cart when reload empty cart
+          document.getElementById("clearCartButton").style.display = "none";
+
       }
+
       for (let value of Object.values(cart)) {
         let container = document.createElement("div");
         container.classList.add("item");
 
+        let imageArea = document.createElement("div");
+        imageArea.classList.add("image-area");
+
         let image = document.createElement("img");
         image.src = `${value.image}`;
+
+        let deleteBtn = document.createElement("a");
+        deleteBtn.classList.add("remove-image");
+        deleteBtn.innerHTML = '&#215;'
+        deleteBtn.href='#'
+
+        imageArea.appendChild(image);
+        imageArea.appendChild(deleteBtn);
 
         let info = document.createElement("div");
         info.classList.add("info");
 
         let title = document.createElement("div");
-        title.className = "title";
         title.classList.add("name");
         title.textContent = `${value.title}`;
 
@@ -75,19 +93,14 @@ export function viewCart() {
         totalPrice.textContent = "EGP " + total;
         }
 
-        let deleteBtn = document.createElement("button");
-        deleteBtn.innerHTML = "delete";
-        deleteBtn.className = "deleteBtn";
-
         let horzLine = document.createElement("hr");
         horzLine.className = "hr";
 
-        container.appendChild(image);
+        container.appendChild(imageArea);
         container.appendChild(info);
         container.appendChild(quantity);
         container.appendChild(totalPrice);
-        container.appendChild(deleteBtn);
-
+      
         incQuantityButton.addEventListener("click", function () {
           value.quantity += 1;
           quantityValue.textContent = value.quantity;
@@ -102,7 +115,7 @@ export function viewCart() {
           // Update totalPrice
           checkOutPrice += Number(priceValue);
           checkOutPrice = parseFloat(checkOutPrice.toFixed(2));
-          allProductsPrice.innerHTML = checkOutPrice;
+          allProductsPrice.innerHTML = 'EGP '+checkOutPrice;
         });
 
         decQuantityButton.addEventListener("click", function () {
@@ -120,7 +133,7 @@ export function viewCart() {
             // Update totalPrice
             checkOutPrice -= Number(priceValue);
             checkOutPrice = parseFloat(checkOutPrice.toFixed(2));
-            allProductsPrice.innerHTML = checkOutPrice;
+            allProductsPrice.innerHTML = 'EGP '+checkOutPrice;
           }
         });
         container.appendChild(horzLine);
@@ -131,15 +144,13 @@ export function viewCart() {
         checkOutPrice += total;
       }
       // detete product
-      let deleteButtons = document.querySelectorAll(".deleteBtn");
+      let deleteButtons = document.querySelectorAll(".remove-image");
       deleteButtons.forEach((button) => {
         button.addEventListener("click", function () {
-          let price = this.parentNode
-            .querySelector(".returnPrice")
-            .innerHTML.replace("EGP", "");
-          let quantity = this.parentNode.querySelector(".value").innerHTML;
-          delete cart[`${this.parentNode.querySelector(".title").textContent}`];
-          button.parentNode.remove();
+          let price = this.parentNode.parentNode.querySelector(".returnPrice").innerHTML.replace("EGP", "");
+          let quantity = this.parentNode.parentNode.querySelector(".value").innerHTML;
+          delete cart[`${this.parentNode.parentNode.querySelector(".name").textContent}`];
+          button.parentNode.parentNode.remove();
           totalQuantity -= quantity;
           totalQuan.innerHTML = totalQuantity;
           checkOutPrice -= price;
@@ -151,6 +162,9 @@ export function viewCart() {
           if (Object.keys(cart).length === 0) {
             CartTitle.innerHTML = "Cart is Empty => Go shop now :)";
             document.getElementById("clearCartButton").style.display = "none";
+            //to hide checkout when cart is empty
+            let checkout = document.querySelector(".right");
+            checkout.style.display = "none";
           }
         });
       });
