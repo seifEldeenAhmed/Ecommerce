@@ -66,11 +66,11 @@ a {
 
 .item {
     /* border-radius: 15px; */
-    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     padding: 30px;
     /* border-radius: 20px; */
     position: relative;
-    background-color: #F6F7FB;
+    background-color: #e8eaf3;
 }
 
 /*lazy loading*/
@@ -101,9 +101,10 @@ html {
     font-size: large;
     color: #0D134E;
     font-size: 15px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: unset;
+    /* line-height: 2; */
     display: -webkit-box;
     -webkit-line-clamp: 2;
            line-clamp: 2;
@@ -112,18 +113,22 @@ html {
 
 .prices {
     color: #0D134E;
-    font-size: small;
+    font-size: 16px;
     position: absolute;
     bottom: 0;
     left: 5;
     padding-bottom: 15px;
+    padding-top: 10px;
 }
 .wishList{
     right: 0;
     bottom: 0;
     position: absolute;
+    color:#FB2E86;
+    font-size: 25px;
     padding-right: 20px; 
     padding-bottom: 15px;
+    padding-top: 10px;
 }
 
 .category-filters label {

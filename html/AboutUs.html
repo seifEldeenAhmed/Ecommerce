@@ -1,78 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Styles/AboutUs.css" />
-    <title>About us</title>
-  </head>
-  <body>
-    <!-- Know About -->
-    <section class="about-us">
-      <img src="../imgs/Rectangle 56.png" />
-      <div class="content">
-        <h2>Know About Our Ecomerce Business, History</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mattis neque
-          ultrices mattis aliquam, malesuada diam est. Malesuada sem tristique
-          amet erat vitae eget dolor lobortis. Accumsan faucibus vitae lobortis
-          quis bibendum quam.
-        </p>
-        <button class="contact-us-btn">Contact Us</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../Styles/AboutUs.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+  <link rel="stylesheet" href="/Styles/home.css" />
+  <title>About us</title>
+</head>
+
+<body>
+  <header>
+    <a href="#" class="brand">Koko&S</a>
+    <ul class="navMenu">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./products-list.html">Shop</a></li>
+      <li><a href="./ContactUS.HTML">Contact</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+
+    <div class="nav-icon">
+      <a href="#"><i class="bx bx-search"></i></a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
+        <div class="dropdown-content">
+          <a href="signup.html" id="signup-link">Sign Up</a>
+          <a href="login.html" class="login-link">Login</a>
+          <a href="#" class="logout-btn">Log Out</a>
+        </div>
       </div>
-    </section>
-    <!-- our Features form -->
+      <a id="cart-view"><i class="bx bx-cart"></i></a>
 
-    <div class="wrapper">
-      <h2>Our Features</h2>
-      <div class="Features">
-        <!-- Free Delivery -->
-        <div class="OurFeatures">
-          <div class="Features-imgs">
-            <img src="../imgs/free-delivery 1.png" alt="" />
-          </div>
-          <h3>Free Delivery</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus
-            gravida.
-          </p>
+      <div class="bx bx-menu" id="menu-icon"></div>
+    </div>
+  </header>
+  <!-- Know About -->
+  <div class="about-container">
+    <img src="../imgs/Rectangle 56.png" />
+    <div class="description">
+      <h2>Know About Our Ecommerce Business, History</h2>
+      <p>
+        Established as a visionary venture, Koko&S was born out of a collective vision to redefine the way people shop
+        online. Our journey began with a simple yet powerful idea: to create an e-commerce haven where style meets
+        convenience. Over the years, we have evolved into a dynamic marketplace, curating a diverse range of products
+        that cater to the discerning tastes of our global clientele.
+      </p>
+      <button class="contact-us-btn">Contact Us</button>
+    </div>
+  </div>
+  <!-- our Features form -->
+  <div class="wrapper">
+    <h2>Our Features</h2>
+    <div class="Features">
+      <!-- Free Delivery -->
+      <div class="OurFeatures">
+        <div class="Features-imgs">
+          <img src="../imgs/free-delivery 1.png" alt="" />
         </div>
+        <h3>Free Delivery</h3>
+        <p>
+          Enjoy the convenience of free, swift, and secure delivery with every purchase. At Koko&S, your satisfaction is
+          our priority, and that's why we ensure that the joy of shopping comes with no additional shipping costs. Your
+          doorstep, our commitment – seamless delivery, always.
+        </p>
+      </div>
 
-        <!-- 100% Cash Back -->
-        <div class="OurFeatures">
-          <div class="Features-imgs">
-            <img src="../imgs/cashback 1.png" alt="" />
-          </div>
-          <h3>100% Cash Back</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus
-            gravida.
-          </p>
+      <!-- 100% Cash Back -->
+      <div class="OurFeatures">
+        <div class="Features-imgs">
+          <img src="../imgs/cashback 1.png" alt="" />
         </div>
-        <!-- Quality Product -->
-        <div class="OurFeatures">
-          <div class="Features-imgs">
-            <img src="../imgs/premium-quality 1.png" alt="" />
-          </div>
-          <h3>Quality Product</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus
-            gravida.
-          </p>
+        <h3>20% Cash Back</h3>
+        <p>
+          Elevate your shopping experience with Koko&S and reap the rewards! Avail yourself of our exclusive 20% cash
+          back on select purchases. It's our way of saying 'thank you' for choosing us. Shop, save, and let your
+          purchases give back to you.
+        </p>
+      </div>
+      <!-- Quality Product -->
+      <div class="OurFeatures">
+        <div class="Features-imgs">
+          <img src="../imgs/premium-quality 1.png" alt="" />
         </div>
-
-        <!-- 24/7 Support -->
-        <div class="OurFeatures">
-          <div class="Features-imgs">
-            <img src="../imgs/24-hours-support 1.png" alt="" />
-          </div>
-          <h3>24/7 Support</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus
-            gravida.
-          </p>
+        <h3>Quality Product</h3>
+        <p>
+          Immerse yourself in a world of quality at Koko&S. Our commitment to excellence extends beyond the ordinary, as
+          we curate a collection of products that embody both style and substance. Trust in the durability, reliability,
+          and craftsmanship of each item in our selection.
+        </p>
+      </div>
+      <!-- 24/7 Support -->
+      <div class="OurFeatures">
+        <div class="Features-imgs">
+          <img src="../imgs/24-hours-support 1.png" alt="" />
         </div>
+        <h3>24/7 Support</h3>
+        <p>
+          Your queries, our priority. Koko&S is dedicated to providing round-the-clock support to ensure a seamless and
+          stress-free shopping experience. Our customer support team is ready to assist you at any hour, addressing your
+          concerns promptly and professionally. Your satisfaction is our commitment, no matter the time of day.
+        </p>
       </div>
     </div>
-  </body>
+  </div>
+  <footer>
+    <div id="footer" class="footer">
+      <p>copyright &copy; 2024 <span>koko&s</span>. all rights reserved</p>
+      <div class="info-icon">
+        <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+        <a href="#"><i class="bx bxl-twitter"></i></a>
+        <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", function () {
+      header.classList.toggle("sticky", this.window.scrollY > 0);
+    });
+
+    let menu = document.querySelector("#menu-icon");
+    let navMenu = document.querySelector(".navMenu");
+    menu.onclick = () => {
+      menu.classList.toggle("bx-x");
+      navMenu.classList.toggle("open");
+    };
+  </script>
+</body>
+
 </html>
