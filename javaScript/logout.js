@@ -4,6 +4,7 @@ let users = JSON.parse(localStorage.getItem("usersData"));
 logOutButton.addEventListener("click", logOut);
 
 function logOut() {
+  alert('You leave us :"(');
   let userIndex = findLoggedInUserIndex();
 
   if (userIndex !== -1) {
@@ -22,3 +23,4 @@ function findLoggedInUserIndex() {
   }
   return -1; // Return -1 if no user is found with isLogged set to true
 }
+

@@ -1,3 +1,4 @@
+import { cartNotification } from "../javaScript/products.js";
 let loginEmail = document.querySelector(".email-login");
 let loginPass = document.querySelector(".pass-login");
 let btnLogin = document.querySelector(".btn-login");
@@ -28,7 +29,10 @@ function login() {
       usersData[userIndex].isLogged = true;
       localStorage.setItem("usersData", JSON.stringify(usersData));
       message.textContent = "success";
+      loginEmail.style.borderColor = "green";
+      loginPass.style.borderColor = "green";
       location.assign("../html/index.html");
+      cartNotification();
     } else {
       message.textContent = "incorrect email or password";
       loginEmail.style.borderColor = "red";

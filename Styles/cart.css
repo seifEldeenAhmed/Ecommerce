@@ -26,6 +26,20 @@ body {
     position: relative;
 }
 
+.checkoutLayout .right .form .phoneWrapper .group {
+    position: relative;
+}
+
+.checkoutLayout .right .form .addressWrapper .group {
+    position: relative;
+}
+.checkoutLayout .right .form .countryWrapper .group {
+    position: relative;
+}
+.checkoutLayout .right .form .cityWrapper .group {
+    position: relative;
+}
+
 .checkoutLayout .right .form .group input {
     width: 100%;
     padding: 10px 0;
@@ -79,6 +93,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+    font-size: 22px;
 }
 
 .checkoutLayout .right .return .row div:nth-child(2) {
@@ -96,10 +111,10 @@ body {
     font-weight: bold;
     color: #fff;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .returnCart h1 {
-    border-top: 1px solid #eee;
     padding: 20px 0;
 }
 

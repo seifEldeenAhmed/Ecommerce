@@ -34,8 +34,9 @@
                     <a href="#" class="logout-btn">Log Out</a>
                 </div>
             </div>
-            <a href="#"><i class="bx bx-cart"></i></a>
-
+            <a id="cart-view"><i class="bx bx-cart"></i>
+                <div class="notification-ellipse"></div>
+              </a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -69,7 +70,6 @@
 
         <div class="product-container">
             <div class="listProduct">
-
             </div>
             <div class="loading"><img src="/imgs/load.gif" alt="" width="60px" height="60px"></div>
         </div>
@@ -120,7 +120,7 @@
                             <h2>${product.title}</h2>
                             <div class="prices">EGP ${product.price}
                             </div>
-                            <a href="#" class="wishList"><i class="bx bx-heart" style="color:#FB2E86;"></i></a>
+                           <i class="bx bx-heart wishList heart" style="color:#FB2E86;"></i>
                             `;
 
                                 listProductHTML.appendChild(newProduct);
@@ -235,7 +235,13 @@
         };
 
     </script>
-    <!-- <script type="module" src="/javaScript/home.js"></script> -->
+    <script type="module" src="../javaScript/products.js"></script>
+    <script type="module">
+      import {cartNotification} from '../javaScript/products.js'
+      cartNotification();
+    </script>
+    <script  type="module" src="../javaScript/wishList.js"></script>
+
 </body>
 
 </html>

@@ -606,3 +606,23 @@ section {
   font-size: 40px;
   color: #fb2e86;
 }
+/*  */
+.notification-ellipse {
+  position: absolute;
+  bottom: 18px;
+  left: 15px;
+  width: 16px;
+  height: 16px;
+  background-color: #fb2e86; 
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  color: #fff; 
+  font-size: 12px;
+}
+#cart-view {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  text-decoration: none;
+}

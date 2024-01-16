@@ -47,6 +47,14 @@ export function viewCart() {
         deleteBtn.innerHTML = '&#215;'
         deleteBtn.href='#'
 
+        //checkout for products in cart
+        document.querySelector('.buttonCheckout').addEventListener('click',function() {
+          let deleteBtns = document.querySelectorAll('.remove-image');
+          deleteBtns.forEach(function(btn) {
+            btn.style.display = 'none';
+        });
+        })
+
         imageArea.appendChild(image);
         imageArea.appendChild(deleteBtn);
 
@@ -64,6 +72,11 @@ export function viewCart() {
         info.appendChild(title);
         info.appendChild(price);
 
+        //checkout for products 
+        document.querySelector('.buttonCheckout').addEventListener('click',function() {
+          price.style.display ='none'
+        })
+
         let quantity = document.createElement("div");
         quantity.classList.add("quantity");
 
@@ -78,6 +91,12 @@ export function viewCart() {
         quantity.appendChild(decQuantityButton);
         quantity.appendChild(quantityValue);
         quantity.appendChild(incQuantityButton);
+
+        //checkout for products in cart
+        document.querySelector('.buttonCheckout').addEventListener('click',function() {
+          quantity.style.display ="none";
+        });
+      
 
         let totalPrice = document.createElement("div");
         totalPrice.classList.add("returnPrice");
@@ -95,6 +114,10 @@ export function viewCart() {
 
         let horzLine = document.createElement("hr");
         horzLine.className = "hr";
+
+        document.querySelector('.buttonCheckout').addEventListener('click' ,function() {
+          horzLine.style.display = 'none';
+        })
 
         container.appendChild(imageArea);
         container.appendChild(info);
@@ -186,6 +209,58 @@ export function viewCart() {
     console.error("Error viewing cart:", error);
     throw error;
   }
+  
+  //checkout for products in cart
+  document.querySelector('.buttonCheckout').addEventListener('click',function() {
+  document.getElementById('keepShoping').style.display = "none";
+
+  document.querySelector('.CartTitle').innerHTML = 'Your Order Details 🚛';
+  document.querySelector('#checkOut').innerHTML = 'Check Your Information'
+
+    let name = document.getElementById('name').value;
+    let phone = document.getElementById('phone').value;
+    let address = document.getElementById('address').value;
+    let country = document.getElementById('country').value;
+    let city = document.getElementById('city').value;
+
+    let fullName = document.querySelector('.wrapper');
+    fullName.innerHTML = '<strong> Full Name: </strong>' + name;
+    fullName.style.fontSize = '20px';
+    fullName.style.padding = '20px';
+
+
+    let phoneNum = document.querySelector('.phoneWrapper');
+    phoneNum.innerHTML = '<strong> Phone: </strong>' + phone;
+    phoneNum.style.fontSize = '20px';
+    phoneNum.style.padding = '20px';
+
+    let add = document.querySelector('.addressWrapper');
+    add.innerHTML = '<strong> Address: </strong>' + address;
+    add.style.fontSize = '20px';
+    add.style.padding = '20px';
+
+    let Country = document.querySelector('.countryWrapper');
+    Country.innerHTML = '<strong> Country: </strong>' + country;
+    Country.style.fontSize = '20px';
+    Country.style.padding = '20px';
+
+    let City = document.querySelector('.cityWrapper');
+    City.innerHTML = '<strong> City: </strong>' + city;
+    City.style.fontSize = '20px';
+    City.style.padding = '20px';
+
+    document.querySelector('.buttonCheckout').innerHTML = 'Confirm Proceedure 👌';
+
+   let backCartBtn = document.querySelector('#clearCartButton');
+    backCartBtn.innerHTML = 'Back To Cart';
+    backCartBtn.removeEventListener('click',clearCart);
+    backCartBtn.addEventListener('click',function(){ 
+      window.location.reload();
+      console.log('backkk');
+    })
+
+  });
+
 }
 
 export function clearCart() {
@@ -200,3 +275,19 @@ export function clearCart() {
   let checkout = document.querySelector(".right");
   checkout.style.display = "none";
 }
+
+     // Update the notification count
+     export function cartNotification() {
+      var cart = JSON.parse(localStorage.getItem("cart")) || {};      
+      var cartItemCount = Object.values(cart).length;
+      document.querySelector('.notification-ellipse').textContent = cartItemCount;
+      if(Object.values(cart).length == 0){
+        document.querySelector('.notification-ellipse').style.display ='none';
+      }
+      let logOutButton = document.querySelector(".logout-btn");
+      logOutButton.addEventListener("click", () => {
+        document.querySelector('.notification-ellipse').style.display ='none';
+      });
+    }
+
+    

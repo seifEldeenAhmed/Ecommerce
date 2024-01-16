@@ -43,72 +43,16 @@
         <div class="checkoutLayout">
             <div class="returnCart">
                 <a href="/html/index.html" id="keepShoping">keep shopping</a>
-                <h1 class="CartTitle">List Product in Cart</h1>
+                <h1 class="CartTitle">Your Wish List 🩷</h1>
                 <div class="list" id="cartList"></div>
                     <div class="clear-cart-container">
                         <button class="clear-cart-button" id="clearCartButton">Clear Cart</button>
                     </div>
                 </div>
-            <div class="right">
-                <h1 id="checkOut">Checkout</h1>
-                <div class="form">
-                    <div class="wrapper">
-                        <div class="group">
-                            <input type="text" name="name" id="name" required>
-                            <div class="underline"></div>
-                            <label for="name">Full Name</label>
-                        </div>
-                    </div>
-
-                    <div class="phoneWrapper">
-                        <div class="group">
-                            <input type="text" name="phone" id="phone" required>
-                            <div class="underline"></div>
-                            <label for="phone">Phone Number</label>
-                        </div>
-                    </div>
-
-                    <div class="addressWrapper">
-                        <div class="group">
-                            <input type="text" name="address" id="address" required>
-                            <div class="underline"></div>
-                            <label for="address">Address</label>
-                        </div>
-                    </div>
-
-                    <div class="countryWrapper">
-                        <div class="group">
-                            <input type="text" name="country" id="country" required>
-                            <div class="underline"></div>
-                            <label for="country">Country</label>
-                        </div>
-                    </div>
-
-                    <div class="cityWrapper">
-                        <div class="group">
-                            <input type="text" name="city" id="city" required>
-                            <div class="underline"></div>
-                            <label for="city">City</label>
-                        </div>
-                    </div>
-
                 </div>
-                <div class="return">
-                    <div class="row">
-                        <div>Total Quantity</div>
-                        <div class="totalQuantity">70</div>
-                    </div>
-                    <div class="row">
-                        <div>Total Price</div>
-                        <div class="totalPrice">$900</div>
-                    </div>
                 </div>
-                <button class="buttonCheckout">CHECKOUT</button>
-            </div>
-        </div>
-    </div>
-    <footer style="position: fixed;
-    bottom: 0;width: 100%;">
+                <footer style="position: absolute;
+                    bottom: 0;width: 100%;">
         <div id="footer" class="footer">
             <p>copyright &copy; 2024 <span>koko&S</span>. all rights reserved</p>
             <div class="info-icon">
@@ -133,12 +77,10 @@
         };
 
     </script>
+     <script type="module" src="../javaScript/wishList.js"></script>
      <script type="module">
-      import { viewCart, clearCart } from "../javaScript/products.js";
-      viewCart();
-      document
-        .getElementById("clearCartButton")
-        .addEventListener("click", clearCart);
+        import { viewWishList } from "../javaScript/wishList.js";
+        viewWishList();
     </script>
 </body>
 

@@ -47,8 +47,12 @@
             <a href="#" class="logout-btn">Log Out</a>
           </div>
         </div>
-        <a id="cart-view"><i class="bx bx-cart"></i></a>
-
+      <div  id="wishList">
+        <a href="WishList.html"><i class="bx bx-heart"></i></a>
+</div>
+        <a id="cart-view"><i class="bx bx-cart"></i>
+          <div class="notification-ellipse"></div>
+        </a>
         <div class="bx bx-menu" id="menu-icon"></div>
       </div>
     </header>
@@ -104,7 +108,7 @@
             <i class="fa-solid fa-check" id="tickIcon">Added to cart</i>
           </div>
           <div class="heart-icon">
-            <i class="bx bx-heart"></i>
+            <i class="bx bx-heart heart"></i>
           </div>
 
           <div id="testMe" class="rateing">
@@ -127,7 +131,7 @@
           <div class="top"></div>
           <i class="bx bx-cart cart"></i>
           <div class="heart-icon">
-            <i class="bx bx-heart"></i>
+            <i class="bx bx-heart heart"></i>
           </div>
           <div id="testMe" class="rateing"></div>
           <div class="product-text">
@@ -145,7 +149,7 @@
           <i class="bx bx-cart cart"></i>
 
           <div class="heart-icon">
-            <i class="bx bx-heart"></i>
+            <i class="bx bx-heart heart"></i>
           </div>
           <div class="rateing"></div>
           <div class="product-text">
@@ -161,7 +165,7 @@
         <div class="row">
           <div class="top"></div>
           <i class="bx bx-cart cart"></i>
-          <div class="heart-icon"><i class="bx bx-heart"></i></div>
+          <div class="heart-icon"><i class="bx bx-heart heart"></i></div>
           <div class="rateing"></div>
           <div class="product-text">
             <h4 class="title"></h4>
@@ -282,7 +286,7 @@
     <!-- ****************************************************************** footer  section start ****************************************************************** -->
     <footer>
       <div id="footer" class="footer">
-        <p>copyright &copy; 2024 <span>koko&s</span>. all rights reserved</p>
+        <p>copyright &copy; 2024 <span>koko&S</span>. all rights reserved</p>
         <div class="info-icon">
           <a href="#"><i class="bx bxl-facebook-circle"></i></a>
           <a href="#"><i class="bx bxl-twitter"></i></a>
@@ -306,9 +310,11 @@
       logOutButton.addEventListener("click", () => {
         loginStatus = false;
       });
-
+      if(loginStatus == false){
+        document.querySelector('.notification-ellipse').style.display ='none';
+      }
       function attachLogicToAddToCart() {
-        var cart = {};
+        // var cart = {};
         let icons = document.querySelectorAll(".cart");
         for (let i = 0; i < icons.length; i++) {
           icons[i].onclick = function () {
@@ -320,12 +326,17 @@
               var obj = new CartObj(image, price, title, 1);
               var cart = JSON.parse(localStorage.getItem("cart")) || {};
               cart[`${obj.title}`] = obj;
-              cart = localStorage.setItem('cart',JSON.stringify(cart));
+              localStorage.setItem('cart',JSON.stringify(cart));
               var $tickIcon = $("#tickIcon");
               var $popupContainer = $("#popupContainer");
               $popupContainer.fadeIn(500, function () {
                 $(this).delay(1000).fadeOut(500);
               });
+
+            document.querySelector('.notification-ellipse').style.display ='block';
+            var cartItemCount = Object.values(cart).length;
+            document.querySelector('.notification-ellipse').textContent = cartItemCount;
+
             } else {
               alert("login");
             }
@@ -355,7 +366,13 @@
      }
     proceedToCart();
     console.log(document.querySelectorAll('a'));
-
     </script>
+    <script type="module" src="../javaScript/products.js"></script>
+    <script type="module">
+      import {cartNotification} from '../javaScript/products.js'
+      cartNotification();
+    </script>
+    <script type="module" src="../javaScript/wishList.js"></script>
+    
   </body>
 </html>

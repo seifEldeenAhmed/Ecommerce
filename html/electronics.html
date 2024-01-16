@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Electronics</title>
     <link rel="stylesheet" href="../Styles/category.css" />
+    <link rel="stylesheet" href="../Styles/home.css">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -54,7 +55,9 @@
         </div>
         <!-- <a href="#"><i class="bx bx-search"></i></a> -->
         <!-- <a href="#"><i class="bx bxs-user"></i></a> -->
-        <a href="#"><i class="bx bx-cart"></i></a>
+        <a id="cart-view"><i class="bx bx-cart"></i>
+          <div class="notification-ellipse"></div>
+        </a>
 
         <div class="bx bx-menu" id="menu-icon"></div>
       </div>
@@ -72,5 +75,10 @@
       </div>
     </footer>
     <script type="module" src="../javaScript/electronics.js"></script>
+    <script type="module" src="../javaScript/products.js"></script>
+    <script type="module">
+      import {cartNotification} from '../javaScript/products.js'
+      cartNotification();
+    </script>
   </body>
 </html>
