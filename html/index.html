@@ -178,6 +178,12 @@
         </div>
       </div>
     </section>
+    <div id="logOutPopUp">
+    <p>You left us🥺 come back soon </p>
+  </div>
+  <div id="loginPopUp">
+    <p>You are not logged in, Login First Please 🙋‍♀️</p>
+  </div>
 
     <!-- ****************************************************************** (sec3) shopping-offer- section start ****************************************************************** -->
     <section class="shop-offer" id="offer">
@@ -340,7 +346,11 @@
             document.querySelector('.notification-ellipse').textContent = cartItemCount;
 
             } else {
-              alert("login");
+            var $popupContainer = $("#loginPopUp");
+            $popupContainer.fadeIn(500, function () {
+            $(this).delay(1000).fadeOut(5000);
+              });
+
             }
           };
         }
@@ -356,17 +366,18 @@
       }
       attachLogicToAddToCart();
       //handle view cart with login
-    export function proceedToCart() {
-       let cartButton = document.querySelector("#cart-view");
-       cartButton.addEventListener("click", function () {
-         if (loginStatus) {
-           this.href = "./shopping-cart.html";
-         } else {
-           alert("login");
-         }
-       });
-     }
-    proceedToCart();
+    // export function proceedToCart() {
+    //    let cartButton = document.querySelector("#cart-view");
+    //    cartButton.addEventListener("click", function () {
+    //     //  if (loginStatus) {
+    //     //    this.href = "./shopping-cart.html";
+    //     //  } else {
+    //     //    alert("login");
+    //     //  }
+    //     console.log('ehhhhh');
+    //    });
+    //  }
+    // proceedToCart();
     console.log(document.querySelectorAll('a'));
     </script>
     <script type="module" src="../javaScript/products.js"></script>

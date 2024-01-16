@@ -276,6 +276,15 @@ export function clearCart() {
   checkout.style.display = "none";
 }
 
+// cart notification
+export function cartNotification(){
+  var cart = JSON.parse(localStorage.getItem("cart")) || {};
+  if(Object.keys(cart).length == 0){
+  document.querySelector('.notification-ellipse').style.display ='none';
+  }
+  document.querySelector('.notification-ellipse').innerHTML = Object.keys(cart).length;
+}
+
 export function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }

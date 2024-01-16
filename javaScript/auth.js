@@ -3,17 +3,31 @@ let logOutButton = document.querySelector(".logout-btn");
 let users = JSON.parse(localStorage.getItem("usersData"));
 
 cartViewButton.addEventListener("click", function () {
-  if (localStorage.getItem("usresData") != null) {
+  let loginStatus = false;
+      for (let i = 0; i < users.length; i++) {
+        if (users[i].isLogged === true) {
+          loginStatus = true;
+        }
+      }
+  if (loginStatus) {
     this.href = "../html/shopping-cart.html";
   } else {
-    alert("login");
+    var $popupContainer = $("#loginPopUp");
+    $popupContainer.fadeIn(500, function () {
+    $(this).delay(1000).fadeOut(5000);
+      });
   }
+  
 });
 
 logOutButton.addEventListener("click", logOut);
 
 function logOut() {
-  alert('You leave us :"(');
+    var $popupContainer = $("#logOutPopUp");
+   $popupContainer.fadeIn(500, function () {
+    $(this).delay(1000).fadeOut(5000);
+    });
+
   let userIndex = findLoggedInUserIndex();
 
   if (userIndex !== -1) {
