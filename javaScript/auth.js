@@ -3,10 +3,15 @@ let logOutButton = document.querySelector(".logout-btn");
 let users = JSON.parse(localStorage.getItem("usersData"));
 
 cartViewButton.addEventListener("click", function () {
-  if (localStorage.getItem("usresData") != null) {
-    this.href = "../html/shopping-cart.html";
-  } else {
-    alert("login");
+  for (let i = 0; i < users.length; i++) {
+    if (
+      users[i].isLogged === true &&
+      localStorage.getItem("usersData") != null
+    ) {
+      this.href = "../html/shopping-cart.html";
+    } else {
+      alert("login");
+    }
   }
 });
 
