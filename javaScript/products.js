@@ -276,18 +276,46 @@ export function clearCart() {
   checkout.style.display = "none";
 }
 
-     // Update the notification count
-     export function cartNotification() {
-      var cart = JSON.parse(localStorage.getItem("cart")) || {};      
-      var cartItemCount = Object.values(cart).length;
-      document.querySelector('.notification-ellipse').textContent = cartItemCount;
-      if(Object.values(cart).length == 0){
-        document.querySelector('.notification-ellipse').style.display ='none';
-      }
-      let logOutButton = document.querySelector(".logout-btn");
-      logOutButton.addEventListener("click", () => {
-        document.querySelector('.notification-ellipse').style.display ='none';
+export function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+export async function attachLogicToSearchBtn (){
+  let searchBtn=document.querySelector('.btn-search');
+  let data=await dataParse()
+  searchBtn.onclick=function(){
+    // console.log(data);
+    let searchVal=document.querySelector('.input-search').value;
+    if(searchVal==''){
+      alert('rkz m3aya shwya');
+    }
+    else{
+      let searchResultArr = [];
+      let regex=new RegExp(escapeRegExp(searchVal), 'i')
+      data.forEach(product => {
+        const match=product.title.match(regex)
+        if (match) {
+          searchResultArr.push(product)
+        }
       });
+      function displaySearchedProducts(mada=searchResultArr) {
+        var container = document.querySelector(".category");
+        container.innerHTML=''
+        mada.forEach(function (a) {
+          var productDiv = document.createElement("div");
+          productDiv.className = "product";
+          productDiv.innerHTML = `
+          <div class="image"><img src="${a.image}" alt=""></div>
+            <h4> rate : ${a.rating.rate}</h4>
+            <h2>${a.title}</h2>
+            <p>${a.description.slice(0, 100)}</p>
+            <p class="price">Price: EGP ${a.price} </p>
+          `;
+    
+          container.appendChild(productDiv);
+        });
+      }
+      displaySearchedProducts()
     }
 
-    
+  }
+}

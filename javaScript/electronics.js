@@ -1,5 +1,5 @@
 import { dataParse } from "../javaScript/products.js";
-import { escapeRegExp,attachLogicToSearchBtn } from "../javaScript/men's clothing.js";
+import { escapeRegExp,attachLogicToSearchBtn } from "../javaScript/products.js";
 
 const header = document.querySelector("header");
 window.addEventListener("scroll", function () {

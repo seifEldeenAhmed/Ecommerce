@@ -1,5 +1,14 @@
+let cartViewButton = document.querySelector("#cart-view");
 let logOutButton = document.querySelector(".logout-btn");
 let users = JSON.parse(localStorage.getItem("usersData"));
+
+cartViewButton.addEventListener("click", function () {
+  if (localStorage.getItem("usresData") != null) {
+    this.href = "../html/shopping-cart.html";
+  } else {
+    alert("login");
+  }
+});
 
 logOutButton.addEventListener("click", logOut);
 
@@ -11,7 +20,6 @@ function logOut() {
     users[userIndex].isLogged = false;
     localStorage.setItem("usersData", JSON.stringify(users));
   } else {
-    
   }
 }
 
