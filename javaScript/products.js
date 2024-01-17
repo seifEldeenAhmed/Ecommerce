@@ -23,12 +23,13 @@ export function viewCart() {
 
       if (Object.keys(cart).length === 0) {
         let CartTitle = document.querySelector(".CartTitle");
-        CartTitle.innerHTML = "Cart is Empty => Go shop now :)";
+        CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds! 🛒";
           //to hide checkout when cart is empty
           let checkout = document.querySelector(".right");
           checkout.style.display = "none";
           //Hide clear cart when reload empty cart
           document.getElementById("clearCartButton").style.display = "none";
+          
 
       }
 
@@ -183,11 +184,16 @@ export function viewCart() {
           let CartTitle = document.querySelector(".CartTitle");
           //delete last element in cart
           if (Object.keys(cart).length === 0) {
-            CartTitle.innerHTML = "Cart is Empty => Go shop now :)";
+            CartTitle.innerHTML = " is currently on a diet of fresh air. Time to break its fast with delicious finds! 🛒";
             document.getElementById("clearCartButton").style.display = "none";
             //to hide checkout when cart is empty
             let checkout = document.querySelector(".right");
             checkout.style.display = "none";
+            //to set empty cart
+            let emptyCart = document.createElement('img');
+            emptyCart.src = '../imgs/emptyCart.jpg';
+            // cartList.appendChild(emptyCart);
+                  
           }
         });
       });
@@ -199,11 +205,15 @@ export function viewCart() {
       allProductsPrice.innerHTML = "EGP " + checkOutPrice;
     } else {
       let CartTitle = document.querySelector(".CartTitle");
-      CartTitle.innerHTML = "Cart is Empty => Go shop now :)";
+      CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds! 🛒";
       document.getElementById("clearCartButton").style.display = "none";
       //to hide checkout when cart is empty
       let checkout = document.querySelector(".right");
       checkout.style.display = "none";
+      //to set empty cart
+      let emptyCart = document.createElement('img');
+      emptyCart.src = '../imgs/emptyCart.jpg';
+      // cartList.appendChild(emptyCart);
     }
   } catch (error) {
     console.error("Error viewing cart:", error);
@@ -265,7 +275,7 @@ export function viewCart() {
 
 export function clearCart() {
   let cartTilte = document.querySelector(".CartTitle");
-  cartTilte.innerHTML = "Cart is Empty => Go shop now :)";
+  cartTilte.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds! 🛒";
   document.getElementById("clearCartButton").style.display = "none";
   cart = {};
   cartList.remove();
