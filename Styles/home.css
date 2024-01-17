@@ -224,7 +224,7 @@ header.sticky {
 /* ******************************************************************** first section 1 **************************************************************** */
 /* main home */
 section {
-  padding: 5% 12%;
+  padding: 6% 12%;
 }
 /* .lamp {
   position: absolute;
@@ -355,7 +355,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   justify-content: center;
-  gap: 8rem;
+  gap: 5rem;
   margin-top: 70px;
   align-content: center;
   align-items: center;
@@ -365,11 +365,14 @@ section {
 .products .row {
   position: relative;
   transition: all 0.4s;
+  padding: 50px;
 }
 
 .products .row img {
-  height: 250px;
+  height: 210px;
+  width: 200px;
   transition: all 0.4s;
+  padding-bottom: 20px;
 }
 .products .row img:hover {
   transform: scale(0.9);
@@ -397,18 +400,22 @@ section {
 .heart-icon {
   position: absolute;
   right: 0px;
+  padding-right: 40px;
   bottom: 70px;
   font-size: 20px;
   border-radius: 50%;
   color: #333;
 }
-
+.row .cart{
+  font-size: 25px;
+  color: #1a0b5b;
+}
 .row .bx-cart:hover {
   transform: scale(1.1);
   color: #35c646;
 }
 .heart-icon :hover {
-  color: red;
+  color: #FB2E86;
   transform: scale(1.1);
 }
 
@@ -587,7 +594,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  background: #e7e4f8;
+  background: #EEEFFB;
   width: 500px; 
   padding: 40px;
   box-sizing: border-box; 

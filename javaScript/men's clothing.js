@@ -29,20 +29,38 @@ window.onload = async function (e) {
       var productDiv = document.createElement("div");
       productDiv.className = "product";
 
-      productDiv.innerHTML = `
-      <div class="image"><img src="${a.image}" alt=""></div>
-        <h4> rate : ${a.rating.rate}</h4>
-        <h2 class="elec-title">${a.title}</h2>
-        <p>${a.description.slice(0, 100)}</p>
-        <p class="price">Price: EGP ${a.price} </p>
-      `;
+      var productLink = document.createElement('a');
 
+      productLink.href = `/html/detail.html?id=${a.id}`;
+
+      var productImage = document.createElement('img');
+      productImage.src = a.image;
+      productImage.alt = '';
+
+      productLink.appendChild(productImage);
+
+      productLink.innerHTML += `
+    <h4> rate : ${a.rating.rate}</h4>
+    <h2 class="elec-title">${a.title}</h2>
+    <p>${a.description.slice(0, 100)}</p>
+    <p class="price">Price: EGP ${a.price} </p>
+`;
+      productDiv.appendChild(productLink);
       container.appendChild(productDiv);
+
+      // productDiv.innerHTML = `
+      // <div class="image"><img src="${a.image}" alt=""></div>
+      //   <h4> rate : ${a.rating.rate}</h4>
+      //   <h2>${a.title}</h2>
+      //   <p>${a.description.slice(0, 100)}</p>
+      //   <p class="price">Price: EGP ${a.price} </p>
+      // `;
+
     });
   }
 
   // Call the function to display products
   displayProducts();
-  attachLogicToSearchBtn ();
+  attachLogicToSearchBtn();
 };
 

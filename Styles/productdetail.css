@@ -19,7 +19,6 @@ a {
     max-width: 90vw;
     text-align: center;
     padding-top: 10px;
-    /* padding-bottom: 15px; */
     margin-bottom: 50px;
 }
 
@@ -169,15 +168,17 @@ a {
 }
 
 .detail .buttons button {
-    border: none;
-    color: #0D134E;
-    font-family: "Josefin Sans";
-    font-weight: 600;
-    background-color: inherit;
-    padding: 8px 0px;
+    background-color: #FB2E86;
+    color: #fff;
+    padding: 10px 20px;
     font-size: 16px;
+    border: none;
     cursor: pointer;
-    display: inline-block;
+    border-radius: 5px;
+}
+
+.detail .buttons button:hover{
+    background-color: #d22972;
 }
 
 .detail .buttons svg {
@@ -185,7 +186,7 @@ a {
 
 }
 
-.detail .buttons span {
+/* .detail .buttons span {
     color: #0D134E;
     width: 30px;
     height: 30px;
@@ -193,7 +194,7 @@ a {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-}
+} */
 
 .detail .category {
     color: #0D134E;
@@ -210,36 +211,6 @@ a {
     padding-top: 15px;
     line-height: 1.75;
 }
-
-/* Media Queries for responsiveness */
-/* @media screen and (max-width: 768px) {
-    .listProduct {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-
-    .detail {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .listProduct {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    }
-
-    .detail {
-        grid-template-columns: 1fr;
-    }
-
-    .show-more-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .show-more-button {
-        margin-right: 0;
-    }
-} */
 
 /* // ipad */
 @media only screen and (max-width: 992px) {
@@ -277,3 +248,19 @@ a {
         justify-content: center;
     }
 }
+
+@media screen and (max-width: 360px) {
+    .detail-containter {
+        width: 100%;
+    }
+    
+    .listProduct {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .detail {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+

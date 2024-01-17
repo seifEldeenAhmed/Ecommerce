@@ -35,7 +35,7 @@ window.onload = async function (e) {
   for (var i = 0; i < topProductsList.length; i++) {
     document.querySelectorAll(".rateing")[
       i
-    ].innerHTML = `<p> rate ${topProductsList[i].rating.rate}</p>`;
+    ].innerHTML = `<p> Rate: ${topProductsList[i].rating.rate}</p>`;
 
     document.querySelectorAll(".title")[i].innerHTML = topProductsList[
       i
@@ -45,9 +45,16 @@ window.onload = async function (e) {
     'EGP '+topProductsList[i].price;
   }
   for (var i = 0; i < topProductsList.length; i++) {
-    document.querySelectorAll(".top")[
-      i
-    ].innerHTML = `<img class="image" src="${topProductsList[i].image}" alt="pic" />`;
+    var productDetail = document.createElement('a');
+    productDetail.href = `/html/detail.html?id=${topProductsList[i].id}`;
+    var productImage = document.createElement('img');
+    productImage.className = 'image';
+    productImage.src = topProductsList[i].image;
+    productDetail.appendChild(productImage);
+    document.querySelectorAll(".top")[i].appendChild(productDetail);
+    // document.querySelectorAll(".top")[
+    //   i
+    // ].innerHTML = `<img class="image" src="${topProductsList[i].image}" alt="pic" />`;
   }
   // for (var i = 0; i < topProductsList.length; i++) {
   //   document.querySelectorAll(".title")[i].innerHTML = topProductsList[
