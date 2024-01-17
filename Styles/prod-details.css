@@ -235,6 +235,19 @@ html {
     background-color: #FFDBF1;
 }
 
+.listProduct {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+
+@media screen and (max-width: 359px) {
+.container {
+    max-width: 100vw;
+    padding: 10px;
+}
+}
+
 @media screen and (min-width: 1280px) and (max-width: 1365px) {
     .container {
         max-width: 90vw;
