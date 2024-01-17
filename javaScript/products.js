@@ -295,7 +295,10 @@ export async function attachLogicToSearchBtn (){
     // console.log(data);
     let searchVal=document.querySelector('.input-search').value;
     if(searchVal==''){
-      alert('rkz m3aya shwya');
+      var $popupContainer = $("#emptySearch");
+            $popupContainer.fadeIn(500, function () {
+            $(this).delay(1000).fadeOut(5000);
+              });
     }
     else{
       let searchResultArr = [];

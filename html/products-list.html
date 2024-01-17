@@ -111,6 +111,9 @@
     <div id="logOutPopUp">
       <p>You left us🥺 come back soon </p>
     </div>
+    <div id="emptySearch">
+      <p>How about we fill that search bar with something spectacular instead?😜</p>
+    </div>
     <script type="module" src="../javaScript/products.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="module">
@@ -271,7 +274,10 @@
           // console.log(data);
           let searchVal = document.querySelector(".input-search").value;
           if (searchVal == "") {
-            alert("rkz m3aya shwya");
+            var $popupContainer = $("#emptySearch");
+            $popupContainer.fadeIn(500, function () {
+            $(this).delay(1000).fadeOut(5000);
+              });
           } else {
             let searchResultArr = [];
             let regex = new RegExp(escapeRegExp(searchVal), "i");
