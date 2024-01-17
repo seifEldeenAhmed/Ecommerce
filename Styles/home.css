@@ -594,6 +594,7 @@ section {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: #fb2e86; 
   text-align: center;
+  border-radius: 15px;
 }
 #popupContainer p , #Wishpopup p{
   font-family: "Josefin Sans";
@@ -602,7 +603,7 @@ section {
   padding-left: 10px;
 
 }
-#logOutPopUp , #loginPopUp{
+#logOutPopUp , #loginPopUp, #emptySearch{
   display: none;
   position: fixed;
   top: 50%;
@@ -616,8 +617,9 @@ section {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: #fb2e86; 
   text-align: center;
+  border-radius: 15px;
 }
-#logOutPopUp p ,#loginPopUp p{
+#logOutPopUp p ,#loginPopUp p, #emptySearch p{
   font-family: "Josefin Sans";
   font-size: 40px;
   display: inline;
