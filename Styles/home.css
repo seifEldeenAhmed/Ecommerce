@@ -523,7 +523,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   gap: 4rem;
-  margin-top: 70px;
+  /* margin-top: 70px; */
   align-items: center;
   justify-content: space-between;
   align-content: center;
