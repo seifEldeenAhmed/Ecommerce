@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,7 @@
 
 <body>
     <header>
-        <a href="#" class="brand">Koko&s</a>
+        <a href="index.html" class="brand">Koko&s</a>
         <ul class="navMenu">
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Shop</a></li>
@@ -34,7 +35,7 @@
                     <a href="#" class="logout-btn">Log Out</a>
                 </div>
             </div>
-            <a href="#"><i class="bx bx-cart"></i></a>
+            <a href="shopping-cart.html"><i class="bx bx-cart"></i></a>
 
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
@@ -112,15 +113,18 @@
                         if (products != null) // if has data
                         {
                             products.forEach(product => {
-                                let newProduct = document.createElement('a');
-                                newProduct.href = 'detail.html?id=' + product.id;
+                                let newProduct = document.createElement('div');
+                                // newProduct.href = 'detail.html?id=' + product.id;
                                 newProduct.classList.add('item');
                                 newProduct.innerHTML =
-                                    `<img src="${product.image}" alt="" style="mix-blend-mode: multiply; padding-bottom: 5px;" width="100" height="200" loading="lazy">
+                                    `
+                                    <a href='detail.html?id=${product.id}'>
+                    <img src='${product.image}' alt='' style='mix-blend-mode: multiply; padding-bottom: 5px;' width='100' height='200' loading='lazy'>
+                </a>
                             <h2>${product.title}</h2>
                             <div class="prices">EGP ${product.price}
                             </div>
-                            <a href="#" class="wishList"><i class="bx bx-heart"></i></a>
+                            <i class="bx bx-heart wishList"></i>
                             `;
 
                                 listProductHTML.appendChild(newProduct);
@@ -200,16 +204,19 @@
                 if (catResult != null) // if has data
                 {
                     catResult.forEach(product => {
-                        let newProduct = document.createElement('a');
-                        newProduct.href = 'detail.html?id=' + product.id;
+                        let newProduct = document.createElement('div');
+                        // newProduct.href = 'detail.html?id=' + product.id;
                         newProduct.classList.add('item');
                         // newProduct.style
                         newProduct.innerHTML =
-                                    `<img src="${product.image}" alt="" style="mix-blend-mode: multiply; padding-bottom: 5px;" width="100" height="200" loading="lazy">
+                                    `
+                                    <a href='detail.html?id=${product.id}'>
+                    <img src='${product.image}' alt='' style='mix-blend-mode: multiply; padding-bottom: 5px;' width='100' height='200' loading='lazy'>
+                </a>
                             <h2>${product.title}</h2>
                             <div class="prices">EGP ${product.price}
                             </div>
-                            <a href="#" class="wishList"><i class="bx bx-heart"></i></a>
+                            <i class="bx bx-heart wishList"></i>
                             `;
 
                         listProductHTML.appendChild(newProduct);

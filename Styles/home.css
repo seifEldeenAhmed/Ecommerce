@@ -594,7 +594,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  background: #e7e4f8;
+  background: #EEEFFB;
   width: 500px; 
   padding: 40px;
   box-sizing: border-box; 

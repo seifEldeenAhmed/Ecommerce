@@ -5,33 +5,30 @@ body {
     padding-top: 90px;
 }
 
-a {
+.listProduct a {
     color: unset;
     text-decoration: none;
+    padding: 30px;
 }
 
 .container {
     display: flex;
-}
-
-.detail-containter {
-    width: 900px;
-    margin: auto;
-    max-width: 90vw;
-    text-align: center;
-    padding-top: 10px;
-    /* padding-bottom: 15px; */
-    margin-bottom: 50px;
+    flex-wrap: wrap;
 }
 
 .product-container {
-    width: 900px;
+    /* width: 900px; */
     margin: auto;
     max-width: 70vw;
     text-align: center;
     padding-top: 10px;
     margin-bottom: 50px;
 }
+
+/* .product-container {
+    width: 100%;
+    max-width: 100%;
+} */
 
 .show-more-container {
     display: flex;
@@ -51,23 +48,25 @@ a {
     margin-right: 20px;
 }
 
+/* 
 .title {
     font-size: 20px;
-    padding: 20px 0;
+    padding: 20px;
     text-align: left;
     margin-left: 20px;
-}
+} */
 
 .listProduct {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
 .item {
     /* border-radius: 15px; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    padding: 40px;
     /* border-radius: 20px; */
     position: relative;
     background-color: #e8eaf3;
@@ -102,12 +101,12 @@ html {
     color: #0D134E;
     font-size: 15px;
     padding-bottom: 30px;
+    padding-top: 10px;
     overflow: hidden;
     text-overflow: unset;
-    /* line-height: 2; */
     display: -webkit-box;
     -webkit-line-clamp: 2;
-           line-clamp: 2;
+    /* line-clamp: 2; */
     -webkit-box-orient: vertical;
 }
 
@@ -120,15 +119,17 @@ html {
     padding-bottom: 15px;
     padding-top: 10px;
 }
-.wishList{
+
+.wishList {
     right: 0;
     bottom: 0;
     position: absolute;
-    color:#FB2E86;
+    color: #FB2E86;
     font-size: 25px;
-    padding-right: 20px; 
+    padding-right: 20px;
     padding-bottom: 15px;
     padding-top: 10px;
+    cursor: pointer;
 }
 
 .category-filters label {
@@ -144,7 +145,7 @@ html {
 .category-filters h3 {
     padding-left: 20px;
     color: #151875;
-    
+
 }
 
 .category-filters .filter-btn {
@@ -231,25 +232,44 @@ html {
     height: 25px;
     width: 25px;
     background-color: #FFDBF1;
-    /* padding-bottom: 20px; */
 }
 
-@media screen and (max-width: 768px) {
-    .listProduct {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+@media screen and (min-width: 1280px) and (max-width: 1365px) {
+    .container {
+        max-width: 90vw;
     }
 
-    .detail {
-        grid-template-columns: 1fr;
+    .listProduct {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 
-@media screen and (max-width: 576px) {
-    .listProduct {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+@media screen and (max-width: 1279px) {
+    .container {
+        max-width: 90vw;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        max-width: 100vw;
+        padding: 20px;
     }
 
-    .detail {
-        grid-template-columns: 1fr;
+    .listProduct {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 359px) {
+    .container {
+        max-width: 100vw;
+        padding: 10px;
+    }
+
+    .listProduct {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 5px;
     }
 }

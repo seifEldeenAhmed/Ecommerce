@@ -302,6 +302,7 @@
 
       function attachLogicToAddToCart() {
         var cart = {};
+  
         let icons = document.querySelectorAll(".cart");
         for (let i = 0; i < icons.length; i++) {
           icons[i].onclick = function () {
@@ -309,19 +310,22 @@
               var title = document.querySelectorAll(".title")[i].textContent;
               var price = document.querySelectorAll(".price")[i].textContent;
               var image =
-                document.querySelectorAll(".top")[i].childNodes[0].src;
+                document.querySelectorAll(".top")[i].childNodes[0].childNodes[0].src;
               var obj = new CartObj(image, price, title, 1);
               var cart = JSON.parse(localStorage.getItem("cart")) || {};
               cart[`${obj.title}`] = obj;
-              cart = localStorage.setItem('cart',JSON.stringify(cart));
+              localStorage.setItem('cart',JSON.stringify(cart));
+              console.log(cart);
               var $tickIcon = $("#tickIcon");
               var $popupContainer = $("#popupContainer");
               $popupContainer.fadeIn(500, function () {
                 $(this).delay(1000).fadeOut(500);
               });
+              
             } else {
               alert("login");
             }
+            // console.log(cart);
           };
         }
       }
