@@ -32,7 +32,9 @@
     </ul>
 
       <div class="nav-icon">
-        <a href="./products-list.html" id="search"><i class="bx bx-search"></i></a>
+        <a href="./products-list.html" id="search"
+          ><i class="bx bx-search"></i
+        ></a>
         <div class="dropdown">
           <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
           <div class="dropdown-content">
@@ -41,11 +43,15 @@
             <a href="#" class="logout-btn">Log Out</a>
           </div>
         </div>
-        <a id="cart-view"><i class="bx bx-cart"></i></a>
-
-      <div class="bx bx-menu" id="menu-icon"></div>
-    </div>
-  </header>
+      <div  id="wishList">
+        <a href="WishList.html"><i class="bx bx-heart"></i></a>
+</div>
+        <a id="cart-view"><i class="bx bx-cart"></i>
+          <div class="notification-ellipse"></div>
+        </a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
+    </header>
 
   <!-- ****************************************************************** (sec1 )trending-product-section start ******************************************************************8 -->
 
@@ -93,13 +99,13 @@
       <div class="row">
         <div class="top"></div>
 
-        <i class="bx bx-cart cart"></i>
-        <div id="popupContainer">
-          <i class="fa-solid fa-check" id="tickIcon">Added to cart</i>
-        </div>
-        <div class="heart-icon">
-          <i class="bx bx-heart"></i>
-        </div>
+          <i class="bx bx-cart cart"></i>
+          <div id="popupContainer">
+            <i class="fa-solid fa-check" id="tickIcon">Added to cart</i>
+          </div>
+          <div class="heart-icon">
+            <i class="bx bx-heart heart"></i>
+          </div>
 
           <div id="testMe" class="rateing">
             <p class="rate"></p>
@@ -112,25 +118,25 @@
           </div>
         </div>
         <div id="popupContainer">
-          <i class="fa-solid fa-check" id="tickIcon"></i> 
-          <p>Added To Cart </p>
+          <i class="fa-solid fa-check" id="tickIcon"></i>
+          <p>Added To Cart</p>
         </div>
         <!-- product 2 in the top products -->
 
-      <div class="row">
-        <div class="top"></div>
-        <i class="bx bx-cart cart"></i>
-        <div class="heart-icon">
-          <i class="bx bx-heart"></i>
+        <div class="row">
+          <div class="top"></div>
+          <i class="bx bx-cart cart"></i>
+          <div class="heart-icon">
+            <i class="bx bx-heart heart"></i>
+          </div>
+          <div id="testMe" class="rateing"></div>
+          <div class="product-text">
+            <h4 class="title"></h4>
+          </div>
+          <div class="price">
+            <p></p>
+          </div>
         </div>
-        <div id="testMe" class="rateing"></div>
-        <div class="product-text">
-          <h4 class="title"></h4>
-        </div>
-        <div class="price">
-          <p></p>
-        </div>
-      </div>
 
       <!-- product 3 in the top products -->
 
@@ -138,33 +144,40 @@
         <div class="top"></div>
         <i class="bx bx-cart cart"></i>
 
-        <div class="heart-icon">
-          <i class="bx bx-heart"></i>
+          <div class="heart-icon">
+            <i class="bx bx-heart heart"></i>
+          </div>
+          <div class="rateing"></div>
+          <div class="product-text">
+            <h4 class="title"></h4>
+          </div>
+          <div class="price">
+            <p></p>
+          </div>
         </div>
-        <div class="rateing"></div>
-        <div class="product-text">
-          <h4 class="title"></h4>
-        </div>
-        <div class="price">
-          <p></p>
-        </div>
-      </div>
 
-      <!-- product 4 in the top products -->
-      <div class="row">
-        <div class="top"></div>
-        <i class="bx bx-cart cart"></i>
-        <div class="heart-icon"><i class="bx bx-heart"></i></div>
-        <div class="rateing"></div>
-        <div class="product-text">
-          <h4 class="title"></h4>
-        </div>
-        <div class="price">
-          <p></p>
+        <!-- product 4 in the top products -->
+
+        <div class="row">
+          <div class="top"></div>
+          <i class="bx bx-cart cart"></i>
+          <div class="heart-icon"><i class="bx bx-heart heart"></i></div>
+          <div class="rateing"></div>
+          <div class="product-text">
+            <h4 class="title"></h4>
+          </div>
+          <div class="price">
+            <p></p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <div id="logOutPopUp">
+    <p>You left us🥺 come back soon </p>
+  </div>
+  <div id="loginPopUp">
+    <p>You are not logged in, Login First Please 🙋‍♀️</p>
+  </div>
 
   <!-- ****************************************************************** (sec3) shopping-offer- section start ****************************************************************** -->
   <section class="shop-offer" id="offer">
@@ -244,65 +257,66 @@
     </div>
   </section>
 
-  <!-- ****************************************************************** contact  section start ****************************************************************** -->
-  <section class="contact">
-    <div class="contact-info">
-      <div class="first-info">
-        <a href="#" class="brand">Koko&s</a>
-      </div>
-      <div class="second-info">
-        <h2>catagories</h2>
-        <div id="catagory" class="category">
-          <!-- <a href="category.html"></a> -->
+    <!-- ****************************************************************** contact  section start ****************************************************************** -->
+    <section class="contact">
+      <div class="contact-info">
+        <div class="first-info">
+          <a href="#" class="brand">Koko&s</a>
+        </div>
+        <div class="second-info">
+          <h2>catagories</h2>
+          <div id="catagory" class="category">
+            <!-- <a href="category.html"></a> -->
+          </div>
+        </div>
+        <div class="third-info">
+          <h2>customer care</h2>
+          <p>my account</p>
+          <p>discount</p>
+          <p>returns</p>
+          <p>order history</p>
+        </div>
+        <div class="fourht-info">
+          <h2>pages</h2>
+          <p>blog</p>
+          <p>browse the shope</p>
+          <p>category</p>
+          <p>pre-built pages</p>
         </div>
       </div>
-      <div class="third-info">
-        <h2>customer care</h2>
-        <p>my account</p>
-        <p>discount</p>
-        <p>returns</p>
-        <p>order history</p>
+    </section>
+    <!-- ****************************************************************** footer  section start ****************************************************************** -->
+    <footer>
+      <div id="footer" class="footer">
+        <p>copyright &copy; 2024 <span>koko&S</span>. all rights reserved</p>
+        <div class="info-icon">
+          <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+          <a href="#"><i class="bx bxl-twitter"></i></a>
+          <a href="#"><i class="bx bxl-linkedin-square"></i></a>
+        </div>
       </div>
-      <div class="fourht-info">
-        <h2>pages</h2>
-        <p>blog</p>
-        <p>browse the shope</p>
-        <p>category</p>
-        <p>pre-built pages</p>
-      </div>
-    </div>
-  </section>
-  <!-- ****************************************************************** footer  section start ****************************************************************** -->
-  <footer>
-    <div id="footer" class="footer">
-      <p>copyright &copy; 2024 <span>koko&s</span>. all rights reserved</p>
-      <div class="info-icon">
-        <a href="#"><i class="bx bxl-facebook-circle"></i></a>
-        <a href="#"><i class="bx bxl-twitter"></i></a>
-        <a href="#"><i class="bx bxl-linkedin-square"></i></a>
-      </div>
-    </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script type="module" src="/javaScript/home.js"></script>
-  <script type="module" src="../javaScript/products.js"></script>
-  <script src="../javaScript/logout.js"></script>
-  <script type="module">
-    let usersData = JSON.parse(localStorage.getItem("usersData"));
-    let loginStatus = false;
-    for (let i = 0; i < usersData.length; i++) {
-      if (usersData[i].isLogged === true) {
-        loginStatus = true;
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="module" src="/javaScript/home.js"></script>
+    <script type="module" src="../javaScript/products.js"></script>
+    <script src="../javaScript/auth.js"></script>
+    <script type="module">
+      let usersData = JSON.parse(localStorage.getItem("usersData")) || [];
+      let loginStatus = false;
+      for (let i = 0; i < usersData.length; i++) {
+        if (usersData[i].isLogged === true) {
+          loginStatus = true;
+        }
       }
-    }
-    let logOutButton = document.querySelector(".logout-btn");
-    logOutButton.addEventListener("click", () => {
-      loginStatus = false;
-    });
-
+      let logOutButton = document.querySelector(".logout-btn");
+      logOutButton.addEventListener("click", () => {
+        loginStatus = false;
+      });
+      if(loginStatus == false){
+        document.querySelector('.notification-ellipse').style.display ='none';
+      }
       function attachLogicToAddToCart() {
-        var cart = {};
-  
+        // var cart = {};
         let icons = document.querySelectorAll(".cart");
         for (let i = 0; i < icons.length; i++) {
           icons[i].onclick = function () {
@@ -315,15 +329,22 @@
               var cart = JSON.parse(localStorage.getItem("cart")) || {};
               cart[`${obj.title}`] = obj;
               localStorage.setItem('cart',JSON.stringify(cart));
-              console.log(cart);
               var $tickIcon = $("#tickIcon");
               var $popupContainer = $("#popupContainer");
               $popupContainer.fadeIn(500, function () {
                 $(this).delay(1000).fadeOut(500);
               });
-              
+
+            document.querySelector('.notification-ellipse').style.display ='block';
+            var cartItemCount = Object.values(cart).length;
+            document.querySelector('.notification-ellipse').textContent = cartItemCount;
+
             } else {
-              alert("login");
+            var $popupContainer = $("#loginPopUp");
+            $popupContainer.fadeIn(500, function () {
+            $(this).delay(1000).fadeOut(5000);
+              });
+
             }
             // console.log(cart);
           };
@@ -340,19 +361,26 @@
       }
       attachLogicToAddToCart();
       //handle view cart with login
-    export function proceedToCart() {
-       let cartButton = document.querySelector("#cart-view");
-       cartButton.addEventListener("click", function () {
-         if (loginStatus) {
-           this.href = "./shopping-cart.html";
-         } else {
-           alert("login");
-         }
-       });
-     }
-    proceedToCart();
+    // export function proceedToCart() {
+    //    let cartButton = document.querySelector("#cart-view");
+    //    cartButton.addEventListener("click", function () {
+    //     //  if (loginStatus) {
+    //     //    this.href = "./shopping-cart.html";
+    //     //  } else {
+    //     //    alert("login");
+    //     //  }
+    //     console.log('ehhhhh');
+    //    });
+    //  }
+    // proceedToCart();
     console.log(document.querySelectorAll('a'));
-
     </script>
+    <script type="module" src="../javaScript/products.js"></script>
+    <script type="module">
+      import {cartNotification} from '../javaScript/products.js'
+      cartNotification();
+    </script>
+    <script type="module" src="../javaScript/wishList.js"></script>
+    
   </body>
 </html>

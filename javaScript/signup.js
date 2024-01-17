@@ -44,6 +44,7 @@ function signUp() {
     users.push(usersData);
     //save array of users at local storage
     localStorage.setItem("usersData", JSON.stringify(users));
+    location.assign("../html/login.html");
   }
   clearForm();
 }

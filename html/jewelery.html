@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jewelery</title>
     <link rel="stylesheet" href="../Styles/category.css" />
+    <link rel="stylesheet" href="../Styles/home.css">
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,14 +26,14 @@
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
   </head>
-  <body>
+  <body style="height:100vh;">
     <header>
-      <a href="#" class="brand">Koko&s</a>
+      <a href="./index.html" class="brand">Koko&s</a>
       <ul class="navMenu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./products-list.html">Shop</a></li>
+        <li><a href="./ContactUS.HTML">Contact</a></li>
+        <li><a href="./AboutUs.html">About</a></li>
       </ul>
 
       <div class="nav-icon">
@@ -54,14 +55,18 @@
         </div>
         <!-- <a href="#"><i class="bx bx-search"></i></a> -->
         <!-- <a href="#"><i class="bx bxs-user"></i></a> -->
-        <a href="#"><i class="bx bx-cart"></i></a>
-
+        <a id="cart-view"><i class="bx bx-cart"></i>
+          <div class="notification-ellipse"></div>
+        </a>
         <div class="bx bx-menu" id="menu-icon"></div>
       </div>
     </header>
     <h1>JEWELERY</h1>
     <div class="category"></div>
-    <footer>
+    <div id="emptySearch">
+      <p>How about we fill that search bar with something spectacular instead?😜</p>
+    </div>
+    <footer style="position: fixed;bottom: 0;width: 100%;">
       <div id="footer" class="footer">
         <p>copyright &copy; 2024 <span>koko&s</span>. all rights reserved</p>
         <div class="info-icon">
@@ -72,5 +77,11 @@
       </div>
     </footer>
     <script type="module" src="../javaScript/jewelery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="module" src="../javaScript/products.js"></script>
+    <script type="module">
+      import {cartNotification} from '../javaScript/products.js'
+      cartNotification();
+    </script>
   </body>
 </html>

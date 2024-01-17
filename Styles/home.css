@@ -601,8 +601,32 @@ section {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: #fb2e86; 
   text-align: center;
+  border-radius: 15px;
 }
 #popupContainer p{
+  font-family: "Josefin Sans";
+  font-size: 40px;
+  display: inline;
+  padding-left: 10px;
+
+}
+#logOutPopUp , #loginPopUp, #emptySearch{
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: #e7e4f8;
+  width: 500px; 
+  padding: 40px;
+  box-sizing: border-box; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fb2e86; 
+  text-align: center;
+  border-radius: 15px;
+}
+#logOutPopUp p ,#loginPopUp p, #emptySearch p{
   font-family: "Josefin Sans";
   font-size: 40px;
   display: inline;
@@ -612,4 +636,24 @@ section {
 #tickIcon {
   font-size: 40px;
   color: #fb2e86;
+}
+/*  */
+.notification-ellipse {
+  position: absolute;
+  bottom: 18px;
+  left: 15px;
+  width: 16px;
+  height: 16px;
+  background-color: #fb2e86; 
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  color: #fff; 
+  font-size: 12px;
+}
+#cart-view {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  text-decoration: none;
 }
