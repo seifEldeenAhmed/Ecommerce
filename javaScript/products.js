@@ -287,12 +287,38 @@ export function clearCart() {
 }
 
 // cart notification
-export function cartNotification(){
+export function cartNotification() {
   var cart = JSON.parse(localStorage.getItem("cart")) || {};
-  if(Object.keys(cart).length == 0){
-  document.querySelector('.notification-ellipse').style.display ='none';
+  
+  if (Object.keys(cart).length === 0) {
+    document.querySelector('.notification-ellipse').style.display = 'none';
   }
+
   document.querySelector('.notification-ellipse').innerHTML = Object.keys(cart).length;
+
+  let usersData = JSON.parse(localStorage.getItem("usersData")) || [];
+  let loginStatus = false;
+
+  for (let i = 0; i < usersData.length; i++) {
+    if (usersData[i].isLogged === true) {
+      loginStatus = true;
+    }
+  }
+
+  let logOutButton = document.querySelector(".logout-btn");
+
+  logOutButton.addEventListener("click", () => {
+    console.log(loginStatus);
+    loginStatus = false;
+
+    document.querySelector('.notification-ellipse').style.display = 'none';
+  });
+
+  if (!loginStatus) {
+    document.querySelector('.notification-ellipse').style.display = 'none';
+  }
+
+
 }
 
 export function escapeRegExp(string) {
@@ -333,7 +359,7 @@ export async function attachLogicToSearchBtn (){
           container.appendChild(productDiv);
         });
       }
-      displaySearchedProducts()
+      displaySearchedProducts();
     }
 
   }

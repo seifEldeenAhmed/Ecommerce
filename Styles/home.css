@@ -580,7 +580,7 @@ section {
   color: #fb2e86;
 }
 /*  */
-#popupContainer{
+#popupContainer , #Wishpopup{
   display: none;
   position: fixed;
   top: 50%;
@@ -595,7 +595,7 @@ section {
   color: #fb2e86; 
   text-align: center;
 }
-#popupContainer p{
+#popupContainer p , #Wishpopup p{
   font-family: "Josefin Sans";
   font-size: 40px;
   display: inline;
@@ -628,6 +628,11 @@ section {
   font-size: 40px;
   color: #fb2e86;
 }
+#wishPopUp {
+  font-size: 40px;
+  color: #fb2e86;
+}
+
 /*  */
 .notification-ellipse {
   position: absolute;

@@ -11,11 +11,12 @@ function attachLogicToWishList() {
           var wishList = JSON.parse(localStorage.getItem("wishList")) || {};
           wishList[`${obj.title}`] = obj;
           localStorage.setItem('wishList',JSON.stringify(wishList));
-        //   var $tickIcon = $("#tickIcon");
-        //   var $popupContainer = $("#popupContainer");
-        //   $popupContainer.fadeIn(500, function () {
-        //     $(this).delay(1000).fadeOut(500);
-        //   });
+               
+          var $Wishpopup = $("#Wishpopup");
+          $Wishpopup.fadeIn(500, function () {
+            $(this).delay(1000).fadeOut(500);
+          });
+
         }
     }}
 
@@ -107,10 +108,10 @@ export function viewWishList() {
         //   });
         // });
 
+        
+
         container.appendChild(horzLine);
         cartList.appendChild(container);
-
-
       } 
     }else {
         let CartTitle = document.querySelector(".CartTitle");
