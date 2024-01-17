@@ -5,7 +5,7 @@ let users = JSON.parse(localStorage.getItem("usersData"));
 cartViewButton.addEventListener("click", function () {
   let loginStatus = false;
       for (let i = 0; i < users.length; i++) {
-        if (users[i].isLogged === true) {
+        if (users[i].isLogged === true&& users!==null) {
           loginStatus = true;
         }
       }

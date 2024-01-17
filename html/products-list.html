@@ -27,7 +27,7 @@
 
   <body>
     <header>
-      <a href="#" class="brand">Koko&s</a>
+      <a href="./index.html" class="brand">Koko&S</a>
       <ul class="navMenu">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./products-list.html">Shop</a></li>
@@ -35,21 +35,31 @@
         <li><a href="./AboutUs.html">About</a></li>
       </ul>
 
-        <div class="nav-icon">
-            <a href="#"><i class="bx bx-search"></i></a>
-            <div class="dropdown">
-                <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
-                <div class="dropdown-content">
-                    <a href="signup.html" id="signup-link">Sign Up</a>
-                    <a href="login.html" class="login-link">Login</a>
-                    <a href="#" class="logout-btn">Log Out</a>
-                </div>
-            </div>
-            <a id="cart-view"><i class="bx bx-cart"></i>
-                <div class="notification-ellipse"></div>
-              </a>
-            <div class="bx bx-menu" id="menu-icon"></div>
+      <div class="nav-icon">
+        <div class="search-box">
+          <button class="btn-search"><i class="bx bx-search"></i></button>
+          <input
+            type="text"
+            class="input-search"
+            placeholder="Type to Search..."
+          />
         </div>
+        <div class="dropdown">
+          <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
+          <div class="dropdown-content">
+            <a href="signup.html" id="signup-link">Sign Up</a>
+            <a href="login.html" class="login-link">Login</a>
+            <a href="#" class="logout-btn">Log Out</a>
+          </div>
+        </div>
+        <!-- <a href=""><i class="bx bx-search"></i></a> -->
+        <!-- <a href="#"><i class="bx bxs-user"></i></a> -->
+        <a id="cart-view"><i class="bx bx-cart"></i>
+          <div class="notification-ellipse"></div>
+        </a>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
     </header>
 
     <div class="container">
@@ -98,7 +108,11 @@
         </div>
       </div>
     </footer>
+    <div id="logOutPopUp">
+      <p>You left us🥺 come back soon </p>
+    </div>
     <script type="module" src="../javaScript/products.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="module">
       import { dataParse } from "../javaScript/products.js";
       var cards = document.querySelector(".product-container");
