@@ -231,19 +231,21 @@
           if (catResult != null) {
             // if has data
             catResult.forEach((product) => {
-              let newProduct = document.createElement("a");
-              newProduct.href = "detail.html?id=" + product.id;
-              // newProduct.classList.add('item');
-              newProduct.classList.add("product");
-              // newProduct.style
-              newProduct.innerHTML = `<img src="${product.image}" alt="" width="100" height="200" loading="lazy">
+              let newProduct = document.createElement('div');
+                                // newProduct.href = 'detail.html?id=' + product.id;
+                                newProduct.classList.add('item');
+                                newProduct.innerHTML =
+                                    `
+                                    <a href='detail.html?id=${product.id}'>
+                    <img src='${product.image}' alt='' style='mix-blend-mode: multiply; padding-bottom: 5px;' width='100' height='200' loading='lazy'>
+                </a>
                             <h2>${product.title}</h2>
                             <div class="prices">EGP ${product.price}
                             </div>
-                            <i class="bx bx-heart wishList"></i>
+                           <i class="bx bx-heart wishList heart" style="color:#FB2E86;"></i>
                             `;
 
-              listProductHTML.appendChild(newProduct);
+                  listProductHTML.appendChild(newProduct);
             });
           }
           document
@@ -305,15 +307,19 @@
               if (data != null) {
                 // if has data
                 data.forEach((product) => {
-                  let newProduct = document.createElement("a");
-                  newProduct.href = "detail.html?id=" + product.id;
-                  newProduct.classList.add("item");
-                  newProduct.classList.add("product");
-                  // newProduct.style
-                  newProduct.innerHTML = `<img src="${product.image}" alt="" width="100" height="200" loading="lazy">
-                                <h2>${product.title}</h2>
-                                <div class="price">EGP ${product.price}</div>
-                                <img src="/imgs/wish.png" alt="" width="16" height="16" style="position: absolute; bottom: 0; right: 0; padding-right: 20px; padding-bottom: 15px;">`;
+                  let newProduct = document.createElement('div');
+                                // newProduct.href = 'detail.html?id=' + product.id;
+                                newProduct.classList.add('item');
+                                newProduct.innerHTML =
+                                    `
+                                    <a href='detail.html?id=${product.id}'>
+                    <img src='${product.image}' alt='' style='mix-blend-mode: multiply; padding-bottom: 5px;' width='100' height='200' loading='lazy'>
+                </a>
+                            <h2>${product.title}</h2>
+                            <div class="prices">EGP ${product.price}
+                            </div>
+                           <i class="bx bx-heart wishList heart" style="color:#FB2E86;"></i>
+                            `;
 
                   listProductHTML.appendChild(newProduct);
                   document
