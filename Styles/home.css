@@ -530,7 +530,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, auto));
   gap: 4rem;
-  margin-top: 70px;
+  /* margin-top: 70px; */
   align-items: center;
   justify-content: space-between;
   align-content: center;
@@ -587,7 +587,7 @@ section {
   color: #fb2e86;
 }
 /*  */
-#popupContainer{
+#popupContainer , #Wishpopup{
   display: none;
   position: fixed;
   top: 50%;
@@ -603,7 +603,7 @@ section {
   text-align: center;
   border-radius: 15px;
 }
-#popupContainer p{
+#popupContainer p , #Wishpopup p{
   font-family: "Josefin Sans";
   font-size: 40px;
   display: inline;
@@ -637,6 +637,11 @@ section {
   font-size: 40px;
   color: #fb2e86;
 }
+#wishPopUp {
+  font-size: 40px;
+  color: #fb2e86;
+}
+
 /*  */
 .notification-ellipse {
   position: absolute;

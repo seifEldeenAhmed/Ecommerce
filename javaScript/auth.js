@@ -35,6 +35,7 @@ function logOut() {
     localStorage.setItem("usersData", JSON.stringify(users));
   } else {
   }
+// window.location.reload();
 }
 
 function findLoggedInUserIndex() {

@@ -94,7 +94,7 @@ window.onload = async function (e) {
 // ********************************************************************* unique desc *********************************************************************
 
 var description = document.querySelectorAll(".desc");
-console.log(dataParse());
+// console.log(dataParse());
 
 let desc = [];
 var data = await dataParse();

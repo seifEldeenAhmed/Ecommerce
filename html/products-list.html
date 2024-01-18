@@ -62,6 +62,11 @@
       </div>
     </header>
 
+    <div id="Wishpopup">
+      <p>Added to Wish List </p>
+      <i class="fa-solid fa-hand-holding-heart" id="wishPopUp"></i>
+    </div>
+
     <div class="container">
       <div class="category-filters">
         <h3>Category</h3>
@@ -98,6 +103,38 @@
         </div>
       </div>
     </div>
+    <!-- footer section -->
+    <section class="contact" style="background-color:#e7e4f8 ;">
+      <div class="contact-info">
+        <div class="first-info">
+          <a href="#" class="brand">Koko&s</a>
+        </div>
+        <div class="second-info">
+          <h2>catagories</h2>
+          <div id="catagory" class="category">
+           <a href="./men's clothing.html"><p>Men's Clothing</p></a>
+           <a href="./jewelery.html"><p>Jewelery</p></a>
+           <a href="./electronics.html"><p>Electronics</p></a>
+           <a href="./women's clothing.html"><p>Women's Clothing</p></a>
+          </div>
+        </div>
+        <div class="third-info">
+          <h2>customer care</h2>
+          <p>my account</p>
+          <p>discount</p>
+          <p>returns</p>
+          <p>order history</p>
+        </div>
+        <div class="fourht-info">
+          <h2>pages</h2>
+          <p>blog</p>
+          <p>browse the shope</p>
+          <p>category</p>
+          <p>pre-built pages</p>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <div id="footer" class="footer">
         <p>copyright &copy; 2024 <span>koko&s</span>. all rights reserved</p>
@@ -114,6 +151,8 @@
     <div id="emptySearch">
       <p>How about we fill that search bar with something spectacular instead?😜</p>
     </div>
+    <!-- <script type="module" src="/javaScript/home.js"></script> -->
+    <script  type="module" src="../javaScript/wishList.js"></script>
     <script type="module" src="../javaScript/products.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="module">
@@ -335,12 +374,20 @@
       }
       attachLogicToSearchBtn();
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="module" src="../javaScript/products.js"></script>
     <script type="module">
       import {cartNotification} from '../javaScript/products.js'
       cartNotification();
     </script>
-    <script  type="module" src="../javaScript/wishList.js"></script>
+   
+    <!-- <script>
+      let loginStatus =false ;
+      var logOutButton = document.querySelector(".logout-btn");
+      logOutButton.addEventListener("click", () => {
+        loginStatus = false;
+      });
+    </script> -->
 
 </body>
 

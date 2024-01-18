@@ -44,7 +44,7 @@ window.onload = async function (e) {
 
       productLink.innerHTML += `
     <h4> rate : ${a.rating.rate}</h4>
-    <h2>${a.title}</h2>
+    <h2 class="elec-title">${a.title}</h2>
     <p>${a.description.slice(0, 100)}</p>
     <p class="price">Price: EGP ${a.price} </p>
 `;

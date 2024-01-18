@@ -98,13 +98,16 @@
       <!-- product 1 in the top products -->
       <div class="row">
         <div class="top"></div>
-
           <i class="bx bx-cart cart"></i>
-          <div id="popupContainer">
+          <!-- <div id="popupContainer">
             <i class="fa-solid fa-check" id="tickIcon">Added to cart</i>
-          </div>
+          </div> -->
           <div class="heart-icon">
             <i class="bx bx-heart heart"></i>
+          </div>
+          <div id="Wishpopup">
+            <p>Added to Wish List </p>
+            <i class="fa-solid fa-hand-holding-heart" id="wishPopUp"></i>
           </div>
 
           <div id="testMe" class="rateing">
@@ -179,6 +182,25 @@
     <p>You are not logged in, Login First Please 🙋‍♀️</p>
   </div>
 
+    
+    <!-- ****************************************************************** (sec4) unique section start ****************************************************************** -->
+    <section class="unique">
+      <!-- <div class="contariner"> -->
+      <div class="center">
+        <img class="image" src="" alt="" />
+        <div class="text">
+          <h2>Unique Features of leatest & <br />trending products</h2>
+          <p class="desc"></p>
+          <!-- <a class="main-btn" href="">Add to cart </a>
+            <p class="inline-block">
+              B&B Italian Sofa <br />
+              $32.00
+            </p> -->
+        </div>
+        <!-- </div> -->
+      </div>
+    </section>
+
   <!-- ****************************************************************** (sec3) shopping-offer- section start ****************************************************************** -->
   <section class="shop-offer" id="offer">
     <div class="center-text">
@@ -239,26 +261,9 @@
     </div>
   </section>
 
-  <!-- ****************************************************************** (sec4) unique section start ****************************************************************** -->
-  <section class="unique">
-    <!-- <div class="contariner"> -->
-    <div class="center">
-      <img class="image" src="" alt="" />
-      <div class="text">
-        <h2>Unique Features of leatest & <br />trending products</h2>
-        <p class="desc"></p>
-        <!-- <a class="main-btn" href="">Add to cart </a>
-            <p class="inline-block">
-              B&B Italian Sofa <br />
-              $32.00
-            </p> -->
-      </div>
-      <!-- </div> -->
-    </div>
-  </section>
 
     <!-- ****************************************************************** contact  section start ****************************************************************** -->
-    <section class="contact">
+    <section class="contact" style="background-color:#e7e4f8 ;">
       <div class="contact-info">
         <div class="first-info">
           <a href="#" class="brand">Koko&s</a>
@@ -286,7 +291,7 @@
       </div>
     </section>
     <!-- ****************************************************************** footer  section start ****************************************************************** -->
-    <footer>
+    
       <div id="footer" class="footer">
         <p>copyright &copy; 2024 <span>koko&S</span>. all rights reserved</p>
         <div class="info-icon">
@@ -308,13 +313,13 @@
           loginStatus = true;
         }
       }
-      let logOutButton = document.querySelector(".logout-btn");
-      logOutButton.addEventListener("click", () => {
-        loginStatus = false;
-      });
-      if(loginStatus == false){
-        document.querySelector('.notification-ellipse').style.display ='none';
-      }
+      // let logOutButton = document.querySelector(".logout-btn");
+      // logOutButton.addEventListener("click", () => {
+      //   loginStatus = false;
+      // });
+      // if(loginStatus == false){
+      //   document.querySelector('.notification-ellipse').style.display ='none';
+      // }
       function attachLogicToAddToCart() {
         // var cart = {};
         let icons = document.querySelectorAll(".cart");
@@ -329,7 +334,7 @@
               var cart = JSON.parse(localStorage.getItem("cart")) || {};
               cart[`${obj.title}`] = obj;
               localStorage.setItem('cart',JSON.stringify(cart));
-              var $tickIcon = $("#tickIcon");
+              // var $tickIcon = $("#tickIcon");
               var $popupContainer = $("#popupContainer");
               $popupContainer.fadeIn(500, function () {
                 $(this).delay(1000).fadeOut(500);
@@ -373,7 +378,7 @@
     //    });
     //  }
     // proceedToCart();
-    console.log(document.querySelectorAll('a'));
+    // console.log(document.querySelectorAll('a'));
     </script>
     <script type="module" src="../javaScript/products.js"></script>
     <script type="module">

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+    <title>Wish List 🩷</title>
     <link rel="stylesheet" href="/Styles/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -15,43 +15,81 @@
 
 <body>
     <header>
-        <a href="./index.html" class="brand">Koko&S</a>
+        <a href="index.html" class="brand">Koko&S</a>
         <ul class="navMenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products-list.html">Shop</a></li>
-            <li><a href="ContactUS.HTML">Contact</a></li>
-            <li><a href="AboutUs.html">About</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="./products-list.html">Shop</a></li>
+          <li><a href="./ContactUS.HTML">Contact</a></li>
+          <li><a href="./AboutUs.html">About</a></li>
         </ul>
-
-        <div class="nav-icon">
-            <a href="products-list.html"><i class="bx bx-search"></i></a>
+    
+          <div class="nav-icon">
+            <a href="./products-list.html" id="search"
+              ><i class="bx bx-search"></i
+            ></a>
             <div class="dropdown">
-                <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
-                <div class="dropdown-content">
-                    <a href="signup.html" id="signup-link">Sign Up</a>
-                    <a href="login.html" class="login-link">Login</a>
-                    <a href="#" class="logout-btn">Log Out</a>
-                </div>
+              <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
+              <div class="dropdown-content">
+                <a href="signup.html" id="signup-link">Sign Up</a>
+                <a href="login.html" class="login-link">Login</a>
+                <a href="#" class="logout-btn">Log Out</a>
+              </div>
             </div>
-            <a href="#"><i class="bx bx-cart"></i></a>
-
+          <div  id="wishList">
+            <a href="WishList.html"><i class="bx bx-heart"></i></a>
+    </div>
+            <a id="cart-view"><i class="bx bx-cart"></i>
+              <div class="notification-ellipse"></div>
+            </a>
             <div class="bx bx-menu" id="menu-icon"></div>
-        </div>
-    </header>
-
+          </div>
+        </header>
     <div class="checkout-container">
         <div class="checkoutLayout">
             <div class="returnCart">
-                <a href="/html/index.html" id="keepShoping">keep shopping</a>
+                <a href="/html/index.html" class="keep-shopping ">keep shopping</a>
                 <h1 class="CartTitle">Your Wish List 💗</h1>
                 <div class="list" id="cartList"></div>
-                    <div class="clear-cart-container">
-                        <button class="clear-cart-button" id="clearCartButton">Clear Cart</button>
-                    </div>
-                </div>
-                </div>
-                </div>
-                <footer style="position: absolute;
+            </div>
+            <div class="wishlistdiv">
+                <img class="wishlistimg" src="../imgs/wishlist.jpg" alt="Wishlist Image">
+            </div>
+        </div>
+    </div>
+    
+                
+                <!-- ****************************************************************** contact  section start ****************************************************************** -->
+      <section class="contact" style="background-color:#e7e4f8 ;">
+        <div class="contact-info">
+          <div class="first-info">
+            <a href="#" class="brand">Koko&s</a>
+          </div>
+          <div class="second-info footerCategory">
+            <h2>catagories</h2>
+              <div id="catagory" class="footerCategory">
+                <a href="./men's clothing.html"><p>Men's Clothing</p></a>
+                <a href="./jewelery.html"><p>Jewelery</p></a>
+                <a href="./electronics.html"><p>Electronics</p></a>
+                <a href="./women's clothing.html"><p>Women's Clothing</p></a>
+               </div>          
+          </div>
+          <div class="third-info">
+            <h2>customer care</h2>
+            <p>my account</p>
+            <p>discount</p>
+            <p>returns</p>
+            <p>order history</p>
+          </div>
+          <div class="fourht-info">
+            <h2>pages</h2>
+            <p>blog</p>
+            <p>browse the shope</p>
+            <p>category</p>
+            <p>pre-built pages</p>
+          </div>
+        </div>
+      </section>
+                <footer style="position: relative;
                     bottom: 0;width: 100%;">
         <div id="footer" class="footer">
             <p>copyright &copy; 2024 <span>koko&S</span>. all rights reserved</p>
@@ -85,6 +123,12 @@
         import { viewWishList } from "../javaScript/wishList.js";
         viewWishList();
     </script>
+    <script type="module" src="../javaScript/products.js"></script>
+    <script type="module">
+      import {cartNotification} from '../javaScript/products.js'
+      cartNotification();
+    </script>
+    <script src="../javaScript/auth.js"></script>
     
 </body>
 

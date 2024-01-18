@@ -234,12 +234,17 @@ h1 {
   transform: translateY(30px);
 }
 
-h2 {
+.elec-title {
   text-transform: capitalize;
   font-size: 18px;
   padding: 7px 3px 7px 3px;
   color: rgb(25, 25, 141);
 }
+.footerCategory h2{
+  padding-bottom: 30px;
+  text-transform: capitalize;
+}
+
 
 p {
   /* text-transform: lowercase; */

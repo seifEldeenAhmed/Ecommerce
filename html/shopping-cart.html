@@ -21,29 +21,35 @@
 
   <body style="height:100vh;">
     <header>
-        <a href="./index.html" class="brand">Koko&S</a>
+        <a href="#" class="brand">Koko&S</a>
         <ul class="navMenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products-list.html">Shop</a></li>
-            <li><a href="ContactUS.HTML">Contact</a></li>
-            <li><a href="AboutUs.html">About</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="./products-list.html">Shop</a></li>
+          <li><a href="./ContactUS.HTML">Contact</a></li>
+          <li><a href="./AboutUs.html">About</a></li>
         </ul>
-
-      <div class="nav-icon">
-        <a href="products-list.html"><i class="bx bx-search"></i></a>
-        <div class="dropdown">
-          <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
-          <div class="dropdown-content">
-            <a href="signup.html" id="signup-link">Sign Up</a>
-            <a href="login.html" class="login-link">Login</a>
-            <a href="#" class="logout-btn">Log Out</a>
+    
+          <div class="nav-icon">
+            <a href="./products-list.html" id="search"
+              ><i class="bx bx-search"></i
+            ></a>
+            <div class="dropdown">
+              <a href="#" class="dropbtn"><i class="bx bxs-user"></i></a>
+              <div class="dropdown-content">
+                <a href="signup.html" id="signup-link">Sign Up</a>
+                <a href="login.html" class="login-link">Login</a>
+                <a href="#" class="logout-btn">Log Out</a>
+              </div>
+            </div>
+          <div  id="wishList">
+            <a href="WishList.html"><i class="bx bx-heart"></i></a>
+    </div>
+            <a id="cart-view"><i class="bx bx-cart"></i>
+              <div class="notification-ellipse"></div>
+            </a>
+            <div class="bx bx-menu" id="menu-icon"></div>
           </div>
-        </div>
-        <a id="cart-view"><i class="bx bx-cart"></i></a>
-
-        <div class="bx bx-menu" id="menu-icon"></div>
-      </div>
-    </header>
+        </header>
 
     <div class="checkout-container">
         <div class="checkoutLayout">
@@ -115,14 +121,45 @@
                         <span class="close">&times;</span>
                         <img src="../imgs/shopping.png">
                         <h2>Confirmation</h2>
-                        <p>Are you sure you want to proceed with the checkout?</p>
+                        <p id="proceedpopup">Thanks for Shopping With Koko&S, Waiting You again soon 😉</p>
                         <button id="confirmCheckout">Proceed</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer style="position: fixed;
+    <!-- ****************************************************************** contact  section start ****************************************************************** -->
+    <section class="contact" style="background-color:#e7e4f8 ;">
+        <div class="contact-info">
+          <div class="first-info">
+            <a href="#" class="brand">Koko&s</a>
+          </div>
+          <div class="second-info footerCategory">
+            <h2>catagories</h2>
+              <div id="catagory" class="footerCategory">
+                <a href="./men's clothing.html"><p>Men's Clothing</p></a>
+                <a href="./jewelery.html"><p>Jewelery</p></a>
+                <a href="./electronics.html"><p>Electronics</p></a>
+                <a href="./women's clothing.html"><p>Women's Clothing</p></a>
+               </div>          
+          </div>
+          <div class="third-info">
+            <h2>customer care</h2>
+            <p>my account</p>
+            <p>discount</p>
+            <p>returns</p>
+            <p>order history</p>
+          </div>
+          <div class="fourht-info">
+            <h2>pages</h2>
+            <p>blog</p>
+            <p>browse the shope</p>
+            <p>category</p>
+            <p>pre-built pages</p>
+          </div>
+        </div>
+      </section>
+    <footer style="position: relative;
     bottom: 0;width: 100%;">
         <div id="footer" class="footer">
             <p>copyright &copy; 2024 <span>koko&S</span>. all rights reserved</p>
@@ -147,24 +184,7 @@
             navMenu.classList.toggle("open");
         };
 
-        const checkoutButton = document.querySelector(".buttonCheckout");
-        const modal = document.getElementById("checkoutModal");
-        const confirmButton = document.getElementById("confirmCheckout");
-        const closeButton = document.querySelector(".close");
-
-        checkoutButton.addEventListener("click", () => {
-            modal.style.display = "block";
-        });
-
-        closeButton.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-
-        confirmButton.addEventListener("click", () => {
-            modal.style.display = "none";
-        });
-
-    </script>
+           </script>
     <script type="module">
       import { viewCart, clearCart } from "../javaScript/products.js";
       viewCart();
