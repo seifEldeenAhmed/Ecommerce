@@ -1,5 +1,8 @@
 # KOKO&S Website
 
+## Demo
+
+Check out the live demo of the project [here](https://drive.google.com/file/d/1QcaD3_-EoTV_lk5lPnedU58WJx3GuEg5/view?usp=sharing).
 ## Features
 
 1. **Product Listing:**
