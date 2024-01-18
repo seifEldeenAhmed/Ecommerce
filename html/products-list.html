@@ -62,6 +62,11 @@
       </div>
     </header>
 
+    <div id="Wishpopup">
+      <p>Added to Wish List </p>
+      <i class="fa-solid fa-hand-holding-heart" id="wishPopUp"></i>
+    </div>
+
     <div class="container">
       <div class="category-filters">
         <h3>Category</h3>
@@ -146,7 +151,8 @@
     <div id="emptySearch">
       <p>How about we fill that search bar with something spectacular instead?😜</p>
     </div>
-    <script type="module" src="/javaScript/home.js"></script>
+    <!-- <script type="module" src="/javaScript/home.js"></script> -->
+    <script  type="module" src="../javaScript/wishList.js"></script>
     <script type="module" src="../javaScript/products.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="module">
@@ -374,7 +380,7 @@
       import {cartNotification} from '../javaScript/products.js'
       cartNotification();
     </script>
-    <script  type="module" src="../javaScript/wishList.js"></script>
+   
     <!-- <script>
       let loginStatus =false ;
       var logOutButton = document.querySelector(".logout-btn");

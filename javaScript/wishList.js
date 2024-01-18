@@ -2,11 +2,11 @@ function attachLogicToWishList() {
     let icons = document.querySelectorAll(".heart");
     for (let i = 0; i < icons.length; i++) {
       icons[i].onclick = function () {
-       
+        console.log(icons);
           var title = document.querySelectorAll(".title")[i].textContent;
           var price = document.querySelectorAll(".price")[i].textContent;
           var image =
-            document.querySelectorAll(".top")[i].childNodes[0].src;
+          document.querySelectorAll(".top")[i].childNodes[0].childNodes[0].src;
           var obj = new WishListObj(image, price, title);
           var wishList = JSON.parse(localStorage.getItem("wishList")) || {};
           wishList[`${obj.title}`] = obj;
@@ -16,9 +16,9 @@ function attachLogicToWishList() {
           $Wishpopup.fadeIn(500, function () {
             $(this).delay(1000).fadeOut(500);
           });
-
         }
     }}
+   
 
     class WishListObj {
         constructor(image, price, title) {
@@ -34,21 +34,11 @@ var cartList = document.getElementById("cartList");
 export function viewWishList() {
     try {
       var WishFromStorage = localStorage.getItem("wishList");
-      if (WishFromStorage) {
-        let wishList = JSON.parse(WishFromStorage);
+      let wishList = JSON.parse(WishFromStorage);
+      
+      if (Object.keys(wishList).length !== 0) {
+       console.log("henaa");
        
-  
-        // if (Object.keys(wishList).length === 0) {
-        //   let CartTitle = document.querySelector(".CartTitle");
-        //   CartTitle.innerHTML = "Cart is Empty => Go shop now :)";
-        //     //to hide checkout when cart is empty
-        //     let checkout = document.querySelector(".right");
-        //     checkout.style.display = "none";
-        //     //Hide clear cart when reload empty cart
-        //     document.getElementById("clearCartButton").style.display = "none";
-  
-        // }
-  
         for (let value of Object.values(wishList)) {
           let container = document.createElement("div");
           container.classList.add("item");
@@ -59,13 +49,8 @@ export function viewWishList() {
           let image = document.createElement("img");
           image.src = `${value.image}`;
   
-          let deleteBtn = document.createElement("a");
-          deleteBtn.classList.add("remove-image");
-          deleteBtn.innerHTML = '&#215;'
-          deleteBtn.href='#'
-  
           imageArea.appendChild(image);
-          imageArea.appendChild(deleteBtn);
+        
   
           let info = document.createElement("div");
           info.classList.add("info");
@@ -80,49 +65,49 @@ export function viewWishList() {
   
           info.appendChild(title);
           info.appendChild(price);
-  
-        let horzLine = document.createElement("hr");
-        horzLine.className = "hr";
-  
+
+          let deleteBtn = document.createElement("a");
+          deleteBtn.classList.add('deleteBtn');
+          deleteBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+          let addcartBtn = document.createElement("a");
+          addcartBtn.classList.add('addcartBtn');
+          addcartBtn.innerHTML = '<i class="fa-solid fa-cart-plus"></i>';
+
           container.appendChild(imageArea);
           container.appendChild(info);
-         
-         
-        // // detete product
-        // let deleteButtons = document.querySelectorAll(".remove-image");
-        // deleteButtons.forEach((button) => {
-        //   button.addEventListener("click", function () {
-        //     let price = this.parentNode.parentNode.querySelector(".returnPrice").innerHTML.replace("EGP", "");
-        //     delete cart[`${this.parentNode.parentNode.querySelector(".name").textContent}`];
-        //     button.parentNode.parentNode.remove();
-        //     localStorage.setItem("wishList", JSON.stringify(cart));
-        //     let CartTitle = document.querySelector(".CartTitle");
-        //     //delete last element in cart
-        //     if (Object.keys(cart).length === 0) {
-        //       CartTitle.innerHTML = "Cart is Empty => Go shop now :)";
-        //       document.getElementById("clearCartButton").style.display = "none";
-        //       //to hide checkout when cart is empty
-        //       let checkout = document.querySelector(".right");
-        //       checkout.style.display = "none";
-        //     }
-        //   });
-        // });
-
-        
-
-        container.appendChild(horzLine);
-        cartList.appendChild(container);
+          container.appendChild(deleteBtn);
+          container.appendChild(addcartBtn);
+          cartList.appendChild(container);
       } 
+      //  detete product
+      let deleteButtons = document.querySelectorAll(".deleteBtn");
+      for(let i=0 ; i< deleteButtons.length;i++){
+        deleteButtons[i].onclick = function () {
+          delete wishList[`${this.parentNode.querySelector(".name").textContent}`];
+          this.parentNode.remove();
+          localStorage.setItem("wishList", JSON.stringify(wishList));
+          let CartTitle = document.querySelector(".CartTitle");
+          //delete last element in cart
+          console.log(Object.keys(wishList).length);
+          if (Object.keys(wishList).length === 0) {
+            CartTitle.innerHTML = "No wishes yet?😮 Explore our collection to discover dream items for your wish list with just a click!";
+            CartTitle.style.width='600px';
+            CartTitle.style.paddingTop ="130px";
+            CartTitle.style.lineHeight ="1.5";
+          }
+          
+      };
+      }
     }else {
+      console.log("hena else");
         let CartTitle = document.querySelector(".CartTitle");
-        CartTitle.innerHTML = "Cart is Empty => Go shop now :)";
-        document.getElementById("clearCartButton").style.display = "none";
-        //to hide checkout when cart is empty
-        let checkout = document.querySelector(".right");
-        checkout.style.display = "none";
+          CartTitle.innerHTML = "No wishes yet?😮 Explore our collection to discover dream items for your wish list with just a click!";
+         CartTitle.style.width='600px';
+         CartTitle.style.paddingTop ="130px";
+         CartTitle.style.lineHeight ="1.5";
       }
     } catch (error) {
-      console.error("Error viewing cart:", error);
+      console.error("Error viewing Wish list:", error);
       throw error;
     }
 }

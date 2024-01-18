@@ -23,7 +23,14 @@ export function viewCart() {
 
       if (Object.keys(cart).length === 0) {
         let CartTitle = document.querySelector(".CartTitle");
-        CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds! 🛒";
+        CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds!";
+        //to set empty cart
+        var emptyCart = document.createElement('img');
+        emptyCart.src = '../imgs/emptyCart.jpg';
+        cartList.appendChild(emptyCart);
+        //set style for page when cart is Empty
+        document.querySelector('.CartTitle').style.display ="inline";
+
           //to hide checkout when cart is empty
           let checkout = document.querySelector(".right");
           checkout.style.display = "none";
@@ -113,9 +120,6 @@ export function viewCart() {
         totalPrice.textContent = "EGP " + total;
         }
 
-        let horzLine = document.createElement("hr");
-        horzLine.className = "hr";
-
         document.querySelector('.buttonCheckout').addEventListener('click' ,function() {
           horzLine.style.display = 'none';
         })
@@ -160,7 +164,6 @@ export function viewCart() {
             allProductsPrice.innerHTML = 'EGP '+checkOutPrice;
           }
         });
-        container.appendChild(horzLine);
         cartList.appendChild(container);
 
         //handle total quantity and total price in checkout
@@ -184,15 +187,17 @@ export function viewCart() {
           let CartTitle = document.querySelector(".CartTitle");
           //delete last element in cart
           if (Object.keys(cart).length === 0) {
-            CartTitle.innerHTML = " is currently on a diet of fresh air. Time to break its fast with delicious finds! 🛒";
             document.getElementById("clearCartButton").style.display = "none";
+            CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds!";
+          //to set empty cart
+        emptyCart = document.createElement('img');
+        emptyCart.src = '../imgs/emptyCart.jpg';
+        cartList.appendChild(emptyCart);
+        
             //to hide checkout when cart is empty
             let checkout = document.querySelector(".right");
             checkout.style.display = "none";
-            //to set empty cart
-            let emptyCart = document.createElement('img');
-            emptyCart.src = '../imgs/emptyCart.jpg';
-            // cartList.appendChild(emptyCart);
+           
                   
           }
         });
@@ -204,16 +209,23 @@ export function viewCart() {
       checkOutPrice = parseFloat(checkOutPrice.toFixed(2));
       allProductsPrice.innerHTML = "EGP " + checkOutPrice;
     } else {
-      let CartTitle = document.querySelector(".CartTitle");
-      CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds! 🛒";
       document.getElementById("clearCartButton").style.display = "none";
       //to hide checkout when cart is empty
       let checkout = document.querySelector(".right");
       checkout.style.display = "none";
       //to set empty cart
+      let emptypage = document.createElement("div");
+      emptypage.classList.add('emptypageDiv');
       let emptyCart = document.createElement('img');
+      emptyCart.classList.add('emptycartImg');
+      let CartTitle = document.querySelector(".CartTitle");
       emptyCart.src = '../imgs/emptyCart.jpg';
-      // cartList.appendChild(emptyCart);
+      emptypage.appendChild(emptyCart);
+      emptypage.appendChild(CartTitle);
+      cartList.appendChild(emptypage);
+      
+      CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds!";
+      // CartTitle.style.width = "1000px"
     }
   } catch (error) {
     console.error("Error viewing cart:", error);
@@ -268,14 +280,32 @@ export function viewCart() {
       window.location.reload();
       console.log('backkk');
     })
+    // procedure confirmation pop up
+    const checkoutButton = document.querySelector(".buttonCheckout");
+    const modal = document.getElementById("checkoutModal");
+    const confirmButton = document.getElementById("confirmCheckout");
+    const closeButton = document.querySelector(".close");
 
+    checkoutButton.addEventListener("click", () => {
+        modal.style.display = "block";
+    });
+
+    closeButton.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    confirmButton.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+    
   });
 
 }
 
 export function clearCart() {
-  let cartTilte = document.querySelector(".CartTitle");
-  cartTilte.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds! 🛒";
+  //set style for page when cart is Empty
+  document.querySelector('.CartTitle').style.display ="inline";
+
   document.getElementById("clearCartButton").style.display = "none";
   cart = {};
   cartList.remove();
@@ -284,6 +314,7 @@ export function clearCart() {
   //to hide checkout when cart is empty
   let checkout = document.querySelector(".right");
   checkout.style.display = "none";
+  window.location.reload();
 }
 
 // cart notification
