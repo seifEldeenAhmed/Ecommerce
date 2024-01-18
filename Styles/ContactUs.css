@@ -23,7 +23,10 @@ body{
   
   .get-in-touch { grid-area: get-in-touch; }
   
-  .img { grid-area: img; }
+  .img { 
+    grid-area: img;
+
+}
 
 @media (max-width:600px) {
   .container{
@@ -31,17 +34,35 @@ body{
     flex-direction: column;
 }
 }
-
-h2{
+.title-contact{
+    display: flex;
+}
+.title-contact img{
+    width: 20px;
+    height: 20px;
+}
+.title-contact h2{
     color: #151875;
     font-family: Josefin Sans;
     font-size: 36px;
     font-weight: 700;
-    line-height: 48px;
-    letter-spacing: 0em;
-    text-align: left;
- }
-    
+    margin-left: 15px;
+}
+
+.contact h2{
+    color: #151875;
+    font-family: Josefin Sans;
+    font-size: 36px;
+    font-weight: 700;
+    margin-left: 15px;
+}
+.header-title{
+    display: flex;
+}
+.header-title img{
+    width: 20px;
+    height: 20px;
+}
 p{
     color: #8A8FB9;
     font-family: Lato;
@@ -51,57 +72,66 @@ p{
     letter-spacing: 0em;
 }
 
-.info{
-    text-align: left;
-}
-
 .circle-container {
     grid-template-columns: 1fr;
     display: flex;
     justify-content:space-evenly;
     margin-right:50% ;
 }
-
-.Ellipse-41,
-.Ellipse-42,
-.Ellipse-43,
-.Ellipse-44,
-.Ellipse-45,
-.Ellipse-46,
-.Ellipse-47
-{
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
+.tel-div{
+    display: flex;
+    padding: 20px;
+}
+.tel-div p{
+    color: #8A8FB9;
+    font-family: Lato;
+    font-size: 20px;
+    padding-left: 10px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0em;
+}
+.tel-div img{
+    width: 20px;
+    height: 20px;
+}
+ .sup-div{
+    display: flex;
+    padding-left: 40px;
 }
 
-.Ellipse-41{
-    background-color: #5625DF;
+.shipping-div{
+    display: flex;
+    padding: 20px;
+}
+.shipping-div p{
+    color: #8A8FB9;
+    font-family: Lato;
+    font-size: 20px;
+    padding-left: 10px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0em;
+}
+.shipping-div img{
+    width: 20px;
+    height: 20px;
 }
 
 
-.Ellipse-42{
-    background-color: #FF27B7; 
+.get-in-touch h2{
+    color: #151875;
+    font-family: Josefin Sans;
+    font-size: 36px;
+    font-weight: 700;
+    margin-left: 15px;
 }
-
-.Ellipse-43{
-    background-color:#37DAF3;
+.get-div{
+    display: flex;
 }
-
-.Ellipse-44{
-    background-color:#5726DF;
-}
-
-.Ellipse-45{
-    background-color:#FB2E86;
-}
-
-.Ellipse-46{
-    background-color:#FFB265;
-}
-
-.Ellipse-47{
-    background-color:#1BE982;
+.get-div img{
+    width: 20px;
+    height: 20px;
 }
 
 .contact{
@@ -120,14 +150,9 @@ p{
 .text-container{
     font-size: 15px;
     line-height: 0.9;
+    padding-right: 20px;
 }
 
-
-/* .templet .img{
-    width: 2%;
-    height: 2%;
-    height: 25vh;
-} */
 
 .contact-form{
     padding: 2rem 0;
