@@ -313,10 +313,10 @@
           loginStatus = true;
         }
       }
-      // let logOutButton = document.querySelector(".logout-btn");
-      // logOutButton.addEventListener("click", () => {
-      //   loginStatus = false;
-      // });
+      let logOutButton = document.querySelector(".logout-btn");
+      logOutButton.addEventListener("click", () => {
+        loginStatus = false;
+      });
       // if(loginStatus == false){
       //   document.querySelector('.notification-ellipse').style.display ='none';
       // }
@@ -350,6 +350,14 @@
             $(this).delay(1000).fadeOut(5000);
               });
 
+              icons[i].removeEventListener('click');
+              icons[i].addEventListener('click',function(){
+                console.log('here');
+                var $popupContainer = $("#popupContainer");
+                $popupContainer.fadeIn(500, function () {
+                $(this).delay(1000).fadeOut(500);
+              });
+              })
             }
             // console.log(cart);
           };
@@ -364,7 +372,9 @@
           this.quantity = quantity;
         }
       }
-      attachLogicToAddToCart();
+      setInterval(() => {
+        attachLogicToAddToCart();
+      }, 1000);
       //handle view cart with login
     // export function proceedToCart() {
     //    let cartButton = document.querySelector("#cart-view");

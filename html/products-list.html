@@ -152,10 +152,17 @@
       <p>How about we fill that search bar with something spectacular instead?😜</p>
     </div>
     <!-- <script type="module" src="/javaScript/home.js"></script> -->
-    <script  type="module" src="../javaScript/wishList.js"></script>
     <script type="module" src="../javaScript/products.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="module">
+       class WishListObj {
+        constructor(image, price, title) {
+          this.image = image;
+          this.price = price;
+          this.title = title;
+          
+        }
+    }
       import { dataParse } from "../javaScript/products.js";
       var cards = document.querySelector(".product-container");
       var loading = document.querySelector(".loading");
@@ -203,6 +210,24 @@
             addDataToHTML();
             loading.style.display = "none";
             // page++;
+          }).then(()=>{
+            let icons =document.querySelectorAll('.heart');
+            icons.forEach(icon => {
+              icon.onclick=function(){
+                let price=this.parentNode.querySelector('.prices').textContent
+                let title=this.parentNode.querySelector('h2').textContent
+                let image=this.parentNode.querySelector('img').src
+                var obj = new WishListObj(image, price, title);
+          var wishList = JSON.parse(localStorage.getItem("wishList")) || {};
+          wishList[`${obj.title}`] = obj;
+          localStorage.setItem('wishList',JSON.stringify(wishList));
+               
+          var $Wishpopup = $("#Wishpopup");
+          $Wishpopup.fadeIn(500, function () {
+            $(this).delay(1000).fadeOut(500);
+          });
+              }
+            });
           })
           .catch((error) => {
             console.error("Error fetching data:", error);
@@ -380,7 +405,7 @@
       import {cartNotification} from '../javaScript/products.js'
       cartNotification();
     </script>
-   
+    <script type="module" src="../javaScript/wishList.js"></script>
     <!-- <script>
       let loginStatus =false ;
       var logOutButton = document.querySelector(".logout-btn");
