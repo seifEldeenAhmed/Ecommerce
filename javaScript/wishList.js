@@ -1,3 +1,7 @@
+var script=document.createElement('script');
+script.src="https://code.jquery.com/jquery-3.6.4.min.js";
+
+document.getElementsByTagName('head')[0].appendChild(script);
 function attachLogicToWishList() {
     let icons = document.querySelectorAll(".heart");
     for (let i = 0; i < icons.length; i++) {
@@ -73,6 +77,16 @@ export function viewWishList() {
           let addcartBtn = document.createElement("a");
           addcartBtn.classList.add('addcartBtn');
           addcartBtn.innerHTML = '<i class="fa-solid fa-cart-plus"></i>';
+          addcartBtn.onclick=function(){
+            const obj=new CartObj(value.image, value.price, value.title, 1);
+            var cart = JSON.parse(localStorage.getItem("cart")) || {};
+              cart[`${obj.title}`] = obj;
+              localStorage.setItem('cart',JSON.stringify(cart));
+              var $popupContainer = $("#popupContainer");
+              $popupContainer.fadeIn(500, function () {
+                $(this).delay(1000).fadeOut(500);
+              });
+          }
 
           container.appendChild(imageArea);
           container.appendChild(info);
@@ -114,3 +128,11 @@ export function viewWishList() {
 }
 
 
+class CartObj {
+        constructor(image, price, title, quantity) {
+          this.image = image;
+          this.price = price;
+          this.title = title;
+          this.quantity = quantity;
+        }
+      }
