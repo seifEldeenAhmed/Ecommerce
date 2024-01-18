@@ -17,29 +17,8 @@ var cart = {};
 export function viewCart() {
   try {
     var cartFromStorage = localStorage.getItem("cart");
-
-    if (cartFromStorage) {
-      cart = JSON.parse(cartFromStorage);
-
-      if (Object.keys(cart).length === 0) {
-        let CartTitle = document.querySelector(".CartTitle");
-        CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds!";
-        //to set empty cart
-        var emptyCart = document.createElement('img');
-        emptyCart.src = '../imgs/emptyCart.jpg';
-        cartList.appendChild(emptyCart);
-        //set style for page when cart is Empty
-        document.querySelector('.CartTitle').style.display ="inline";
-
-          //to hide checkout when cart is empty
-          let checkout = document.querySelector(".right");
-          checkout.style.display = "none";
-          //Hide clear cart when reload empty cart
-          document.getElementById("clearCartButton").style.display = "none";
-          
-
-      }
-
+    cart = JSON.parse(cartFromStorage);
+    if (cart !== null && Object.keys(cart).length != 0) {
       for (let value of Object.values(cart)) {
         let container = document.createElement("div");
         container.classList.add("item");
@@ -184,20 +163,10 @@ export function viewCart() {
           checkOutPrice = parseFloat(checkOutPrice.toFixed(2));
           allProductsPrice.innerHTML = checkOutPrice;
           localStorage.setItem("cart", JSON.stringify(cart));
-          let CartTitle = document.querySelector(".CartTitle");
           //delete last element in cart
           if (Object.keys(cart).length === 0) {
-            document.getElementById("clearCartButton").style.display = "none";
-            CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds!";
-          //to set empty cart
-        emptyCart = document.createElement('img');
-        emptyCart.src = '../imgs/emptyCart.jpg';
-        cartList.appendChild(emptyCart);
-        
-            //to hide checkout when cart is empty
-            let checkout = document.querySelector(".right");
-            checkout.style.display = "none";
-           
+            EmptyCartPage();
+            
                   
           }
         });
@@ -209,23 +178,7 @@ export function viewCart() {
       checkOutPrice = parseFloat(checkOutPrice.toFixed(2));
       allProductsPrice.innerHTML = "EGP " + checkOutPrice;
     } else {
-      document.getElementById("clearCartButton").style.display = "none";
-      //to hide checkout when cart is empty
-      let checkout = document.querySelector(".right");
-      checkout.style.display = "none";
-      //to set empty cart
-      let emptypage = document.createElement("div");
-      emptypage.classList.add('emptypageDiv');
-      let emptyCart = document.createElement('img');
-      emptyCart.classList.add('emptycartImg');
-      let CartTitle = document.querySelector(".CartTitle");
-      emptyCart.src = '../imgs/emptyCart.jpg';
-      emptypage.appendChild(emptyCart);
-      emptypage.appendChild(CartTitle);
-      cartList.appendChild(emptypage);
-      
-      CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds!";
-      // CartTitle.style.width = "1000px"
+      EmptyCartPage();
     }
   } catch (error) {
     console.error("Error viewing cart:", error);
@@ -296,6 +249,9 @@ export function viewCart() {
 
     confirmButton.addEventListener("click", () => {
         modal.style.display = "none";
+        
+        clearCart();
+        document.location.href = '../html/index.html';
     });
     
   });
@@ -303,18 +259,33 @@ export function viewCart() {
 }
 
 export function clearCart() {
-  //set style for page when cart is Empty
-  document.querySelector('.CartTitle').style.display ="inline";
-
-  document.getElementById("clearCartButton").style.display = "none";
-  cart = {};
-  cartList.remove();
+  let container = document.querySelector(".item");
+  // container.remove();
+  cartList.innerHTML = "";
   localStorage.removeItem("cart");
-
-  //to hide checkout when cart is empty
-  let checkout = document.querySelector(".right");
-  checkout.style.display = "none";
-  window.location.reload();
+  cart = {};
+  EmptyCartPage();
+}
+function EmptyCartPage() {
+  
+  console.log('elseeeee');
+        document.getElementById("clearCartButton").style.display = "none";
+        //to hide checkout when cart is empty
+        let checkout = document.querySelector(".right");
+        checkout.style.display = "none";
+        //to set empty cart
+        let emptypage = document.createElement("div");
+        emptypage.classList.add('emptypageDiv');
+        let emptyCart = document.createElement('img');
+        emptyCart.classList.add('emptycartImg');
+        let CartTitle = document.querySelector(".CartTitle");
+        emptyCart.src = '../imgs/emptyCart.jpg';
+        emptypage.appendChild(emptyCart);
+        emptypage.appendChild(CartTitle);
+        cartList.appendChild(emptypage);
+        
+        CartTitle.innerHTML = "Your cart is currently on a diet of fresh air. Time to break its fast with delicious finds!";
+        document.querySelector('.checkoutLayout').style.display ="flex";
 }
 
 // cart notification
