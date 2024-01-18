@@ -17,7 +17,8 @@ function attachLogicToWishList() {
             $(this).delay(1000).fadeOut(500);
           });
         }
-    }}
+    }
+  }
    
 
     class WishListObj {
