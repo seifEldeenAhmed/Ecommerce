@@ -35,6 +35,42 @@
 
    - If a product with the specified ID is not found, the application redirects the user to the products page.
 
-7. **Cart Functionality (Not Fully Implemented):**
+7. **Search by Product Name [Extra Feature]:**
+
+   - Users can search for products by their name using a search bar.
+   - Search results are displayed dynamically as users type, providing a seamless search experience.
+
+8. **Add to Cart:**
+
    - The product detail page includes an "Add to Cart" button.
-   - The cart functionality is not fully implemented in the provided code but can be extended for further development.
+   - Users can add products to their cart for future purchase.
+
+9. **Filter by Category:**
+
+   - Users can filter products based on their category.
+   - This feature helps users narrow down their product search within a specific category.
+
+10. **Category Page:**
+
+    - Clicking on a category directs users to a dedicated category page.
+    - The category page displays products exclusively within the selected category.
+
+11. **Logout Restriction:**
+
+    - Users who are not logged in cannot add products to their cart.
+    - This ensures that the cart functionality is reserved for registered users.
+
+12. **Top Rated Products on Home Page [Extra Feature]:**
+
+    - The home page includes a section showcasing top-rated products.
+    - These products are highlighted based on user ratings for added visibility.
+
+13. **Wishlist [Extra Feature]:**
+
+    - Users can add products to their wishlist for future reference or purchase.
+    - The wishlist is accessible from the user's account and provides a personalized shopping experience.
+
+14. **Lazy Loading in Products Page [Extra Feature]:**
+
+    - Products on the product grid are loaded dynamically as the user scrolls down the page.
+    - This optimizes page loading times, especially when dealing with a large number of products.

@@ -431,7 +431,6 @@ body {
     text-align: center;
 } */
 
-/* Adjust styling as needed */
 .wishlistimg {
     width: 100%;
     height: 100%;
@@ -439,8 +438,10 @@ body {
 .deleteBtn{
    font-size: 25px;
    color: #A94438;
+   cursor: pointer;
 }
 .addcartBtn{
    font-size: 25px;
    color: #FB2E86;
+   cursor: pointer;
 }
